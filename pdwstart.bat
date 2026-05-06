@@ -1,0 +1,3 @@
+@echo off
+echo Iniciando o servidor de desenvolvimento para PDW Site V1...
+npm run dev
