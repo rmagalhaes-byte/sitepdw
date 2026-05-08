@@ -1,19 +1,27 @@
 import Link from "next/link";
+import { Locale } from "@/i18n/config";
 
-export function HeroInstitutional() {
+interface HeroProps {
+  lang: Locale;
+  dict: any;
+}
+
+export function HeroInstitutional({ lang, dict }: HeroProps) {
   return (
     <section className="hero">
-      <h1>A carteira digital europeia para a educacao e muito mais</h1>
+      <h1>{dict.hero.title}</h1>
+      <p style={{ fontSize: '18px', fontWeight: 600, color: 'var(--color-primary)', marginBottom: '8px' }}>
+        {dict.hero.subtitle}
+      </p>
       <p>
-        Projeto portugues alinhado com eIDAS 2.0 para emissao, partilha e verificacao
-        de credenciais digitais com foco em confianca institucional.
+        {dict.hero.description}
       </p>
       <div className="btn-row">
-        <Link href="/casos-de-uso/diplomas-digitais" className="cta">
-          Ver demonstracao
+        <Link href={`/${lang}/casos-de-uso/diplomas-digitais`} className="cta">
+          {dict.hero.ctaDemo}
         </Link>
-        <Link href="/contactos" className="btn-secondary">
-          Solicitar acesso antecipado
+        <Link href={`/${lang}/contactos`} className="btn-secondary">
+          {dict.hero.ctaAccess}
         </Link>
       </div>
     </section>

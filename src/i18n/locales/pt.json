@@ -1,0 +1,190 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "Sobre",
+    "solution": "Solução",
+    "useCases": "Casos de Uso",
+    "contacts": "Contactos",
+    "cta": "Solicitar acesso"
+  },
+  "hero": {
+    "title": "Acesso a serviços digitais sem fricção.",
+    "subtitle": "As suas credenciais. Um clique. Qualquer serviço. Simples, rápido e seguro.",
+    "description": "A PDW é a sua ferramenta de nova geração para utilizar credenciais digitais (como diplomas ou identificação) em serviços do mundo real, eliminando formulários e processos repetitivos.",
+    "ctaDemo": "Ver demonstração",
+    "ctaAccess": "Solicitar acesso antecipado"
+  },
+  "pillars": {
+    "privacy": {
+      "title": "Privacidade",
+      "text": "Os seus dados são processados localmente no seu dispositivo. Você decide o que partilha e com quem."
+    },
+    "compliance": {
+      "title": "Conformidade Europeia",
+      "text": "Totalmente alinhada com as normas eIDAS 2.0 e a infraestrutura EBSI, garantindo validade em toda a União Europeia."
+    },
+    "education": {
+      "title": "Educação (caso real)",
+      "text": "Começamos por onde o futuro se forma. A PDW já permite a gestão de diplomas académicos com verificação instantânea."
+    }
+  },
+  "trustBar": {
+    "title": "Entidades parceiras e conformidade",
+    "partners": [
+      "Universidade do Minho",
+      "TecMinho",
+      "Agenda Blockchain.PT",
+      "VOID Software",
+      "eIDAS 2.0",
+      "EBSI",
+      "EUDI-ARF"
+    ]
+  },
+  "useCases": {
+    "heading": {
+      "title": "Casos de uso prioritários",
+      "subtitle": "Implementação gradual com foco em valor institucional e soberania digital."
+    },
+    "diplomas": {
+      "title": "Diplomas Universitários",
+      "text": "Emissão e verificação de diplomas com partilha seletiva e instantânea.",
+      "status": "available",
+      "details": "Ver detalhes"
+    },
+    "studentId": {
+      "title": "Identidade Estudantil",
+      "text": "Credencial estudantil multisserviços para ecossistemas académicos.",
+      "status": "development",
+      "details": "Ver detalhes"
+    },
+    "microCredentials": {
+      "title": "Microcredenciais Profissionais",
+      "text": "Validação de competências e percursos de aprendizagem contínua.",
+      "status": "research",
+      "details": "Ver detalhes"
+    }
+  },
+  "about": {
+    "heading": {
+      "title": "Sobre o Projeto",
+      "subtitle": "A Portuguese Digital Wallet (PDW) é a infraestrutura nacional crítica para a economia descentralizada."
+    },
+    "strategicContext": {
+      "title": "Contexto Estratégico",
+      "text": "A PDW constitui a infraestrutura crítica de confiança da Agenda Mobilizadora 'Descentralizar Portugal com Blockchain'. Integra um ecossistema que visa o lançamento de 26 produtos inovadores a nível mundial, posicionando Portugal como um exportador de tecnologia de ponta."
+    },
+    "mission": {
+      "title": "Missão",
+      "text": "Assegurar a soberania digital dos cidadãos e eliminar a fricção em processos de identificação, consolidando uma infraestrutura nacional resiliente e descentralizada para serviços digitais."
+    },
+    "vision": {
+      "title": "Visão",
+      "text": "Estabelecer a PDW como a referência nacional absoluta em identidade digital segura, liderando a transição para um ecossistema de credenciais interoperável e focado no utilizador."
+    },
+    "standards": {
+      "title": "Fundamentos e Normas Técnicas",
+      "eidas": "eIDAS 2.0: Regulamento europeu que define o quadro jurídico para a identificação eletrónica transfronteiriça segura.",
+      "ebsi": "EBSI Approved: Conformidade com a European Blockchain Services Infrastructure para verificação de documentos com integridade total.",
+      "eudi": "EUDI ARF Conformant: Alinhamento com o Architecture and Reference Framework, garantindo interoperabilidade em toda a União Europeia."
+    },
+    "team": {
+      "title": "Equipa Core",
+      "members": [
+        "Pedro Xavier",
+        "Pedro Pereira",
+        "Diogo Magalhães",
+        "Miguel Marques",
+        "Kim Peiter Jørgensen"
+      ]
+    },
+    "governance": {
+      "title": "Modelo de Governação",
+      "text": "A PDW beneficia da governação da Agenda Blockchain.PT, estruturada num Steering Committee deliberativo e num Executive Committee operacional, garantindo a mitigação de riscos e conformidade científica."
+    }
+  },
+  "solution": {
+    "heading": {
+      "title": "A Solução PDW",
+      "subtitle": "Baseada no paradigma da Identidade Auto-Soberana (SSI) e credenciais verificáveis."
+    },
+    "whatIsWallet": {
+      "title": "O que é uma carteira digital?",
+      "text": "Uma ferramenta que permite aos cidadãos armazenar e gerir as suas identidades e credenciais digitais de forma segura, mantendo o controlo total sobre quem acede aos seus dados."
+    },
+    "whatAreVCs": {
+      "title": "O que são credenciais verificáveis?",
+      "text": "São equivalentes digitais de documentos físicos (como diplomas ou cartões de cidadão) que podem ser verificados instantaneamente e de forma criptográfica sem necessidade de contactar o emissor a cada verificação."
+    },
+    "flow": {
+      "title": "Como Funciona",
+      "step1": "Emissão: A entidade autorizada (ex: Universidade) emite a credencial para a sua PDW.",
+      "step2": "Armazenamento: A credencial é guardada de forma segura e cifrada no seu dispositivo local.",
+      "step3": "Partilha: Você decide que dados partilhar através de um QR Code ou ligação segura.",
+      "step4": "Verificação: O verificador valida a autenticidade da credencial em segundos."
+    },
+    "features": {
+      "title": "Características Principais",
+      "interoperability": "Interoperabilidade Nativa: Pronta para o mercado único europeu.",
+      "security": "Segurança Máxima: Processamento local e chaves criptográficas soberanas.",
+      "privacy": "Privacidade por Design: Partilha seletiva de dados (Zero Knowledge Proofs)."
+    }
+  },
+  "diplomas": {
+    "heading": {
+      "title": "Diplomas Digitais",
+      "subtitle": "Transformando a validação académica em Portugal e na Europa."
+    },
+    "problem": {
+      "title": "O Problema Atual",
+      "text": "Atualmente, a verificação de diplomas é um processo lento, manual e suscetível a fraudes, demorando dias ou semanas para ser concluído por recrutadores ou instituições."
+    },
+    "solution": {
+      "title": "A Solução PDW",
+      "text": "A universidade emite o diploma como uma credencial digital. Quando se candidata a um emprego, o recrutador verifica a autenticidade instantaneamente via QR Code."
+    },
+    "benefits": {
+      "title": "Benefícios",
+      "time": "Redução de 90% no tempo de espera para verificação.",
+      "fraud": "Eliminação total de fraude documental académica.",
+      "cost": "Redução drástica de custos administrativos e emissão de papel."
+    }
+  },
+  "contacts": {
+    "heading": {
+      "title": "Contactos e Parcerias",
+      "subtitle": "Quer implementar a PDW na sua instituição ou participar no ecossistema?"
+    },
+    "invite": "A nossa equipa de especialistas está disponível para discutir pilotos e integrações institucionais.",
+    "form": {
+      "name": "Nome",
+      "institution": "Instituição",
+      "email": "Email institucional",
+      "subject": "Motivo do contacto",
+      "message": "Mensagem",
+      "submit": "Solicitar contacto"
+    }
+  },
+  "privacy": {
+    "title": "Política de Privacidade",
+    "text": "A PDW respeita a sua soberania digital. Este site recolhe apenas os dados submetidos voluntariamente para fins de contacto institucional. Em conformidade com o RGPD, garantimos o direito de acesso, retificação e eliminação dos seus dados.",
+    "dataCollected": "Dados recolhidos: Nome, Instituição, Email e Mensagem (apenas via formulário).",
+    "purpose": "Finalidade: Resposta a pedidos de informação e parcerias.",
+    "legalBase": "Base Legal: Consentimento do utilizador."
+  },
+  "terms": {
+    "title": "Termos de Utilização",
+    "text": "O conteúdo deste site é informativo. A utilização da marca PDW e conteúdos associados está sujeita a autorização prévia da TecMinho e parceiros do consórcio Agenda Blockchain.PT.",
+    "liability": "Limitação de Responsabilidade: A informação é fornecida 'como está', sem garantias de atualização imediata em relação ao desenvolvimento técnico.",
+    "copyright": "Direitos de Autor: Todos os direitos reservados à TecMinho e parceiros."
+  },
+  "footer": {
+    "address": "TecMinho - Campus de Azurém, Guimarães, Portugal",
+    "email": "rmagalhaes@tecminho.uminho.pt",
+    "copyright": "© 2026 Portuguese Digital Wallet. Financiado por PRR & NextGenerationEU."
+  },
+  "status": {
+    "available": "Disponível",
+    "development": "Em desenvolvimento",
+    "research": "Em investigação"
+  }
+}

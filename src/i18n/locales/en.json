@@ -1,0 +1,190 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "solution": "Solution",
+    "useCases": "Use Cases",
+    "contacts": "Contacts",
+    "cta": "Request Access"
+  },
+  "hero": {
+    "title": "Frictionless access to digital services.",
+    "subtitle": "Your credentials. One click. Any service. Simple, fast, and secure.",
+    "description": "PDW is your next-generation tool for using digital credentials (such as diplomas or identification) in real-world services, eliminating forms and repetitive processes.",
+    "ctaDemo": "Watch Demo",
+    "ctaAccess": "Request Early Access"
+  },
+  "pillars": {
+    "privacy": {
+      "title": "Privacy",
+      "text": "Your data is processed locally on your device. You decide what you share and with whom."
+    },
+    "compliance": {
+      "title": "European Compliance",
+      "text": "Fully aligned with eIDAS 2.0 standards and EBSI infrastructure, ensuring validity across the European Union."
+    },
+    "education": {
+      "title": "Education (Real Case)",
+      "text": "We start where the future is formed. PDW already enables academic diploma management with instant verification."
+    }
+  },
+  "trustBar": {
+    "title": "Partner Entities and Compliance",
+    "partners": [
+      "University of Minho",
+      "TecMinho",
+      "Blockchain.PT Agenda",
+      "VOID Software",
+      "eIDAS 2.0",
+      "EBSI",
+      "EUDI-ARF"
+    ]
+  },
+  "useCases": {
+    "heading": {
+      "title": "Priority Use Cases",
+      "subtitle": "Gradual implementation focused on institutional value and digital sovereignty."
+    },
+    "diplomas": {
+      "title": "University Diplomas",
+      "text": "Issuance and verification of diplomas with selective and instant sharing.",
+      "status": "available",
+      "details": "View details"
+    },
+    "studentId": {
+      "title": "Student Identity",
+      "text": "Multi-service student credential for academic ecosystems.",
+      "status": "development",
+      "details": "View details"
+    },
+    "microCredentials": {
+      "title": "Professional Micro-credentials",
+      "text": "Validation of skills and continuous learning pathways.",
+      "status": "research",
+      "details": "View details"
+    }
+  },
+  "about": {
+    "heading": {
+      "title": "About the Project",
+      "subtitle": "The Portuguese Digital Wallet (PDW) is the critical national infrastructure for the decentralized economy."
+    },
+    "strategicContext": {
+      "title": "Strategic Context",
+      "text": "PDW constitutes the critical trust infrastructure of the 'Decentralize Portugal with Blockchain' Mobilizing Agenda. It integrates an ecosystem aiming to launch 26 innovative products worldwide, positioning Portugal as a high-tech exporter."
+    },
+    "mission": {
+      "title": "Mission",
+      "text": "To ensure citizens' digital sovereignty and eliminate friction in identification processes, consolidating a resilient and decentralized national infrastructure for digital services."
+    },
+    "vision": {
+      "title": "Vision",
+      "text": "To establish PDW as the absolute national reference in secure digital identity, leading the transition to an interoperable and user-focused credential ecosystem."
+    },
+    "standards": {
+      "title": "Foundations and Technical Standards",
+      "eidas": "eIDAS 2.0: European regulation defining the legal framework for secure cross-border electronic identification.",
+      "ebsi": "EBSI Approved: Compliance with the European Blockchain Services Infrastructure for document verification with full integrity.",
+      "eudi": "EUDI ARF Conformant: Alignment with the Architecture and Reference Framework, ensuring interoperability across the EU."
+    },
+    "team": {
+      "title": "Core Team",
+      "members": [
+        "Pedro Xavier",
+        "Pedro Pereira",
+        "Diogo Magalhães",
+        "Miguel Marques",
+        "Kim Peiter Jørgensen"
+      ]
+    },
+    "governance": {
+      "title": "Governance Model",
+      "text": "PDW benefits from the governance of the Blockchain.PT Agenda, structured into a deliberative Steering Committee and an operational Executive Committee, ensuring risk mitigation and scientific compliance."
+    }
+  },
+  "solution": {
+    "heading": {
+      "title": "The PDW Solution",
+      "subtitle": "Based on the Self-Sovereign Identity (SSI) paradigm and verifiable credentials."
+    },
+    "whatIsWallet": {
+      "title": "What is a digital wallet?",
+      "text": "A tool that allows citizens to store and manage their digital identities and credentials securely, maintaining full control over who accesses their data."
+    },
+    "whatAreVCs": {
+      "title": "What are Verifiable Credentials (VCs)?",
+      "text": "They are digital equivalents of physical documents (like diplomas or ID cards) that can be verified instantly and cryptographically without needing to contact the issuer for every verification."
+    },
+    "flow": {
+      "title": "How It Works",
+      "step1": "Issuance: The authorized entity (e.g., University) issues the credential to your PDW.",
+      "step2": "Storage: The credential is saved securely and encrypted on your local device.",
+      "step3": "Sharing: You decide what data to share via a QR Code or secure link.",
+      "step4": "Verification: The verifier validates the authenticity of the credential in seconds."
+    },
+    "features": {
+      "title": "Main Features",
+      "interoperability": "Native Interoperability: Ready for the European Single Market.",
+      "security": "Maximum Security: Local processing and sovereign cryptographic keys.",
+      "privacy": "Privacy by Design: Selective data sharing (Zero Knowledge Proofs)."
+    }
+  },
+  "diplomas": {
+    "heading": {
+      "title": "Digital Diplomas",
+      "subtitle": "Transforming academic validation in Portugal and Europe."
+    },
+    "problem": {
+      "title": "The Current Problem",
+      "text": "Currently, diploma verification is a slow, manual, and fraud-prone process, taking days or weeks to be completed by recruiters or institutions."
+    },
+    "solution": {
+      "title": "The PDW Solution",
+      "text": "The university issues the diploma as a digital credential. When applying for a job, the recruiter verifies authenticity instantly via a QR Code."
+    },
+    "benefits": {
+      "title": "Benefits",
+      "time": "90% reduction in verification waiting time.",
+      "fraud": "Total elimination of academic document fraud.",
+      "cost": "Drastic reduction in administrative costs and paper issuance."
+    }
+  },
+  "contacts": {
+    "heading": {
+      "title": "Contacts and Partnerships",
+      "subtitle": "Want to implement PDW in your institution or participate in the ecosystem?"
+    },
+    "invite": "Our team of experts is available to discuss pilot programs and institutional integrations.",
+    "form": {
+      "name": "Name",
+      "institution": "Institution",
+      "email": "Institutional Email",
+      "subject": "Reason for contact",
+      "message": "Message",
+      "submit": "Request Contact"
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "text": "PDW respects your digital sovereignty. This site only collects data voluntarily submitted for institutional contact purposes. In compliance with GDPR, we guarantee the right of access, rectification, and deletion of your data.",
+    "dataCollected": "Collected data: Name, Institution, Email, and Message (form only).",
+    "purpose": "Purpose: Responding to information requests and partnerships.",
+    "legalBase": "Legal Basis: User consent."
+  },
+  "terms": {
+    "title": "Terms of Use",
+    "text": "The content of this site is for information purposes. Use of the PDW brand and associated content is subject to prior authorization from TecMinho and Blockchain.PT Agenda partners.",
+    "liability": "Limitation of Liability: Information is provided 'as is', without guarantees of immediate updates regarding technical development.",
+    "copyright": "Copyright: All rights reserved to TecMinho and partners."
+  },
+  "footer": {
+    "address": "TecMinho - Azurém Campus, Guimarães, Portugal",
+    "email": "rmagalhaes@tecminho.uminho.pt",
+    "copyright": "© 2026 Portuguese Digital Wallet. Funded by PRR & NextGenerationEU."
+  },
+  "status": {
+    "available": "Available",
+    "development": "In Development",
+    "research": "In Research"
+  }
+}
