@@ -32,8 +32,8 @@ export function HeroInstitutional({ lang, dict }: HeroProps) {
       <div className="hero-image-container">
         <div className="image-glow"></div>
         <Image 
-          src="/Imagem-home.png" 
-          alt="Acesso a serviços digitais sem fricção" 
+          src={dict.hero.image} 
+          alt={dict.hero.title} 
           width={600} 
           height={600} 
           className="disruptive-image"
