@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Locale } from "@/i18n/config";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { useState } from "react";
@@ -15,6 +16,7 @@ interface PdwHeaderProps {
 export function PdwHeader({ lang, dict }: PdwHeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isChangelogOpen, setIsChangelogOpen] = useState(false);
+  const pathname = usePathname();
 
   const navItems = [
     { href: `/${lang}`, label: dict.nav.home },
@@ -36,11 +38,23 @@ export function PdwHeader({ lang, dict }: PdwHeaderProps) {
 
         {/* Desktop nav */}
         <nav className="nav" aria-label="Navegacao principal">
-          {navItems.map((item) => (
-            <Link key={item.href} href={item.href}>
-              {item.label}
-            </Link>
-          ))}
+          {navItems.map((item) => {
+            const isActive = pathname === item.href || (item.href !== `/${lang}` && pathname?.startsWith(item.href));
+            return (
+              <Link 
+                key={item.href} 
+                href={item.href}
+                style={{ 
+                  color: isActive ? 'var(--color-primary)' : 'var(--color-text)',
+                  fontWeight: isActive ? 700 : 500,
+                  borderBottom: isActive ? '2px solid var(--color-primary)' : 'none',
+                  paddingBottom: isActive ? '4px' : '6px'
+                }}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
           {/* Version Badge - Remove this block to hide versioning */}
           <button onClick={() => setIsChangelogOpen(true)} title="Ver atualizações" style={{
             display: 'inline-flex',
@@ -63,7 +77,7 @@ export function PdwHeader({ lang, dict }: PdwHeaderProps) {
           onMouseLeave={(e) => {
             e.currentTarget.style.backgroundColor = 'rgba(56, 189, 248, 0.1)';
           }}>
-            v1.5.0
+            v1.7.0
           </button>
         </nav>
 
@@ -71,9 +85,15 @@ export function PdwHeader({ lang, dict }: PdwHeaderProps) {
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <ThemeToggle />
           <div className="lang-switcher" style={{ fontSize: '12px', fontWeight: 600 }}>
-            <Link href={lang === 'pt' ? '/en' : '/pt'} style={{ color: 'var(--color-muted)' }}>
-              {lang === 'pt' ? 'EN' : 'PT'}
-            </Link>
+            {(() => {
+              const currentPathWithoutLang = pathname?.replace(`/${lang}`, '') || '';
+              const toggleLangUrl = `/${lang === 'pt' ? 'en' : 'pt'}${currentPathWithoutLang}`;
+              return (
+                <Link href={toggleLangUrl} style={{ color: 'var(--color-muted)' }}>
+                  {lang === 'pt' ? 'EN' : 'PT'}
+                </Link>
+              );
+            })()}
           </div>
           <a
             href="https://play.google.com/store/apps/details?id=pt.tecminho.pdw&pcampaignid=web_share"
@@ -120,16 +140,25 @@ export function PdwHeader({ lang, dict }: PdwHeaderProps) {
       {menuOpen && (
         <div className="mobile-menu">
           <nav className="mobile-nav">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setMenuOpen(false)}
-                className="mobile-nav-link"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const isActive = pathname === item.href || (item.href !== `/${lang}` && pathname?.startsWith(item.href));
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="mobile-nav-link"
+                  style={{
+                    color: isActive ? 'var(--color-primary)' : 'var(--color-text)',
+                    fontWeight: isActive ? 700 : 500,
+                    borderLeftColor: isActive ? 'var(--color-primary)' : 'transparent',
+                    backgroundColor: isActive ? 'rgba(0, 108, 75, 0.04)' : 'transparent'
+                  }}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
             {/* Mobile Version Badge */}
             <button
               onClick={() => {
@@ -139,7 +168,7 @@ export function PdwHeader({ lang, dict }: PdwHeaderProps) {
               className="mobile-nav-link"
               style={{ color: '#38bdf8', fontWeight: 600, background: 'none', border: 'none', textAlign: 'left', width: '100%', cursor: 'pointer' }}
             >
-              Changelog (v1.5.0)
+              Changelog (v1.7.0)
             </button>
           </nav>
         </div>

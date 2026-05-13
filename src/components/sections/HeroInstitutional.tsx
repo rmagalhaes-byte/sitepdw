@@ -60,7 +60,7 @@ export function HeroInstitutional({ lang, dict }: HeroProps) {
       <VideoModal
         isOpen={isVideoOpen}
         onClose={() => setIsVideoOpen(false)}
-        videoSrc="https://youtube.com/shorts/RpFd11ooRag?feature=share"
+        videoSrc="https://youtube.com/shorts/zIJcgnQia1o"
       />
     </section>
   );

@@ -51,7 +51,7 @@ export default async function LocaleLayout({
       <PdwHeader lang={lang as Locale} dict={dict} />
       <main className="main pt-24 pb-12">
         <div className="container">
-          <Breadcrumb dict={dict} lang={lang} />
+
           {children}
         </div>
       </main>

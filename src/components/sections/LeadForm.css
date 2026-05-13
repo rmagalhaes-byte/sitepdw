@@ -1,0 +1,85 @@
+.lead-form-container {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (max-width: 800px) {
+  .lead-form-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pdw-badge-preview {
+  background: linear-gradient(135deg, #006c4b 0%, #1a3b5d 100%);
+  border-radius: 16px;
+  padding: 24px;
+  color: white;
+  box-shadow: 0 12px 24px rgba(0, 108, 75, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: sticky;
+  top: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.pdw-badge-preview::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: rotateGlow 10s linear infinite;
+}
+
+@keyframes rotateGlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.badge-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.8;
+}
+
+.badge-name {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.badge-institution {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.badge-status {
+  margin-top: auto;
+  font-size: 11px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+  align-self: flex-start;
+}
+
+.success-message-container {
+  text-align: center;
+  padding: 40px 20px;
+  animation: fadeInSuccess 0.5s ease;
+}
+
+@keyframes fadeInSuccess {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}

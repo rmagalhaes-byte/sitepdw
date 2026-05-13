@@ -40,64 +40,30 @@ export function InteractiveSimulator({ dict, lang }: SimulatorProps) {
   };
 
   return (
-    <div className="simulator-container" style={{
-      width: '100%',
-      maxWidth: '600px',
-      margin: '0 auto',
-      background: 'rgba(255, 255, 255, 0.03)',
-      backdropFilter: 'blur(20px)',
-      border: '1px solid rgba(255, 255, 255, 0.1)',
-      borderRadius: '24px',
-      padding: '32px',
-      boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
-      overflow: 'hidden',
-      position: 'relative'
-    }}>
-      {/* Background glow */}
-      <div style={{
-        position: 'absolute',
-        top: '-50%', left: '-50%',
-        width: '200%', height: '200%',
-        background: 'radial-gradient(circle at center, rgba(0,108,75,0.08) 0%, transparent 50%)',
-        zIndex: 0,
-        pointerEvents: 'none'
-      }} />
+    <div className="simulator-card">
+      <div className="simulator-glow" />
 
-      <div style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>
-        <h3 style={{ fontSize: '24px', fontWeight: 700, marginBottom: '8px' }}>{t.title}</h3>
-        <p style={{ color: 'var(--color-muted)', marginBottom: '32px' }}>{t.subtitle}</p>
+      <div className="simulator-content">
+        <h3 className="simulator-title">{t.title}</h3>
+        <p className="simulator-subtitle">{t.subtitle}</p>
 
         <AnimatePresence mode="wait">
           {step === 0 && (
             <motion.div
               key="step0"
+              className="simulator-dropzone"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               onClick={handleVerify}
-              style={{
-                cursor: 'pointer',
-                background: 'linear-gradient(135deg, rgba(0,108,75,0.1) 0%, rgba(26,59,93,0.1) 100%)',
-                border: '2px dashed rgba(0,108,75,0.3)',
-                borderRadius: '16px',
-                padding: '40px',
-                transition: 'all 0.3s ease',
-              }}
-              whileHover={{ scale: 1.02, borderColor: 'rgba(0,108,75,0.6)' }}
+              whileHover={{ scale: 1.02 }}
             >
-              <div style={{ fontSize: '48px', marginBottom: '16px' }}>🎓</div>
+              <div className="simulator-icon-large">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              </div>
               <div style={{ fontWeight: 600 }}>{t.degree}</div>
               <div style={{ fontSize: '14px', color: 'var(--color-muted)' }}>{t.issuer}</div>
-              <button style={{
-                marginTop: '24px',
-                padding: '12px 24px',
-                background: 'var(--color-primary)',
-                color: 'white',
-                border: 'none',
-                borderRadius: '8px',
-                fontWeight: 600,
-                cursor: 'pointer'
-              }}>
+              <button className="cta" style={{ marginTop: '24px' }}>
                 {t.verifyBtn}
               </button>
             </motion.div>
@@ -132,31 +98,21 @@ export function InteractiveSimulator({ dict, lang }: SimulatorProps) {
           {step === 2 && (
             <motion.div
               key="step2"
+              className="simulator-result-card"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              style={{
-                background: 'rgba(16, 185, 129, 0.1)',
-                border: '1px solid rgba(16, 185, 129, 0.3)',
-                borderRadius: '16px',
-                padding: '32px',
-              }}
             >
-              <div style={{ fontSize: '48px', marginBottom: '16px' }}>✅</div>
+              <div className="simulator-icon-large">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
               <h4 style={{ color: '#059669', fontSize: '20px', fontWeight: 700, marginBottom: '8px' }}>{t.successTitle}</h4>
               <p style={{ color: '#065F46', marginBottom: '24px' }}>{t.successText}</p>
               
-              <div style={{ 
-                background: 'white', 
-                borderRadius: '8px', 
-                padding: '16px', 
-                textAlign: 'left',
-                boxShadow: '0 4px 6px rgba(0,0,0,0.05)',
-                marginBottom: '24px'
-              }}>
-                <div style={{ fontSize: '12px', color: '#6B7280', marginBottom: '4px' }}>Titular</div>
-                <div style={{ fontWeight: 600, marginBottom: '12px' }}>{t.student}</div>
-                <div style={{ fontSize: '12px', color: '#6B7280', marginBottom: '4px' }}>Emissor</div>
-                <div style={{ fontWeight: 600, display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <div className="simulator-credential-preview">
+                <div className="simulator-field-label">Titular</div>
+                <div className="simulator-field-value">{t.student}</div>
+                <div className="simulator-field-label">Emissor</div>
+                <div className="simulator-field-value" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   {t.issuer}
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                 </div>

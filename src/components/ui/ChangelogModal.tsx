@@ -32,8 +32,28 @@ export function ChangelogModal({ isOpen, onClose, lang }: ChangelogModalProps) {
 
   const changelogData = [
     {
+      version: "v1.7.0",
+      date: "13/05/2026",
+      changes: [
+        "Navegação dinâmica com destaque para página ativa (Active Links)",
+        "Deteção inteligente de rota na troca de idioma (manutenção da página atual)",
+        "Atualização da identidade visual: Novos logótipos de parceiros e financiadores",
+        "Implementação do Simulador Interativo de Verificação de Credenciais",
+        "Adição do Widget de Acessibilidade e estilos responsivos otimizados"
+      ]
+    },
+    {
+      version: "v1.6.0",
+      date: "13/05/2026",
+      changes: [
+        "Correção do posicionamento do Modal de Changelog (agora centrado no ecrã)",
+        "Integração do YouTube (formato Short) no pop-up de Demonstração",
+        "Substituição de vídeo local por iFrame para melhor performance"
+      ]
+    },
+    {
       version: "v1.5.0",
-      date: "Maio 2026",
+      date: "12/05/2026",
       changes: [
         "Integração do Changelog Timeline",
         "Adicionada nova badge de versão dinâmica no cabeçalho",
@@ -42,7 +62,7 @@ export function ChangelogModal({ isOpen, onClose, lang }: ChangelogModalProps) {
     },
     {
       version: "v1.4.0",
-      date: "Maio 2026",
+      date: "10/05/2026",
       changes: [
         "Otimização visual do Footer (Glassmorphism e hover effects nas logos dos parceiros)",
         "Refatoração de links institucionais e navegação inferior",
@@ -50,7 +70,7 @@ export function ChangelogModal({ isOpen, onClose, lang }: ChangelogModalProps) {
     },
     {
       version: "v1.3.0",
-      date: "Maio 2026",
+      date: "09/05/2026",
       changes: [
         "Integração de Imagem Disruptiva na Homepage com animações",
         "Atualização de nomenclaturas de estado no roadmap (de 'research' para 'development')",
@@ -58,7 +78,7 @@ export function ChangelogModal({ isOpen, onClose, lang }: ChangelogModalProps) {
     },
     {
       version: "v1.2.0",
-      date: "Maio 2026",
+      date: "08/05/2026",
       changes: [
         "Otimização do Site e SEO (Sitemaps, estruturação de páginas, Open Graph)",
         "Resolução de vulnerabilidades Next.js para deploy na Netlify",
@@ -66,7 +86,7 @@ export function ChangelogModal({ isOpen, onClose, lang }: ChangelogModalProps) {
     },
     {
       version: "v1.1.0",
-      date: "Maio 2026",
+      date: "08/05/2026",
       changes: [
         "Criação de repositórios independentes no GitHub e sincronismo",
         "Estruturação da Estratégia B2B2C e regras de negócio base (.vide)",
@@ -74,7 +94,7 @@ export function ChangelogModal({ isOpen, onClose, lang }: ChangelogModalProps) {
     },
     {
       version: "v1.0.0",
-      date: "MVP Inicial",
+      date: "07/05/2026",
       changes: [
         "Lançamento do MVP (Minimum Viable Product)",
         "Implementação base da arquitetura e i18n (Internacionalização pt/en)",

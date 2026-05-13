@@ -61,13 +61,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       <TrustBar dict={dict} />
       <ValuePillars dict={dict} />
       <DiplomaCaseSection lang={lang as Locale} dict={dict} />
-      <section style={{ marginTop: 40 }}>
-        <SectionHeading
-          title={dict.useCases.heading.title}
-          subtitle={dict.useCases.heading.subtitle}
-        />
-        <UseCasesGrid lang={lang as Locale} dict={dict} />
-      </section>
+
     </>
   );
 }

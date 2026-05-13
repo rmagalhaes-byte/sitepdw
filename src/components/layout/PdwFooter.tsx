@@ -35,14 +35,14 @@ export function PdwFooter({ lang, dict }: PdwFooterProps) {
       name: "Blockchain.PT",
       subtitle: "Agenda de Inovação",
       url: "https://blockchain.pt/",
-      image: "/Projeto-logos-2.png",
+      image: "/logo-Blockchain-pt.png",
       position: "left",
     },
     {
       name: "TecMinho",
       subtitle: "Universidade do Minho Interface",
       url: "https://www.tecminho.uminho.pt/",
-      image: "/Projeto-logos-2.png",
+      image: "/tcminho-logo.png",
       position: "right",
     },
   ];
@@ -129,17 +129,17 @@ export function PdwFooter({ lang, dict }: PdwFooterProps) {
                 </a>
               </div>
             </div>
-            
+
             {/* Social Icons */}
             <div className="footer-social-links" style={{ display: 'flex', gap: '12px', marginTop: '20px' }}>
               <a href="https://www.linkedin.com/company/portuguese-digitalwallet/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style={{ color: 'var(--color-muted)', transition: 'color 0.2s ease' }} onMouseEnter={(e) => e.currentTarget.style.color = '#0A66C2'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-muted)'}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect width="4" height="12" x="2" y="9" /><circle cx="4" cy="4" r="2" /></svg>
               </a>
               <a href="https://chat.whatsapp.com/JyjCwcWsNNe5w4oP4QEvZW" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Community" style={{ color: 'var(--color-muted)', transition: 'color 0.2s ease' }} onMouseEnter={(e) => e.currentTarget.style.color = '#25D366'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-muted)'}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
               </a>
               <a href="https://www.instagram.com/pwdwallet.pt" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style={{ color: 'var(--color-muted)', transition: 'color 0.2s ease' }} onMouseEnter={(e) => e.currentTarget.style.color = '#E1306C'} onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-muted)'}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg>
               </a>
             </div>
           </div>
@@ -190,7 +190,7 @@ export function PdwFooter({ lang, dict }: PdwFooterProps) {
                     />
                   </div>
                   <div className="partner-info">
-                    <span className="partner-name">{partner.name}</span>
+                    {/* <span className="partner-name">{partner.name}</span> */}
                     <span className="partner-external-icon">
                       <svg
                         width="12"
@@ -220,17 +220,15 @@ export function PdwFooter({ lang, dict }: PdwFooterProps) {
             {lang === "pt" ? "Financiado por" : "Funded by"}
           </div>
           <div className="footer-funders-logos">
-            <Image
-              src="/financiadores-3logos.png"
-              alt={
-                lang === "pt"
-                  ? "PRR, República Portuguesa, União Europeia"
-                  : "PRR, Portuguese Republic, European Union"
-              }
-              width={500}
-              height={60}
-              className="funders-img"
-            />
+            <div className="funder-logo-wrapper">
+              <Image src="/PRR.png" alt="PRR" fill className="funders-img" />
+            </div>
+            <div className="funder-logo-wrapper">
+              <Image src="/RP.png" alt="República Portuguesa" fill className="funders-img" />
+            </div>
+            <div className="funder-logo-wrapper">
+              <Image src="/FEU.png" alt="União Europeia" fill className="funders-img" />
+            </div>
           </div>
         </div>
 

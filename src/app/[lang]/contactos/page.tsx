@@ -42,7 +42,9 @@ export default async function ContactosPage({ params }: { params: Promise<{ lang
               alignItems: 'flex-start',
               gap: '10px',
             }}>
-              <span style={{ fontSize: '18px' }}>💡</span>
+              <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+              </span>
               <p style={{ margin: 0, fontSize: '14px', color: 'var(--color-muted)', lineHeight: 1.5 }}>
                 {dict.contacts.afterContact}
               </p>
@@ -51,11 +53,11 @@ export default async function ContactosPage({ params }: { params: Promise<{ lang
 
           <div style={{ marginTop: '20px', display: 'grid', gap: '8px' }}>
             <p style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span style={{ fontSize: '16px' }}>📍</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               <strong style={{ fontSize: '14px' }}>{dict.footer.address}</strong>
             </p>
             <p style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span style={{ fontSize: '16px' }}>✉️</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
               <a href={`mailto:${dict.footer.email}`} style={{ fontWeight: 600, color: 'var(--color-primary)', fontSize: '14px' }}>
                 {dict.footer.email}
               </a>

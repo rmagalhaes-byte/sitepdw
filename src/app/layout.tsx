@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./accessibility.css";
 import { PdwHeader } from "@/components/layout/PdwHeader";
 import { PdwFooter } from "@/components/layout/PdwFooter";
+import { AccessibilityWidget } from "@/components/ui/AccessibilityWidget";
 
 export const metadata: Metadata = {
   title: "Portuguese Digital Wallet by TecMinho",
@@ -18,6 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html>
       <body>
         {children}
+        <AccessibilityWidget />
       </body>
     </html>
   );

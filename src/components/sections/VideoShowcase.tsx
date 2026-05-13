@@ -7,8 +7,8 @@ interface VideoShowcaseProps {
 }
 
 export function VideoShowcase({ dict }: VideoShowcaseProps) {
-  // URL de embed do YouTube (Shorts)
-  const embedUrl = "https://www.youtube.com/embed/RpFd11ooRag";
+  // URL de embed do YouTube (Shorts) com parâmetros otimizados
+  const embedUrl = "https://www.youtube.com/embed/zIJcgnQia1o?modestbranding=1&rel=0&showinfo=0&controls=1";
 
   return (
     <AnimatedSection delay={0.15}>

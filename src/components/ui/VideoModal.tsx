@@ -15,7 +15,8 @@ export function VideoModal({ isOpen, onClose, videoSrc }: VideoModalProps) {
   let embedUrl = videoSrc;
   if (videoSrc.includes("youtube.com/shorts/")) {
     const videoId = videoSrc.split("youtube.com/shorts/")[1]?.split("?")[0];
-    embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    // Adicionando parâmetros para uma experiência mais limpa (modestbranding, rel, etc)
+    embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&modestbranding=1&rel=0&showinfo=0&controls=1`;
   }
 
   return createPortal(
