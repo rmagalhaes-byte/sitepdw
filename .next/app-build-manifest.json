@@ -1,0 +1,78 @@
+{
+  "pages": {
+    "/_not-found/page": [
+      "static/chunks/webpack-8c6280ff31e6b85e.js",
+      "static/chunks/4bd1b696-67ee12fb04071d3b.js",
+      "static/chunks/684-71b0b1461a73105d.js",
+      "static/chunks/main-app-18656e36d74ae181.js",
+      "static/chunks/app/_not-found/page-f08302ee705a96b1.js"
+    ],
+    "/layout": [
+      "static/chunks/webpack-8c6280ff31e6b85e.js",
+      "static/chunks/4bd1b696-67ee12fb04071d3b.js",
+      "static/chunks/684-71b0b1461a73105d.js",
+      "static/chunks/main-app-18656e36d74ae181.js",
+      "static/css/57c3e5db144f9b14.css",
+      "static/chunks/874-992333f59fd2c78c.js",
+      "static/chunks/app/layout-cbaa5e3320b610be.js"
+    ],
+    "/casos-de-uso/page": [
+      "static/chunks/webpack-8c6280ff31e6b85e.js",
+      "static/chunks/4bd1b696-67ee12fb04071d3b.js",
+      "static/chunks/684-71b0b1461a73105d.js",
+      "static/chunks/main-app-18656e36d74ae181.js",
+      "static/chunks/874-992333f59fd2c78c.js",
+      "static/chunks/app/casos-de-uso/page-a28b24ea0551a16f.js"
+    ],
+    "/privacidade/page": [
+      "static/chunks/webpack-8c6280ff31e6b85e.js",
+      "static/chunks/4bd1b696-67ee12fb04071d3b.js",
+      "static/chunks/684-71b0b1461a73105d.js",
+      "static/chunks/main-app-18656e36d74ae181.js",
+      "static/chunks/app/privacidade/page-a4c7cf8c7ef2599f.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-8c6280ff31e6b85e.js",
+      "static/chunks/4bd1b696-67ee12fb04071d3b.js",
+      "static/chunks/684-71b0b1461a73105d.js",
+      "static/chunks/main-app-18656e36d74ae181.js",
+      "static/chunks/874-992333f59fd2c78c.js",
+      "static/chunks/app/page-5c13873aae9489e3.js"
+    ],
+    "/sobre/page": [
+      "static/chunks/webpack-8c6280ff31e6b85e.js",
+      "static/chunks/4bd1b696-67ee12fb04071d3b.js",
+      "static/chunks/684-71b0b1461a73105d.js",
+      "static/chunks/main-app-18656e36d74ae181.js",
+      "static/chunks/app/sobre/page-277c6691a3884131.js"
+    ],
+    "/solucao/page": [
+      "static/chunks/webpack-8c6280ff31e6b85e.js",
+      "static/chunks/4bd1b696-67ee12fb04071d3b.js",
+      "static/chunks/684-71b0b1461a73105d.js",
+      "static/chunks/main-app-18656e36d74ae181.js",
+      "static/chunks/app/solucao/page-9d212a03da24001f.js"
+    ],
+    "/termos/page": [
+      "static/chunks/webpack-8c6280ff31e6b85e.js",
+      "static/chunks/4bd1b696-67ee12fb04071d3b.js",
+      "static/chunks/684-71b0b1461a73105d.js",
+      "static/chunks/main-app-18656e36d74ae181.js",
+      "static/chunks/app/termos/page-a0c5b4785a6acd6f.js"
+    ],
+    "/contactos/page": [
+      "static/chunks/webpack-8c6280ff31e6b85e.js",
+      "static/chunks/4bd1b696-67ee12fb04071d3b.js",
+      "static/chunks/684-71b0b1461a73105d.js",
+      "static/chunks/main-app-18656e36d74ae181.js",
+      "static/chunks/app/contactos/page-5a96a6fbe5b6529c.js"
+    ],
+    "/casos-de-uso/diplomas-digitais/page": [
+      "static/chunks/webpack-8c6280ff31e6b85e.js",
+      "static/chunks/4bd1b696-67ee12fb04071d3b.js",
+      "static/chunks/684-71b0b1461a73105d.js",
+      "static/chunks/main-app-18656e36d74ae181.js",
+      "static/chunks/app/casos-de-uso/diplomas-digitais/page-6594757fb05782a8.js"
+    ]
+  }
+}

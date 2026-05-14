@@ -1,0 +1,11 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/casos-de-uso/page": "app/casos-de-uso/page.js",
+  "/privacidade/page": "app/privacidade/page.js",
+  "/page": "app/page.js",
+  "/sobre/page": "app/sobre/page.js",
+  "/solucao/page": "app/solucao/page.js",
+  "/termos/page": "app/termos/page.js",
+  "/contactos/page": "app/contactos/page.js",
+  "/casos-de-uso/diplomas-digitais/page": "app/casos-de-uso/diplomas-digitais/page.js"
+}
