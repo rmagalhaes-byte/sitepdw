@@ -121,9 +121,13 @@
   border-bottom: 2px solid #000 !important;
 }
 
-/* High contrast: footer stays dark but all text forced white */
+/* High contrast: footer forced to solid black so white text is always readable */
+[data-contrast="high"] .footer-disruptive {
+  background: #000 !important;
+}
+
 [data-contrast="high"] .footer-disruptive,
 [data-contrast="high"] .footer-disruptive * {
   color: #fff !important;
-  border-color: rgba(255, 255, 255, 0.3) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
 }

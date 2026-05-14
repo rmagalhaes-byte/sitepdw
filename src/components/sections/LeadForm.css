@@ -73,13 +73,42 @@
   align-self: flex-start;
 }
 
+.pdw-badge-preview.verified {
+  background: linear-gradient(135deg, #059669 0%, #064e3b 100%);
+  box-shadow: 0 12px 32px rgba(5, 150, 105, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.badge-footer {
+  margin-top: 12px;
+  font-size: 10px;
+  opacity: 0.5;
+}
+
+.badge-verified-seal {
+  position: absolute;
+  top: 15px;
+  right: -15px;
+  background: #fbbf24;
+  color: #78350f;
+  font-size: 10px;
+  font-weight: 900;
+  padding: 4px 20px;
+  transform: rotate(45deg);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.success-message-inner {
+  padding: 20px 0;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .success-message-container {
   text-align: center;
   padding: 40px 20px;
-  animation: fadeInSuccess 0.5s ease;
-}
-
-@keyframes fadeInSuccess {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
 }

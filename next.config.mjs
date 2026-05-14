@@ -1,9 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    // Outras opções experimentais se houver
-  },
+  serverExternalPackages: ["better-sqlite3"],
   allowedDevOrigins: ["172.26.14.194", "localhost:3000"]
 };
 
