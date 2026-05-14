@@ -21,7 +21,6 @@ export function TrustBar({ dict }: TrustBarProps) {
     "Blockchain.PT Agenda": { logo: "/logo-Blockchain-pt.png", url: "https://blockchain.pt" },
     "VOID Software": { logo: "/logo-void.png", url: "https://void.software/" },
     "EBSI": { logo: "/logo-ebsi.png", url: "https://hub.ebsi.eu/", scale: 1.8 },
-    /*"DAX": { logo: "/logo-dax.png", url: "https://www.linkedin.com/company/daxledger/", scale: 1.8 }*/
   };
 
   return (
