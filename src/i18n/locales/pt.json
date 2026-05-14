@@ -25,7 +25,7 @@
     "compliance": {
       "title": "Conformidade Europeia",
       "icon": "🇪🇺",
-      "text": "Totalmente alinhada com as normas eIDAS 2.0 e a infraestrutura EBSI, garantindo validade em toda a União Europeia."
+      "text": "Totalmente alinhada com a infraestrutura EBSI e o quadro europeu de identidade digital, garantindo validade legal em toda a União Europeia."
     },
     "education": {
       "title": "Educação (caso real)",
@@ -225,6 +225,12 @@
       "image": "/diploma-flow.png",
       "alt": "Fluxo de verificação de diplomas digitais: Universidade emite, Aluno guarda, Recrutador verifica"
     }
+  },
+  "contactCTA": {
+    "title": "Pronto para integrar a PDW?",
+    "subtitle": "Deixe o seu email institucional e a nossa equipa entra em contacto em 48 horas.",
+    "placeholder": "O seu email institucional",
+    "button": "Solicitar demonstração"
   },
   "contacts": {
     "heading": {

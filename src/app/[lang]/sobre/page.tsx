@@ -129,10 +129,10 @@ export default async function SobrePage({ params }: { params: Promise<{ lang: st
               marginTop: '16px',
             }}>
               {dict.about.partners.list.map((partner: any, i: number) => (
-                <div key={i} style={{
+                <div key={i} className="partner-ecosystem-card" style={{
                   padding: '14px 16px',
                   borderRadius: '10px',
-                  background: i === 0 ? 'linear-gradient(135deg, rgba(0, 108, 75, 0.06) 0%, rgba(26, 59, 93, 0.04) 100%)' : 'rgba(247, 250, 252, 0.8)',
+                  background: i === 0 ? 'linear-gradient(135deg, rgba(0, 108, 75, 0.06) 0%, rgba(26, 59, 93, 0.04) 100%)' : undefined,
                   border: '1px solid rgba(0, 108, 75, 0.08)',
                   transition: 'all 0.3s ease',
                 }}>

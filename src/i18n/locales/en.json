@@ -25,7 +25,7 @@
     "compliance": {
       "title": "European Compliance",
       "icon": "🇪🇺",
-      "text": "Fully aligned with eIDAS 2.0 standards and EBSI infrastructure, ensuring validity across the European Union."
+      "text": "Fully aligned with the EBSI infrastructure and the European digital identity framework, ensuring legal validity across the European Union."
     },
     "education": {
       "title": "Education (Real Case)",
@@ -225,6 +225,12 @@
       "image": "/diploma-flow.png",
       "alt": "Digital diploma verification flow: University issues, Student stores, Recruiter verifies"
     }
+  },
+  "contactCTA": {
+    "title": "Ready to integrate PDW?",
+    "subtitle": "Leave your institutional email and our team will get in touch within 48 hours.",
+    "placeholder": "Your institutional email",
+    "button": "Request a demo"
   },
   "contacts": {
     "heading": {

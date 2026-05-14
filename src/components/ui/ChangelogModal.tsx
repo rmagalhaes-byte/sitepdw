@@ -32,6 +32,25 @@ export function ChangelogModal({ isOpen, onClose, lang }: ChangelogModalProps) {
 
   const changelogData = [
     {
+      version: "v1.7.3",
+      date: "14/05/2026",
+      changes: [
+        "Integração total da Homepage com secções de Casos de Uso, Demonstração em Vídeo e Formulário de Lead",
+        "Correção de bugs estruturais no CSS global (herança de estilos e sintaxe)",
+        "Otimização de metadados para o novo domínio digitalwallet.pt",
+        "Melhoria na robustez das interfaces TypeScript"
+      ]
+    },
+    {
+      version: "v1.7.2",
+      date: "14/05/2026",
+      changes: [
+        "Otimização profunda de acessibilidade (WCAG 2.1)",
+        "Correção de inconsistências visuais no Dark Mode em múltiplos componentes",
+        "Refinamento de variáveis de cor para melhor contraste"
+      ]
+    },
+    {
       version: "v1.7.1",
       date: "13/05/2026",
       changes: [

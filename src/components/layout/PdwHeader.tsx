@@ -10,7 +10,7 @@ import { ChangelogModal } from "@/components/ui/ChangelogModal";
 
 interface PdwHeaderProps {
   lang: Locale;
-  dict: any;
+  dict: Record<string, any>;
 }
 
 export function PdwHeader({ lang, dict }: PdwHeaderProps) {
@@ -77,7 +77,7 @@ export function PdwHeader({ lang, dict }: PdwHeaderProps) {
           onMouseLeave={(e) => {
             e.currentTarget.style.backgroundColor = 'rgba(56, 189, 248, 0.1)';
           }}>
-            v1.7.1
+            v1.7.3
           </button>
         </nav>
 
@@ -168,7 +168,7 @@ export function PdwHeader({ lang, dict }: PdwHeaderProps) {
               className="mobile-nav-link"
               style={{ color: '#38bdf8', fontWeight: 600, background: 'none', border: 'none', textAlign: 'left', width: '100%', cursor: 'pointer' }}
             >
-              Changelog (v1.7.1)
+              Changelog (v1.7.3)
             </button>
           </nav>
         </div>

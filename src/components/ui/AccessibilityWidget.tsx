@@ -6,12 +6,10 @@ import { motion, AnimatePresence } from "framer-motion";
 export function AccessibilityWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [contrast, setContrast] = useState<"normal" | "high">("normal");
-  const [fontSize, setFontSize] = useState<"normal" | "large" | "xlarge">("normal");
 
   useEffect(() => {
     document.documentElement.setAttribute("data-contrast", contrast);
-    document.documentElement.setAttribute("data-font-size", fontSize);
-  }, [contrast, fontSize]);
+  }, [contrast]);
 
   return (
     <div className="accessibility-widget">
@@ -21,10 +19,12 @@ export function AccessibilityWidget() {
         aria-label="Opções de acessibilidade"
         title="Acessibilidade"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="12" cy="12" r="10"/>
-          <path d="M12 8v8"/>
-          <path d="M8 12h8"/>
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <circle cx="12" cy="4" r="2"/>
+          <path d="M12 7v8"/>
+          <path d="M5 10l7-1.5 7 1.5"/>
+          <path d="M9 16l-2 5"/>
+          <path d="M15 16l2 5"/>
         </svg>
       </button>
 
@@ -39,41 +39,17 @@ export function AccessibilityWidget() {
             <div className="acc-option">
               <span className="acc-label">Alto Contraste</span>
               <div className="acc-control">
-                <button 
+                <button
                   className={`acc-control-btn ${contrast === 'normal' ? 'active' : ''}`}
                   onClick={() => setContrast('normal')}
                 >
                   Não
                 </button>
-                <button 
+                <button
                   className={`acc-control-btn ${contrast === 'high' ? 'active' : ''}`}
                   onClick={() => setContrast('high')}
                 >
                   Sim
-                </button>
-              </div>
-            </div>
-
-            <div className="acc-option">
-              <span className="acc-label">Tamanho do Texto</span>
-              <div className="acc-control">
-                <button 
-                  className={`acc-control-btn ${fontSize === 'normal' ? 'active' : ''}`}
-                  onClick={() => setFontSize('normal')}
-                >
-                  A
-                </button>
-                <button 
-                  className={`acc-control-btn ${fontSize === 'large' ? 'active' : ''}`}
-                  onClick={() => setFontSize('large')}
-                >
-                  A+
-                </button>
-                <button 
-                  className={`acc-control-btn ${fontSize === 'xlarge' ? 'active' : ''}`}
-                  onClick={() => setFontSize('xlarge')}
-                >
-                  A++
                 </button>
               </div>
             </div>

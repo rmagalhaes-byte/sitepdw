@@ -1,18 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import "./LeadForm.css";
 
 interface LeadFormSectionProps {
   dict: any;
+  initialEmail?: string;
 }
 
-export function LeadFormSection({ dict }: LeadFormSectionProps) {
+export function LeadFormSection({ dict, initialEmail }: LeadFormSectionProps) {
   const [formData, setFormData] = useState({
     name: "",
     institution: "",
-    email: "",
+    email: initialEmail ?? "",
     subject: "",
     message: ""
   });
@@ -22,7 +23,7 @@ export function LeadFormSection({ dict }: LeadFormSectionProps) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitted(true);
   };

@@ -20,8 +20,15 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   };
 }
 
-export default async function ContactosPage({ params }: { params: Promise<{ lang: string }> }) {
+export default async function ContactosPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ lang: string }>;
+  searchParams: Promise<{ email?: string }>;
+}) {
   const { lang } = await params;
+  const { email: initialEmail } = await searchParams;
   const dict = await getDictionary(lang as Locale);
 
   return (
@@ -66,7 +73,7 @@ export default async function ContactosPage({ params }: { params: Promise<{ lang
         </section>
       </AnimatedSection>
       <AnimatedSection delay={0.15}>
-        <LeadFormSection dict={dict} />
+        <LeadFormSection dict={dict} initialEmail={initialEmail} />
       </AnimatedSection>
     </>
   );
