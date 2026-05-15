@@ -1,67 +1,108 @@
+/**
+ * pdw-site-v2/src/components/sections/HeroInstitutional.tsx
+ *
+ * SUBSTITUI o existente. Hero editorial com:
+ *   - Badge "Em produção" com ponto pulsante
+ *   - Título em 2 linhas (linha 1 normal + linha 2 com gradiente)
+ *   - Lead em 2 níveis (subtitle + description)
+ *   - Mini-stats (72,9 M€ · 27 · −90 %)
+ *   - Imagem grande à direita com rotação ligeira e legenda flutuante
+ *
+ * Client Component porque usa onClick para abrir o VideoModal.
+ */
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
-import { Locale } from "@/i18n/config";
-import { useState } from "react";
-import { VideoModal } from "@/components/ui/VideoModal";
 
-interface HeroProps {
-  lang: Locale;
+interface HeroInstitutionalProps {
+  /** Chamado quando o utilizador clica em "Ver vídeo conceito". */
+  onPlayDemo: () => void;
   dict: any;
+  lang: string;
 }
 
-const PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=pt.tecminho.pdw&pcampaignid=web_share";
-
-export function HeroInstitutional({ lang, dict }: HeroProps) {
-  const [isVideoOpen, setIsVideoOpen] = useState(false);
-
+export function HeroInstitutional({ onPlayDemo, dict, lang }: HeroInstitutionalProps) {
   return (
     <section className="hero">
+      <div className="hero-bg-grid" aria-hidden="true" />
+
       <div className="hero-content">
+        <div className="hero-eyebrow">
+          <span className="hero-eyebrow-dot" aria-hidden="true" />
+          {lang === "pt"
+            ? "Em produção · Agenda Blockchain.PT"
+            : "In production · Blockchain.PT Agenda"}
+        </div>
         <h1>
-          <span className="text-gradient">{dict.hero.title}</span>
+          <span className="hero-title-line">
+            {lang === "pt"
+              ? "Acesso a serviços digitais"
+              : "Digital services access"}
+          </span>
+          <span className="hero-title-accent">
+            {lang === "pt" ? "sem fricção." : "without friction."}
+          </span>
         </h1>
-        <p className="hero-subtitle">
-          {dict.hero.subtitle}
-        </p>
-        <p className="hero-description">
-          {dict.hero.description}
-        </p>
+        <p className="hero-subtitle">{dict.hero.subtitle}</p>
+        <p className="hero-description">{dict.hero.description}</p>
         <div className="btn-row">
-          <button onClick={() => setIsVideoOpen(true)} className="cta cta-disruptive" style={{ border: 'none', cursor: 'pointer', fontFamily: 'inherit', fontSize: '14px' }}>
-            {dict.hero.ctaDemo}
+          <button className="cta cta-disruptive" onClick={onPlayDemo} type="button">
+            ▶ {lang === "pt" ? "Ver vídeo conceito" : "Watch concept video"}
           </button>
-          <a
-            href={PLAY_STORE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-secondary"
-            style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3" />
-            </svg>
-            {dict.hero.ctaApp}
+          <a className="btn-secondary" href={`/${lang}/contactos`}>
+            {lang === "pt" ? "Falar com a equipa" : "Talk to the team"} →
           </a>
         </div>
+
+        <dl className="hero-mini-stats">
+          <div>
+            <dt>72,9 M€</dt>
+            <dd>
+              {lang === "pt" ? "Investimento total" : "Total investment"}
+              <br />
+              {lang === "pt" ? "do consórcio" : "of the consortium"}
+            </dd>
+          </div>
+          <div>
+            <dt>27</dt>
+            <dd>
+              {lang === "pt" ? "Estados-Membros" : "Member States"}
+              <br />
+              {lang === "pt" ? "de reconhecimento" : "of recognition"}
+            </dd>
+          </div>
+          <div>
+            <dt>−90 %</dt>
+            <dd>
+              {lang === "pt" ? "Tempo de" : "Reduction in"}
+              <br />
+              {lang === "pt" ? "verificação académica" : "academic verification"}
+            </dd>
+          </div>
+        </dl>
       </div>
-      <div className="hero-image-container">
-        <div className="image-glow"></div>
+
+      <div className="hero-image-frame">
         <Image
-          src={dict.hero.image}
-          alt={dict.hero.title}
-          width={300}
-          height={300}
-          className="disruptive-image"
+          src="/Imagem-home.png"
+          alt={
+            lang === "pt"
+              ? "Diploma universitário digital exibido na aplicação PDW"
+              : "Digital university diploma shown in the PDW app"
+          }
+          width={520}
+          height={520}
           priority
         />
+        <div className="hero-image-caption">
+          <span className="hero-image-caption-dot" aria-hidden="true" />
+          <span>
+            {lang === "pt"
+              ? "Diploma da Universidade do Minho · verificado em 1,2 s"
+              : "University of Minho diploma · verified in 1.2 s"}
+          </span>
+        </div>
       </div>
-      <VideoModal
-        isOpen={isVideoOpen}
-        onClose={() => setIsVideoOpen(false)}
-        videoSrc="https://youtube.com/shorts/zIJcgnQia1o"
-      />
     </section>
   );
 }
