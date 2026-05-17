@@ -2178,6 +2178,90 @@ a {
   .legal-title { font-size: 26pt; }
 }
 
+/* ===== ACESSIBILIDADE — ALTO CONTRASTE ===== */
+
+[data-contrast="high"] {
+  --color-bg:      #000000;
+  --color-surface: #0a0a0a;
+  --color-border:  #ffffff;
+  --color-text:    #ffffff;
+  --color-muted:   #e0e0e0;
+  --color-primary: #00ff99;
+  --color-secondary: #66b3ff;
+}
+
+[data-contrast="high"] .site-header {
+  background: #000 !important;
+  border-bottom: 2px solid #fff !important;
+}
+
+[data-contrast="high"] .hero,
+[data-contrast="high"] .section-card,
+[data-contrast="high"] .trust-bar-section {
+  background: #0a0a0a !important;
+  border: 2px solid #fff !important;
+}
+
+[data-contrast="high"] .hero-bg-grid { display: none; }
+
+[data-contrast="high"] .cta,
+[data-contrast="high"] .cta-disruptive {
+  background: #00ff99 !important;
+  color: #000 !important;
+  border: 2px solid #00ff99 !important;
+}
+
+[data-contrast="high"] .btn-secondary {
+  background: #000 !important;
+  color: #fff !important;
+  border: 2px solid #fff !important;
+}
+
+[data-contrast="high"] .nav a,
+[data-contrast="high"] .nav-link {
+  color: #fff !important;
+  opacity: 1 !important;
+}
+
+[data-contrast="high"] .trust-logo-link {
+  background: #fff !important;
+  border-radius: 4px;
+}
+
+[data-contrast="high"] .pullquote-full {
+  background: #000 !important;
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+}
+
+[data-contrast="high"] .pillars-editorial {
+  background: #000 !important;
+}
+
+[data-contrast="high"] .pillars-item {
+  border-color: #fff !important;
+}
+
+[data-contrast="high"] footer {
+  background: #000 !important;
+  border-top: 2px solid #fff !important;
+  color: #fff !important;
+}
+
+[data-contrast="high"] a { color: #66b3ff !important; }
+[data-contrast="high"] a:visited { color: #cc99ff !important; }
+
+/* Foco visível em alto contraste */
+[data-contrast="high"] :focus-visible {
+  outline: 3px solid #00ff99 !important;
+  outline-offset: 3px !important;
+}
+
+/* Transição suave ao mudar tema/contraste */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 /* ===== Admin shell ===== */
 .admin-shell {}
 .admin-banner {

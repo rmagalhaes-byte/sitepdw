@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Locale } from "@/i18n/config";
-import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { useState } from "react";
 import { ChangelogModal } from "@/components/ui/ChangelogModal";
 
@@ -84,7 +83,6 @@ export function PdwHeader({ lang, dict }: PdwHeaderProps) {
 
         {/* Right actions */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <ThemeToggle />
           <div className="lang-switcher" style={{ fontSize: '12px', fontWeight: 600 }}>
             {(() => {
               const currentPathWithoutLang = pathname?.replace(`/${lang}`, '') || '';

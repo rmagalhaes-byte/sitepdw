@@ -4,6 +4,7 @@ import { PdwHeader } from '@/components/layout/PdwHeader';
 import { PdwFooter } from '@/components/layout/PdwFooter';
 import { Breadcrumb } from '@/components/ui/Breadcrumb';
 import { GoogleAnalytics } from '@/components/ui/GoogleAnalytics';
+import { AccessibilityWidget } from '@/components/ui/AccessibilityWidget';
 import type { Metadata } from 'next';
 
 export async function generateStaticParams() {
@@ -56,6 +57,7 @@ export default async function LocaleLayout({
         </div>
       </main>
       <PdwFooter lang={lang as Locale} dict={dict} />
+      <AccessibilityWidget />
     </>
   );
 }
