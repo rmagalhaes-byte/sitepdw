@@ -3225,3 +3225,282 @@ a {
   word-break: break-all; color: var(--color-text);
 }
 .admin-empty { padding: 32px; text-align: center; color: var(--color-muted); }
+
+/* ============================================================
+   EYEBROW — standalone label (usado em page-hero, section-header, etc.)
+   ============================================================ */
+.eyebrow {
+  display: inline-block;
+  font-size: 12px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--color-primary);
+  margin-bottom: 10px;
+}
+
+/* ============================================================
+   CASOS DE USO — roadmap timeline (Variant A)
+   ============================================================ */
+.casos-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 18px;
+  padding: 18px 22px;
+  background: linear-gradient(135deg, rgba(0,108,75,0.04) 0%, rgba(26,59,93,0.04) 100%);
+  border: 1px solid rgba(0,108,75,0.10);
+  border-radius: 14px;
+}
+.casos-strip > div { display: flex; flex-direction: column; gap: 4px; }
+.casos-strip strong { font-size: 28px; font-weight: 800; letter-spacing: -0.02em; color: var(--color-text); }
+.casos-strip span { font-size: 12.5px; color: var(--color-muted); }
+
+.casos-timeline {
+  list-style: none; padding: 0; margin: 0;
+  position: relative; display: flex; flex-direction: column;
+}
+.casos-timeline::before {
+  content: '';
+  position: absolute;
+  left: 27px; top: 12px; bottom: 12px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--color-primary) 0%, rgba(0,108,75,0.10) 100%);
+}
+.casos-timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 18px;
+  padding: 8px 0 28px 0;
+  align-items: start;
+}
+.casos-timeline-item:last-child { padding-bottom: 0; }
+.casos-timeline-marker {
+  width: 56px; height: 56px;
+  background: var(--color-surface);
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; z-index: 1;
+  box-shadow: 0 4px 14px rgba(0,108,75,0.15);
+}
+.casos-timeline-item.is-development .casos-timeline-marker {
+  border-color: rgba(245,158,11,0.7);
+  box-shadow: 0 4px 14px rgba(245,158,11,0.18);
+}
+.casos-timeline-item.is-research .casos-timeline-marker { border-color: rgba(26,59,93,0.5); }
+.casos-timeline-emoji { font-size: 26px; line-height: 1; }
+.casos-timeline-content {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 14px; padding: 18px 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.casos-timeline-content:hover { transform: translateX(4px); box-shadow: 0 8px 24px rgba(0,108,75,0.08); }
+.casos-timeline-content header { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; flex-wrap: wrap; }
+.casos-timeline-content h4 { margin: 0; font-size: 17px; font-weight: 700; color: var(--color-text); }
+.casos-timeline-content p { margin: 0 0 12px; font-size: 14px; line-height: 1.6; color: var(--color-muted); }
+.casos-timeline-cta { display: flex; gap: 12px; }
+
+.link-arrow {
+  background: none; border: 0; padding: 0;
+  font: inherit; font-weight: 700; font-size: 14px;
+  color: var(--color-primary); cursor: pointer;
+  text-decoration: none; display: inline;
+}
+.link-arrow:hover { text-decoration: underline; }
+.muted { color: var(--color-muted); font-size: 13px; }
+
+/* ============================================================
+   DIPLOMAS DIGITAIS — sub-página (Variant A)
+   ============================================================ */
+.page-back {
+  background: none; border: 0; padding: 0;
+  font: inherit; font-size: 13px; font-weight: 700;
+  color: var(--color-muted); cursor: pointer;
+  margin: 8px 0 4px; display: inline-block; text-decoration: none;
+}
+.page-back:hover { color: var(--color-primary); }
+
+.section-card-problem {
+  background: linear-gradient(135deg, rgba(239,68,68,0.04) 0%, rgba(239,68,68,0.02) 100%);
+  border-color: rgba(239,68,68,0.20);
+  border-left: 4px solid rgba(239,68,68,0.6);
+}
+.callout-tag-problem { background: rgba(239,68,68,0.10); color: #991b1b; }
+.section-card-solution {
+  background: linear-gradient(135deg, rgba(0,108,75,0.05) 0%, rgba(16,185,129,0.03) 100%);
+  border-color: rgba(0,108,75,0.20);
+  border-left: 4px solid var(--color-primary);
+}
+.problem-list, .solution-list {
+  list-style: none; padding: 0; margin: 8px 0 0;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.problem-list li, .solution-list li {
+  font-size: 14px; line-height: 1.5; color: var(--color-text);
+  padding-left: 24px; position: relative;
+}
+.problem-list li::before { content: '✕'; position: absolute; left: 0; top: 0; font-weight: 800; color: #991b1b; }
+.solution-list li::before { content: '✓'; position: absolute; left: 0; top: 0; font-weight: 800; color: var(--color-primary); }
+
+.diploma-flow-wrap {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px; padding: 28px; margin-top: 24px;
+}
+.diploma-flow { list-style: none; padding: 0; margin: 0; display: flex; align-items: stretch; gap: 14px; }
+.diploma-flow-step {
+  flex: 1; display: flex; flex-direction: column; gap: 12px;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(0,108,75,0.04) 0%, rgba(26,59,93,0.03) 100%);
+  border: 1px solid rgba(0,108,75,0.10);
+  border-radius: 12px; min-width: 0;
+}
+.dfs-icon {
+  width: 56px; height: 56px; background: var(--color-surface);
+  border-radius: 14px; display: flex; align-items: center; justify-content: center;
+  color: var(--color-primary); box-shadow: 0 4px 12px rgba(0,108,75,0.10);
+}
+.dfs-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-primary); }
+.dfs-title { font-size: 17px; font-weight: 700; color: var(--color-text); margin-top: 2px; }
+.dfs-meta p { margin: 8px 0 0; font-size: 13.5px; line-height: 1.55; color: var(--color-muted); }
+.diploma-flow-arrow { align-self: center; font-size: 32px; font-weight: 600; color: var(--color-primary); opacity: 0.6; padding: 0 2px; }
+
+.diplomas-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 24px; }
+.diplomas-stat {
+  background: var(--color-surface); border: 1px solid var(--color-border);
+  border-radius: 14px; padding: 22px 20px;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 6px;
+}
+.diplomas-stat-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: rgba(0,108,75,0.10); color: var(--color-primary);
+  display: flex; align-items: center; justify-content: center; margin-bottom: 6px;
+}
+.diplomas-stat-value { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; color: var(--color-primary); line-height: 1; }
+.diplomas-stat-label { font-size: 12.5px; line-height: 1.45; color: var(--color-muted); }
+
+.diplomas-cta {
+  display: grid; grid-template-columns: 1fr auto;
+  align-items: center; gap: 24px;
+  padding: 28px 32px; margin-top: 24px;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  border-radius: 16px; color: #fff;
+}
+.diplomas-cta .eyebrow { color: rgba(255,255,255,0.7); margin-bottom: 6px; }
+.diplomas-cta .section-title { margin: 0 0 4px; color: #fff; font-size: 22px; }
+.diplomas-cta p { margin: 0; font-size: 14px; color: rgba(255,255,255,0.85); }
+.diplomas-cta .cta {
+  background: #fff; color: var(--color-primary);
+  border: 0; padding: 12px 22px; border-radius: 999px;
+  font-weight: 700; font-family: inherit; cursor: pointer;
+  white-space: nowrap; transition: transform 0.2s ease;
+  text-decoration: none; display: inline-block;
+}
+.diplomas-cta .cta:hover { transform: translateY(-1px); }
+
+/* ============================================================
+   ATUALIDADES — feed público (actual-* classes from ui_kit)
+   ============================================================ */
+.atual-filter { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 22px; }
+.atual-filter-tab {
+  background: var(--color-surface); border: 1px solid var(--color-border);
+  border-radius: 999px; padding: 8px 14px 8px 16px;
+  font: inherit; font-size: 13px; font-weight: 600;
+  color: var(--color-muted); cursor: pointer;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all 0.2s ease;
+}
+.atual-filter-tab:hover { border-color: var(--color-primary); color: var(--color-primary); }
+.atual-filter-tab.is-active { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
+.atual-filter-count {
+  font-size: 11px; padding: 2px 8px; border-radius: 999px;
+  background: rgba(0,108,75,0.10); color: var(--color-primary); font-weight: 700;
+}
+.atual-filter-tab.is-active .atual-filter-count { background: rgba(255,255,255,0.18); color: #fff; }
+
+.atual-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 700; padding: 4px 10px;
+  border-radius: 999px; background: var(--color-bg);
+  border: 1px solid var(--color-border); color: var(--color-text);
+}
+.atual-tag-youtube   { color: #b91c1c; border-color: rgba(185,28,28,0.20); background: rgba(185,28,28,0.06); }
+.atual-tag-linkedin  { color: #0a66c2; border-color: rgba(10,102,194,0.20); background: rgba(10,102,194,0.06); }
+.atual-tag-instagram { color: #c026d3; border-color: rgba(192,38,211,0.20); background: rgba(192,38,211,0.06); }
+.atual-tag-podcast   { color: #b45309; border-color: rgba(180,83,9,0.20); background: rgba(180,83,9,0.06); }
+.atual-tag-press     { color: var(--color-secondary); border-color: rgba(26,59,93,0.20); background: rgba(26,59,93,0.06); }
+
+.atual-feed { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+.atual-card {
+  background: var(--color-surface); border: 1px solid var(--color-border);
+  border-radius: 14px; overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.atual-card:hover { transform: translateY(-3px); border-color: rgba(0,108,75,0.20); box-shadow: 0 14px 30px rgba(0,108,75,0.10); }
+
+.atual-embed { position: relative; aspect-ratio: 16 / 9; background: #000; }
+.atual-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+
+.atual-podcast-player {
+  display: grid; grid-template-columns: 56px 1fr auto;
+  gap: 14px; align-items: center; padding: 16px;
+  background: linear-gradient(135deg, rgba(180,83,9,0.06) 0%, rgba(180,83,9,0.02) 100%);
+  border-bottom: 1px solid var(--color-border);
+}
+.atual-podcast-art {
+  width: 56px; height: 56px; border-radius: 10px;
+  background: linear-gradient(135deg, #b45309 0%, #92400e 100%);
+  color: #fff; display: flex; align-items: center; justify-content: center;
+}
+.atual-podcast-info { min-width: 0; }
+.atual-podcast-source { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #b45309; margin-bottom: 2px; }
+.atual-podcast-title { font-size: 13.5px; font-weight: 600; color: var(--color-text); margin-bottom: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.atual-podcast-play { width: 44px; height: 44px; border-radius: 50%; background: #b45309; color: #fff; border: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 14px rgba(180,83,9,0.30); transition: transform 0.2s ease; }
+.atual-podcast-play:hover { transform: scale(1.08); }
+
+.atual-press-link { display: block; text-decoration: none; color: inherit; }
+.atual-press-image { aspect-ratio: 16 / 9; overflow: hidden; background: #e8eef2; }
+.atual-press-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.atual-social-link {
+  text-decoration: none; color: inherit;
+  padding: 18px 18px 8px;
+  display: flex; flex-direction: column; gap: 12px;
+  border-bottom: 1px solid var(--color-border);
+}
+.atual-card-linkedin  .atual-social-link { background: linear-gradient(135deg, rgba(10,102,194,0.05) 0%, rgba(10,102,194,0.01) 100%); }
+.atual-card-instagram .atual-social-link { background: linear-gradient(135deg, rgba(192,38,211,0.05) 0%, rgba(245,158,11,0.04) 100%); }
+.atual-social-header { display: flex; align-items: center; justify-content: space-between; }
+.atual-social-platform { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; }
+.atual-card-linkedin  .atual-social-platform { color: #0a66c2; }
+.atual-card-instagram .atual-social-platform { color: #c026d3; }
+.atual-social-handle { font-size: 12px; color: var(--color-muted); font-weight: 600; }
+.atual-social-body p { margin: 0; font-size: 14px; line-height: 1.5; color: var(--color-text); }
+.atual-social-cta { display: inline-block; margin-top: 8px; font-size: 12.5px; font-weight: 700; color: var(--color-primary); }
+
+.atual-meta { padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.atual-meta-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.atual-date { font-size: 11.5px; color: var(--color-muted); font-weight: 600; }
+.atual-title { margin: 0; font-size: 16px; line-height: 1.35; font-weight: 700; color: var(--color-text); letter-spacing: -0.005em; }
+.atual-desc { margin: 0; font-size: 13.5px; line-height: 1.55; color: var(--color-muted); }
+.atual-source { margin-top: auto; font-size: 11.5px; color: var(--color-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.10em; }
+.atual-empty { grid-column: 1 / -1; padding: 60px 20px; text-align: center; color: var(--color-muted); font-size: 14px; background: var(--color-surface); border: 1px dashed var(--color-border); border-radius: 14px; }
+
+/* ============================================================
+   RESPONSIVE — novos componentes
+   ============================================================ */
+@media (max-width: 900px) {
+  .casos-strip { grid-template-columns: repeat(2, 1fr); }
+  .diploma-flow { flex-direction: column; }
+  .diploma-flow-arrow { transform: rotate(90deg); }
+  .diplomas-stats { grid-template-columns: repeat(2, 1fr); }
+  .diplomas-cta { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .casos-strip { grid-template-columns: repeat(2, 1fr); }
+  .casos-timeline-item { grid-template-columns: 48px 1fr; gap: 12px; }
+  .diplomas-stats { grid-template-columns: 1fr 1fr; }
+  .atual-feed { grid-template-columns: 1fr; }
+}

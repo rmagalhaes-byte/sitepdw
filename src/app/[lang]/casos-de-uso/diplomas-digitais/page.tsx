@@ -1,9 +1,7 @@
-import Image from "next/image";
-import { SectionHeading } from "@/components/ui/SectionHeading";
-import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { LeadFormSection } from "@/components/sections/LeadFormSection";
+import Link from "next/link";
 import { getDictionary } from "@/i18n/dictionaries";
 import { Locale } from "@/i18n/config";
+import { LeadFormSection } from "@/components/sections/LeadFormSection";
 import type { Metadata } from "next";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
@@ -22,126 +20,276 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 export default async function DiplomasPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   const dict = await getDictionary(lang as Locale);
+  const isPt = lang === "pt";
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": dict.diplomas.heading.title,
-            "description": dict.diplomas.heading.subtitle,
-            "provider": {
-              "@type": "Organization",
-              "name": "Portuguese Digital Wallet"
-            },
+            "name": isPt ? "Diplomas Digitais PDW" : "PDW Digital Diplomas",
+            "description": isPt
+              ? "Emissão e verificação instantânea de diplomas académicos com tecnologia W3C VC e EBSI."
+              : "Instant issuance and verification of academic diplomas using W3C VC and EBSI technology.",
+            "provider": { "@type": "Organization", "name": "Portuguese Digital Wallet" },
             "areaServed": "PT",
             "serviceType": "Digital Identity Verification"
           })
         }}
       />
-      <AnimatedSection>
-        <section className="section-card">
-          <SectionHeading
-            title={dict.diplomas.heading.title}
-            subtitle={dict.diplomas.heading.subtitle}
-          />
 
-          {/* Flow Image */}
-          {dict.diplomas.flowImage && (
-            <div style={{
-              margin: '24px 0',
-              borderRadius: '12px',
-              overflow: 'hidden',
-              border: '1px solid rgba(0, 108, 75, 0.08)',
-              boxShadow: '0 4px 16px rgba(0, 0, 0, 0.04)',
-            }}>
-              <Image
-                src={dict.diplomas.flowImage.image}
-                alt={dict.diplomas.flowImage.alt}
-                width={1200}
-                height={600}
-                style={{ width: '100%', height: 'auto', display: 'block' }}
-              />
-            </div>
-          )}
+      <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
 
-          <div className="grid-3" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', marginTop: '24px' }}>
-            <article className="section-card" style={{
-              background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.04) 0%, rgba(239, 68, 68, 0.02) 100%)',
-              borderColor: 'rgba(239, 68, 68, 0.12)',
-              borderLeft: '4px solid rgba(239, 68, 68, 0.5)',
-            }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                <span style={{ fontSize: '20px' }}>⚠️</span>
-                <h4 style={{ color: '#991b1b', margin: 0 }}>{dict.diplomas.problem.title}</h4>
-              </div>
-              <p style={{ fontSize: '14px', lineHeight: 1.6, color: 'var(--color-muted)' }}>{dict.diplomas.problem.text}</p>
-            </article>
-            <article className="section-card" style={{
-              background: 'linear-gradient(135deg, rgba(0, 108, 75, 0.04) 0%, rgba(16, 185, 129, 0.03) 100%)',
-              borderColor: 'rgba(0, 108, 75, 0.12)',
-              borderLeft: '4px solid var(--color-primary)',
-            }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                <span style={{ fontSize: '20px' }}>✅</span>
-                <h4 style={{ color: 'var(--color-primary)', margin: 0 }}>{dict.diplomas.solution.title}</h4>
-              </div>
-              <p style={{ fontSize: '14px', lineHeight: 1.6, color: 'var(--color-muted)' }}>{dict.diplomas.solution.text}</p>
-            </article>
+        {/* ── Back link ── */}
+        <Link href={`/${lang}/casos-de-uso`} className="page-back">
+          ← {isPt ? "Casos de uso" : "Use Cases"}
+        </Link>
+
+        {/* ── Page hero ── */}
+        <header className="page-hero">
+          <span className="eyebrow">
+            {isPt ? "Caso de uso · Em produção" : "Use case · In production"}
+          </span>
+          <h1 className="page-hero-title">
+            <span className="text-gradient">
+              {isPt ? "Diplomas digitais," : "Digital diplomas,"}
+            </span>
+            <br/>
+            {isPt ? "verificados em segundos." : "verified in seconds."}
+          </h1>
+          <p className="page-hero-lead">
+            {isPt ? (
+              <>A primeira aplicação operacional da PDW. Em colaboração com a Universidade do Minho,
+              a verificação académica passa de <strong>dias ou semanas</strong> para{" "}
+              <strong>segundos</strong>, sem perder validade jurídica nem reconhecimento europeu.</>
+            ) : (
+              <>PDW&apos;s first operational application. In collaboration with the University of Minho,
+              academic verification goes from <strong>days or weeks</strong> to{" "}
+              <strong>seconds</strong>, without losing legal validity or European recognition.</>
+            )}
+          </p>
+        </header>
+
+        {/* ── Problem / Solution ── */}
+        <section className="two-col">
+          <article className="section-card section-card-problem">
+            <span className="callout-tag callout-tag-problem">
+              {isPt ? "Problema" : "Problem"}
+            </span>
+            <h3 className="section-title">
+              {isPt
+                ? "O processo atual é lento e vulnerável"
+                : "The current process is slow and vulnerable"}
+            </h3>
+            <p>
+              {isPt
+                ? "A verificação de diplomas é, hoje, um processo manual, dependente de chamadas telefónicas e emails. Demora dias ou semanas, gera encargo administrativo significativo e está exposto a fraude documental."
+                : "Diploma verification today is a manual process, dependent on phone calls and emails. It takes days or weeks, generates significant administrative burden, and is exposed to document fraud."}
+            </p>
+            <ul className="problem-list">
+              {isPt ? (
+                <>
+                  <li>Verificação manual em <strong>5–15 dias</strong></li>
+                  <li>Dezenas de pedidos por semana por instituição</li>
+                  <li>Reconhecimento transfronteiriço quase impossível</li>
+                  <li>Risco real de diplomas falsificados</li>
+                </>
+              ) : (
+                <>
+                  <li>Manual verification in <strong>5–15 days</strong></li>
+                  <li>Dozens of requests per week per institution</li>
+                  <li>Cross-border recognition nearly impossible</li>
+                  <li>Real risk of forged diplomas</li>
+                </>
+              )}
+            </ul>
+          </article>
+
+          <article className="section-card section-card-solution">
+            <span className="callout-tag">
+              {isPt ? "Solução" : "Solution"}
+            </span>
+            <h3 className="section-title">
+              {isPt
+                ? "A Universidade emite, o aluno guarda, o verificador valida"
+                : "University issues, student holds, verifier validates"}
+            </h3>
+            <p>
+              {isPt
+                ? "Com a PDW, a universidade emite o diploma como credencial digital assinada criptograficamente. O estudante guarda-o na sua carteira. Quando se candidata a um emprego, o recrutador valida a autenticidade através de um simples QR Code."
+                : "With PDW, the university issues the diploma as a cryptographically signed digital credential. The student stores it in their wallet. When applying for a job, the recruiter validates authenticity via a simple QR Code."}
+            </p>
+            <ul className="solution-list">
+              {isPt ? (
+                <>
+                  <li>Verificação em <strong>segundos</strong> via QR Code</li>
+                  <li>Validação <strong>EBSI</strong> em toda a União Europeia</li>
+                  <li>Divulgação seletiva — só os campos necessários</li>
+                  <li>Conformidade <strong>W3C VC 2.0</strong> e <strong>eIDAS 2.0</strong></li>
+                </>
+              ) : (
+                <>
+                  <li>Verification in <strong>seconds</strong> via QR Code</li>
+                  <li><strong>EBSI</strong> validation across the European Union</li>
+                  <li>Selective disclosure — only the required fields</li>
+                  <li><strong>W3C VC 2.0</strong> and <strong>eIDAS 2.0</strong> compliance</li>
+                </>
+              )}
+            </ul>
+          </article>
+        </section>
+
+        {/* ── Flow visual ── */}
+        <section>
+          <header className="section-header">
+            <span className="eyebrow">{isPt ? "Fluxo end-to-end" : "End-to-end flow"}</span>
+            <h3 className="section-title">
+              {isPt
+                ? "Como funciona, do diploma à oferta de trabalho"
+                : "How it works, from diploma to job offer"}
+            </h3>
+          </header>
+          <div className="diploma-flow-wrap">
+            <ol className="diploma-flow">
+              <li className="diploma-flow-step">
+                <div className="dfs-icon" aria-hidden="true">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                    <path d="M6 12v5c0 2 4 3 6 3s6-1 6-3v-5"/>
+                  </svg>
+                </div>
+                <div className="dfs-meta">
+                  <div className="dfs-tag">{isPt ? "Passo 1" : "Step 1"}</div>
+                  <div className="dfs-title">{isPt ? "Universidade emite" : "University issues"}</div>
+                  <p>{isPt
+                    ? "A instituição assina criptograficamente o diploma e envia-o diretamente para a PDW do estudante."
+                    : "The institution cryptographically signs the diploma and sends it directly to the student's PDW."}</p>
+                </div>
+              </li>
+              <li className="diploma-flow-arrow" aria-hidden="true">→</li>
+              <li className="diploma-flow-step">
+                <div className="dfs-icon" aria-hidden="true">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="5" width="18" height="14" rx="3"/>
+                    <path d="M16 12h.01"/>
+                  </svg>
+                </div>
+                <div className="dfs-meta">
+                  <div className="dfs-tag">{isPt ? "Passo 2" : "Step 2"}</div>
+                  <div className="dfs-title">{isPt ? "Estudante guarda" : "Student stores"}</div>
+                  <p>{isPt
+                    ? "O diploma fica cifrado no dispositivo do utilizador. Ninguém — nem a universidade nem o Estado — pode aceder sem consentimento."
+                    : "The diploma is encrypted on the user's device. Nobody — not the university nor the state — can access it without consent."}</p>
+                </div>
+              </li>
+              <li className="diploma-flow-arrow" aria-hidden="true">→</li>
+              <li className="diploma-flow-step">
+                <div className="dfs-icon" aria-hidden="true">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M9 11l3 3 8-8"/>
+                    <path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h11"/>
+                  </svg>
+                </div>
+                <div className="dfs-meta">
+                  <div className="dfs-tag">{isPt ? "Passo 3" : "Step 3"}</div>
+                  <div className="dfs-title">{isPt ? "Recrutador verifica" : "Recruiter verifies"}</div>
+                  <p>{isPt
+                    ? "Leitura de um QR Code valida a assinatura junto da rede EBSI em segundos, sem contactar a universidade emissora."
+                    : "Scanning a QR Code validates the signature with the EBSI network in seconds, without contacting the issuing university."}</p>
+                </div>
+              </li>
+            </ol>
           </div>
         </section>
-      </AnimatedSection>
 
-      {/* Benefits */}
-      <AnimatedSection delay={0.15}>
-        <section className="section-card">
-          <h3>{dict.diplomas.benefits.title}</h3>
-          <div className="grid-3" style={{ marginTop: '16px', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))' }}>
-            <div style={{
-              padding: '20px',
-              borderRadius: '10px',
-              background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.06) 0%, rgba(16, 185, 129, 0.02) 100%)',
-              border: '1px solid rgba(16, 185, 129, 0.12)',
-              textAlign: 'center',
-            }}>
-              <div style={{ fontSize: '36px', marginBottom: '8px' }}>⚡</div>
-              <div style={{ fontWeight: 800, fontSize: '24px', color: '#10B981' }}>90%</div>
-              <p style={{ fontSize: '13px', color: 'var(--color-muted)', marginTop: '6px', lineHeight: 1.4 }}>{dict.diplomas.benefits.time}</p>
-            </div>
-            <div style={{
-              padding: '20px',
-              borderRadius: '10px',
-              background: 'linear-gradient(135deg, rgba(0, 108, 75, 0.06) 0%, rgba(0, 108, 75, 0.02) 100%)',
-              border: '1px solid rgba(0, 108, 75, 0.12)',
-              textAlign: 'center',
-            }}>
-              <div style={{ fontSize: '36px', marginBottom: '8px' }}>🛡️</div>
-              <div style={{ fontWeight: 800, fontSize: '24px', color: 'var(--color-primary)' }}>0%</div>
-              <p style={{ fontSize: '13px', color: 'var(--color-muted)', marginTop: '6px', lineHeight: 1.4 }}>{dict.diplomas.benefits.fraud}</p>
-            </div>
-            <div style={{
-              padding: '20px',
-              borderRadius: '10px',
-              background: 'linear-gradient(135deg, rgba(26, 59, 93, 0.06) 0%, rgba(26, 59, 93, 0.02) 100%)',
-              border: '1px solid rgba(26, 59, 93, 0.12)',
-              textAlign: 'center',
-            }}>
-              <div style={{ fontSize: '36px', marginBottom: '8px' }}>💰</div>
-              <div style={{ fontWeight: 800, fontSize: '18px', color: 'var(--color-secondary)' }}>
-                {lang === "pt" ? "Drástica" : "Drastic"}
+        {/* ── Stats ── */}
+        <section>
+          <header className="section-header">
+            <span className="eyebrow">{isPt ? "Impacto medido" : "Measured impact"}</span>
+            <h3 className="section-title">{isPt ? "Os números do piloto" : "Pilot numbers"}</h3>
+            <p className="section-deck">
+              {isPt
+                ? "Resultados estimados a partir dos pilotos institucionais com a Universidade do Minho."
+                : "Results estimated from institutional pilots with the University of Minho."}
+            </p>
+          </header>
+          <div className="diplomas-stats">
+            <div className="diplomas-stat">
+              <div className="diplomas-stat-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                </svg>
               </div>
-              <p style={{ fontSize: '13px', color: 'var(--color-muted)', marginTop: '6px', lineHeight: 1.4 }}>{dict.diplomas.benefits.cost}</p>
+              <div className="diplomas-stat-value">90 %</div>
+              <div className="diplomas-stat-label">
+                {isPt ? "Redução no tempo de verificação" : "Reduction in verification time"}
+              </div>
+            </div>
+            <div className="diplomas-stat">
+              <div className="diplomas-stat-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              </div>
+              <div className="diplomas-stat-value">0 %</div>
+              <div className="diplomas-stat-label">
+                {isPt ? "Risco de fraude documental académica" : "Academic document fraud risk"}
+              </div>
+            </div>
+            <div className="diplomas-stat">
+              <div className="diplomas-stat-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 1v22M17 5H9.5a3.5 3.5 0 1 0 0 7H14a3.5 3.5 0 1 1 0 7H6"/>
+                </svg>
+              </div>
+              <div className="diplomas-stat-value">−85 %</div>
+              <div className="diplomas-stat-label">
+                {isPt ? "Custos administrativos por verificação" : "Administrative costs per verification"}
+              </div>
+            </div>
+            <div className="diplomas-stat">
+              <div className="diplomas-stat-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M2 12h20"/>
+                  <path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/>
+                </svg>
+              </div>
+              <div className="diplomas-stat-value">27</div>
+              <div className="diplomas-stat-label">
+                {isPt ? "Estados-Membros onde é reconhecido" : "EU Member States where recognized"}
+              </div>
             </div>
           </div>
         </section>
-      </AnimatedSection>
-      
-      <AnimatedSection delay={0.2}>
+
+        {/* ── CTA ── */}
+        <section className="diplomas-cta">
+          <div>
+            <span className="eyebrow">
+              {isPt ? "Próximos passos" : "Next steps"}
+            </span>
+            <h3 className="section-title">
+              {isPt
+                ? "Quer implementar diplomas digitais na sua instituição?"
+                : "Want to implement digital diplomas at your institution?"}
+            </h3>
+            <p>
+              {isPt
+                ? "Marque uma sessão de demonstração de 30 minutos com a equipa da TecMinho."
+                : "Schedule a 30-minute demo session with the TecMinho team."}
+            </p>
+          </div>
+          <Link href={`/${lang}/contactos`} className="cta">
+            {isPt ? "Solicitar demonstração" : "Request a demo"}
+          </Link>
+        </section>
+
+        {/* ── Lead form ── */}
         <LeadFormSection dict={dict} />
-      </AnimatedSection>
-    </div>
+      </div>
+    </>
   );
 }

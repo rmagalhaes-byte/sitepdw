@@ -1,6 +1,3 @@
-// pdw-site-v2/src/app/[lang]/atualidades/page.tsx
-// Página pública /pt/atualidades e /en/atualidades.
-// Server Component — busca os posts iniciais e passa-os ao FeedMural cliente.
 import type { Metadata } from "next";
 import { listPosts, countPostsByType } from "@/lib/posts-db";
 import { FeedMural } from "@/components/atualidades/FeedMural";
@@ -26,7 +23,7 @@ export async function generateMetadata({
   };
 }
 
-export const revalidate = 60; // ISR de 1 min — feed quase real-time
+export const revalidate = 60;
 
 export default async function AtualidadesPage({
   params,
@@ -37,21 +34,25 @@ export default async function AtualidadesPage({
   const dict = await getDictionary(lang as Locale);
   const posts = listPosts({ status: "published", limit: 24 });
   const counts = countPostsByType("published");
+  const isPt = lang === "pt";
 
   return (
-    <main className="pdw-feed">
-      <header className="pdw-feed__hero">
-        <span className="pdw-feed__eyebrow">
-          <span className="pdw-feed__live-dot" /> {dict.feed?.live ?? "Em directo"}
-        </span>
-        <h1>{dict.feed?.title ?? "Atualidades"}</h1>
-        <p>
-          {dict.feed?.subtitle ??
-            "Tudo o que se passa na PDW, num só feed. Vídeos, podcasts, eventos e marcos — agregados das redes oficiais."}
+    <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+      <header className="page-hero">
+        <span className="eyebrow">{isPt ? "Atualidades" : "News"}</span>
+        <h1 className="page-hero-title">
+          <span className="text-gradient">
+            {isPt ? "A PDW em movimento." : "PDW in motion."}
+          </span>
+        </h1>
+        <p className="page-hero-lead">
+          {isPt
+            ? "Cobertura institucional, vídeos, podcasts e publicações em redes sociais. Atualizado diretamente pela equipa de comunicação da TecMinho via painel de administração."
+            : "Institutional coverage, videos, podcasts and social media posts. Updated directly by the TecMinho communications team via the administration panel."}
         </p>
       </header>
 
-      <FeedMural initialPosts={posts} counts={counts} />
-    </main>
+      <FeedMural initialPosts={posts} counts={counts} lang={lang as Locale} />
+    </div>
   );
 }
