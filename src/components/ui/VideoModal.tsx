@@ -68,7 +68,17 @@ export function VideoModal({
             <line x1="6" y1="6" x2="18" y2="18" />
           </svg>
         </button>
-        <video src={src} controls autoPlay playsInline className="video-modal-player" />
+        {src.includes('youtube.com/embed/') || src.includes('player.vimeo.com/video/') ? (
+          <iframe
+            src={src + (src.includes('?') ? '&' : '?') + 'autoplay=1'}
+            className="video-modal-player"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+            style={{ border: 0 }}
+          />
+        ) : (
+          <video src={src} controls autoPlay playsInline className="video-modal-player" />
+        )}
         <div className="video-modal-caption">{caption}</div>
       </div>
     </div>

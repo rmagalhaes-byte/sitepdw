@@ -58,18 +58,27 @@ export function LeadFormSection({ dict, initialEmail }: LeadFormSectionProps) {
     }
   };
 
-  if (isSubmitted) {
-    // Logic moved inside main return to preserve layout
-  }
-
   const inputStyle: React.CSSProperties = {
     display: "block",
     width: "100%",
-    padding: 12,
-    marginTop: 4,
+    padding: "11px 14px",
+    marginTop: 6,
     borderRadius: 8,
     border: "1px solid var(--color-border)",
+    background: "var(--color-bg)",
+    color: "var(--color-text)",
+    fontSize: 14,
+    fontFamily: "inherit",
+    outline: "none",
+    transition: "border-color 0.15s",
     boxSizing: "border-box",
+  };
+
+  const labelStyle: React.CSSProperties = {
+    display: "block",
+    fontSize: 13,
+    fontWeight: 600,
+    color: "var(--color-text)",
   };
 
   const errorStyle: React.CSSProperties = {
@@ -78,15 +87,11 @@ export function LeadFormSection({ dict, initialEmail }: LeadFormSectionProps) {
     marginTop: 4,
   };
 
-  const statusLabel = isSubmitted 
-    ? (dict.contacts.form.statusVerified || "Status: Verificado") 
-    : isSubmitting 
-      ? (dict.contacts.form.statusSending || "Status: A processar...") 
-      : (dict.contacts.form.statusWaiting || "Status: Aguardando Submissão");
-
   return (
     <section className="section-card" style={{ marginTop: 16 }}>
       <div className="lead-form-container">
+
+        {/* ── Left: form ── */}
         <div className="form-content">
           {isSubmitted ? (
             <motion.div
@@ -94,13 +99,13 @@ export function LeadFormSection({ dict, initialEmail }: LeadFormSectionProps) {
               animate={{ opacity: 1, y: 0 }}
               className="success-message-inner"
             >
-              <div style={{ marginBottom: "20px", color: "var(--color-primary)" }}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <div style={{ marginBottom: 20, color: "var(--color-primary)" }}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
               </div>
-              <h3>Olá {nameValue || "ali"}!</h3>
-              <p style={{ color: "var(--color-muted)", marginBottom: "24px" }}>
-                A sua jornada com a <strong>Portuguese Digital Wallet</strong> começou.
-                O pedido para a <strong>{institutionValue || "sua instituição"}</strong> foi registado.
+              <h3 style={{ marginTop: 0 }}>Obrigado, {nameValue || ""}!</h3>
+              <p style={{ color: "var(--color-muted)", marginBottom: 24, lineHeight: 1.6 }}>
+                O pedido para a <strong>{institutionValue || "sua instituição"}</strong> foi
+                registado. A nossa equipa entrará em contacto brevemente.
               </p>
               <button className="cta btn-secondary" onClick={() => setIsSubmitted(false)}>
                 Enviar outra mensagem
@@ -108,38 +113,37 @@ export function LeadFormSection({ dict, initialEmail }: LeadFormSectionProps) {
             </motion.div>
           ) : (
             <>
-              <h3 style={{ marginTop: 0 }}>{dict.contacts.heading.title}</h3>
-              <p style={{ color: "var(--color-muted)", marginBottom: 24 }}>
+              <p style={{ color: "var(--color-muted)", marginTop: 0, marginBottom: 28, fontSize: 15, lineHeight: 1.6 }}>
                 {dict.contacts.invite}
               </p>
 
-              <form className="simple-list" onSubmit={handleSubmit(onSubmit)} noValidate>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
-                  <label style={{ display: "block" }}>
+              <form onSubmit={handleSubmit(onSubmit)} noValidate style={{ display: "grid", gap: 16 }}>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+                  <label style={labelStyle}>
                     {dict.contacts.form.name}
                     <input type="text" style={inputStyle} {...register("name")} placeholder="Seu nome completo" />
                     {errors.name && <span style={errorStyle}>{errors.name.message}</span>}
                   </label>
-                  <label style={{ display: "block" }}>
+                  <label style={labelStyle}>
                     {dict.contacts.form.institution}
                     <input type="text" style={inputStyle} {...register("institution")} placeholder="Nome da organização" />
                     {errors.institution && <span style={errorStyle}>{errors.institution.message}</span>}
                   </label>
                 </div>
 
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginTop: 12 }}>
-                  <label style={{ display: "block" }}>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+                  <label style={labelStyle}>
                     {dict.contacts.form.email}
                     <input type="email" style={inputStyle} {...register("email")} placeholder="exemplo@instituicao.pt" />
                     {errors.email && <span style={errorStyle}>{errors.email.message}</span>}
                   </label>
-                  <label style={{ display: "block" }}>
+                  <label style={labelStyle}>
                     {dict.contacts.form.subject}
                     <input type="text" style={inputStyle} {...register("subject")} placeholder="Assunto (opcional)" />
                   </label>
                 </div>
 
-                <label style={{ display: "block", marginTop: 12 }}>
+                <label style={labelStyle}>
                   {dict.contacts.form.message}
                   <textarea
                     rows={4}
@@ -151,41 +155,71 @@ export function LeadFormSection({ dict, initialEmail }: LeadFormSectionProps) {
                 </label>
 
                 {submitError && (
-                  <p style={{ color: "#ef4444", fontSize: 14, marginTop: 8 }}>{submitError}</p>
+                  <p style={{ color: "#ef4444", fontSize: 14, margin: 0 }}>{submitError}</p>
                 )}
 
-                <button
-                  type="submit"
-                  className="cta cta-disruptive"
-                  disabled={isSubmitting}
-                  style={{ width: "fit-content", marginTop: 20, padding: "14px 32px", cursor: isSubmitting ? "wait" : "pointer" }}
-                >
-                  {isSubmitting ? "A enviar…" : dict.contacts.form.submit}
-                </button>
+                <div>
+                  <button
+                    type="submit"
+                    className="cta cta-disruptive"
+                    disabled={isSubmitting}
+                    style={{ padding: "14px 36px", cursor: isSubmitting ? "wait" : "pointer", border: "none", fontFamily: "inherit", fontSize: 15 }}
+                  >
+                    {isSubmitting ? "A enviar…" : dict.contacts.form.submit + " →"}
+                  </button>
+                </div>
               </form>
             </>
           )}
         </div>
 
-        <div className="form-preview">
-          <div className={`pdw-badge-preview ${isSubmitted ? 'verified' : ''}`}>
+        {/* ── Right: badge + contact info ── */}
+        <div className="form-sidebar">
+
+          {/* Trust indicator */}
+          <div className="form-trust-bar">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Parceiro da Agenda <strong>Blockchain.PT</strong> · PRR 2026</span>
+          </div>
+
+          {/* Badge preview */}
+          <div className={`pdw-badge-preview ${isSubmitted ? "verified" : ""}`}>
             <div className="badge-header">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              PDW Preview Pass
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              PDW · Digital ID Pass
             </div>
+            <div className="badge-divider" />
             <div className="badge-name">{nameValue || "Seu Nome"}</div>
             <div className="badge-institution">{institutionValue || "Instituição"}</div>
+            <div className="badge-qr" aria-hidden="true">
+              {[1,0,1,1,0,1,0,1,1,0,0,1,0,1,1,0].map((filled, i) => (
+                <div key={i} className={`badge-qr-cell${filled ? " filled" : ""}`} />
+              ))}
+            </div>
             <div className="badge-status">
               {isSubmitted && (
-                <svg style={{ marginRight: 6 }} width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <svg style={{ marginRight: 5 }} width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
               )}
-              {statusLabel}
+              {isSubmitted ? "Status: Verificado" : "Status: Aguardando submissão"}
             </div>
             <div className="badge-footer">
-              Generated by Portuguese Digital Wallet Infrastructure
+              Portuguese Digital Wallet Infrastructure · EBSI Approved
             </div>
             {isSubmitted && <div className="badge-verified-seal">OFFICIAL</div>}
           </div>
+
+          {/* Contact info */}
+          <div className="form-contact-info">
+            <div className="form-contact-row">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>{dict.footer.address}</span>
+            </div>
+            <div className="form-contact-row">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <a href={`mailto:${dict.footer.email}`}>{dict.footer.email}</a>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

@@ -3,14 +3,17 @@ import type { NextRequest } from 'next/server';
 import { locales, defaultLocale } from './i18n/config';
 
 export function middleware(request: NextRequest) {
-  const { pathname, searchParams } = request.nextUrl;
+  const { pathname } = request.nextUrl;
 
   // ── Admin auth gate ───────────────────────────────────────────────────────
   if (/^\/(pt|en)\/admin(\/|$)/.test(pathname)) {
-    if (
-      process.env.NODE_ENV !== 'production' &&
-      searchParams.get('admin_dev') === '1'
-    ) {
+    // Login page is always accessible
+    if (/^\/(pt|en)\/admin\/login/.test(pathname)) {
+      return NextResponse.next();
+    }
+
+    // Dev: bypass auth entirely (no ?admin_dev=1 needed)
+    if (process.env.NODE_ENV !== 'production') {
       return NextResponse.next();
     }
 
@@ -23,8 +26,8 @@ export function middleware(request: NextRequest) {
 
     const lang = pathname.split('/')[1] || 'pt';
     const url = request.nextUrl.clone();
-    url.pathname = `/${lang}`;
-    url.searchParams.set('admin_denied', '1');
+    url.pathname = `/${lang}/admin/login`;
+    url.search = '';
     return NextResponse.redirect(url);
   }
 

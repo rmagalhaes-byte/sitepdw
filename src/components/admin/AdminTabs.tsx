@@ -2,9 +2,11 @@
 import Link from "next/link";
 
 const TABS = [
-  { id: "feed",   label: "Feed · Atualidades" },
-  { id: "videos", label: "Vídeos" },
-  { id: "logos",  label: "Logos" },
+  { id: "feed",     label: "Feed · Atualidades" },
+  { id: "videos",   label: "Vídeos" },
+  { id: "logos",    label: "Logos" },
+  { id: "sections", label: "Secções" },
+  { id: "stats",    label: "Estatísticas" },
 ];
 
 export function AdminTabs({ active }: { active: string }) {

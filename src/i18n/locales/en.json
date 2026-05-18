@@ -133,23 +133,66 @@
       "title": "Core Team",
       "subtitle": "Management, Technical Coordination and Strategy",
       "members": [
-        { "name": "Pedro Xavier", "role": "Management and Coordination" },
-        { "name": "Pedro Pereira", "role": "Technical Coordination" },
-        { "name": "Diogo Magalhães", "role": "Technical Coordination" },
-        { "name": "Miguel Marques", "role": "Development and Strategy" },
-        { "name": "Kim Peiter Jørgensen", "role": "Strategy" }
+        {
+          "name": "Pedro Xavier",
+          "role": "Management and Coordination"
+        },
+        {
+          "name": "Nuno Fernandes",
+          "role": "Technical Coordination"
+        },
+        {
+          "name": "Domingos Freitas",
+          "role": "Development"
+        },
+        {
+          "name": "Miguel Marques",
+          "role": "Development and Strategy"
+        },
+        {
+          "name": "Kim Peiter Jørgensen",
+          "role": "Strategy"
+        }
       ]
     },
     "partners": {
       "title": "Strategic Partners",
       "list": [
-        { "name": "TecMinho", "role": "Wallet Technology Lead", "description": "University of Minho's interface dedicated to knowledge transfer to the market, promoting innovation and entrepreneurship. Founded in 1990." },
-        { "name": "VOID Software", "role": "Blockchain.PT Agenda Lead" },
-        { "name": "INESC-ID", "role": "R&D and Interoperability" },
-        { "name": "INESC TEC", "role": "R&D and Interoperability" },
-        { "name": "IST / IST-ID", "role": "R&D and Interoperability" },
-        { "name": "TICE.PT", "role": "Institutional Partner" },
-        { "name": "University of Minho", "role": "Institutional Partner", "description": "Public higher education institution focused on excellence in education, research and active cooperation with society." }
+        {
+          "name": "TecMinho",
+          "role": "Wallet Technology Lead",
+          "description": "University of Minho's interface dedicated to knowledge transfer to the market, promoting innovation and entrepreneurship. Founded in 1990."
+        },
+        {
+          "name": "VOID Software",
+          "role": "Blockchain.PT Agenda Lead",
+          "description": "Established in July 2017, dedicated to software development services, namely tailor-made solutions using a wide range of technologies in collaboration with multidisciplinary teams. In the consortium, it assumes global leadership of the Agenda and project management."
+        },
+        {
+          "name": "INESC-ID",
+          "role": "R&D and Interoperability",
+          "description": "Institute of Systems and Computer Engineering, Research and Development in Lisbon. In the project, it leads the Interoperability work package (WP7), responsible for designing and implementing technical and semantic interoperability layers (blockchain gateways) to connect the different systems of the Agenda."
+        },
+        {
+          "name": "INESC TEC",
+          "role": "R&D and Interoperability",
+          "description": "Institute of Systems and Computer Engineering, Technology and Science. Its contribution focuses on technological research and development, including the design and prototyping of IoT solutions such as innovative identifiers (ear tags) with sensors and blockchain-integrated communication for livestock traceability."
+        },
+        {
+          "name": "IST / IST-ID",
+          "role": "R&D and Interoperability",
+          "description": "Comprising Instituto Superior Técnico and the IST Association for Research and Development. They contribute to the project through research, participating in preliminary studies, state-of-the-art reviews, and development of the interoperability and digital asset management layer."
+        },
+        {
+          "name": "TICE.PT",
+          "role": "Institutional Partner",
+          "description": "Association for the Information, Communication and Electronics Technologies Cluster. In the consortium, it leads the Innovation Management, Dissemination, Exploitation and Demonstration area (WP8), aiming to widely disseminate the knowledge generated to target communities and promote the innovation ecosystem."
+        },
+        {
+          "name": "University of Minho",
+          "role": "Institutional Partner",
+          "description": "Public higher education institution focused on excellence in education, research and active cooperation with society."
+        }
       ]
     },
     "governance": {
@@ -172,16 +215,37 @@
     },
     "flow": {
       "title": "How It Works",
-      "step1": { "label": "Issuance", "text": "The authorized entity (e.g., University) issues the credential to your PDW." },
-      "step2": { "label": "Storage", "text": "The credential is saved securely and encrypted on your local device." },
-      "step3": { "label": "Sharing", "text": "You decide what data to share via a QR Code or secure link." },
-      "step4": { "label": "Verification", "text": "The verifier validates the authenticity of the credential in seconds via EBSI blockchain." }
+      "step1": {
+        "label": "Issuance",
+        "text": "The authorized entity (e.g., University) issues the credential to your PDW."
+      },
+      "step2": {
+        "label": "Storage",
+        "text": "The credential is saved securely and encrypted on your local device."
+      },
+      "step3": {
+        "label": "Sharing",
+        "text": "You decide what data to share via a QR Code or secure link."
+      },
+      "step4": {
+        "label": "Verification",
+        "text": "The verifier validates the authenticity of the credential in seconds via EBSI blockchain."
+      }
     },
     "features": {
       "title": "Main Features",
-      "interoperability": { "label": "Native Interoperability", "text": "Fully aligned with the European reference framework (EUID Wallet), enabling use across the entire European Union." },
-      "security": { "label": "Maximum Security", "text": "Based on blockchain trust models and private keys stored on your device." },
-      "privacy": { "label": "Privacy by Design", "text": "Data is processed locally. The user is the only one who decides who can access their information." }
+      "interoperability": {
+        "label": "Native Interoperability",
+        "text": "Fully aligned with the European reference framework (EUID Wallet), enabling use across the entire European Union."
+      },
+      "security": {
+        "label": "Maximum Security",
+        "text": "Based on blockchain trust models and private keys stored on your device."
+      },
+      "privacy": {
+        "label": "Privacy by Design",
+        "text": "Data is processed locally. The user is the only one who decides who can access their information."
+      }
     },
     "technicalStandards": {
       "title": "Technical Standards",
@@ -229,7 +293,7 @@
   },
   "contactCTA": {
     "title": "Ready to integrate PDW?",
-    "subtitle": "Leave your institutional email and our team will get in touch within 48 hours.",
+    "subtitle": "Leave your institutional email and our team will get in touch shortly.",
     "placeholder": "Your institutional email",
     "button": "Request a demo"
   },
@@ -239,7 +303,7 @@
       "subtitle": "Want to implement PDW in your institution or participate in the ecosystem?"
     },
     "invite": "Our team of experts is available to discuss pilot programs and institutional integrations.",
-    "afterContact": "After submitting the form, our team will get in touch within 48 hours to schedule a personalized demonstration session.",
+    "afterContact": "After submitting the form, our team will get in touch to schedule a personalised demonstration session.",
     "form": {
       "name": "Name",
       "institution": "Institution",
@@ -370,10 +434,26 @@
       "title": "The scale of the consortium that makes PDW possible.",
       "footer": "Funded by PRR · NextGenerationEU · Institutional coordination by TecMinho",
       "stats": [
-        { "num": "72.9", "suffix": "M€", "label": "Total consortium\ninvestment" },
-        { "num": "26",   "suffix": "",   "label": "Innovative products\non the Agenda" },
-        { "num": "378",  "suffix": "",   "label": "Professionals\nmobilised" },
-        { "num": "44",   "suffix": "",   "label": "Entities · 24 SMEs\n15 RTOs · 5 Public" }
+        {
+          "num": "72.9",
+          "suffix": "M€",
+          "label": "Total consortium\ninvestment"
+        },
+        {
+          "num": "26",
+          "suffix": "",
+          "label": "Innovative products\non the Agenda"
+        },
+        {
+          "num": "378",
+          "suffix": "",
+          "label": "Professionals\nmobilised"
+        },
+        {
+          "num": "44",
+          "suffix": "",
+          "label": "Entities · 24 SMEs\n15 RTOs · 5 Public"
+        }
       ]
     }
   },

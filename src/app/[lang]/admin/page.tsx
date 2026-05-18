@@ -10,6 +10,7 @@ import { listPosts } from "@/lib/posts-db";
 import { PostsManager } from "@/components/admin/PostsManager";
 import { MediaLibrary } from "@/components/admin/MediaLibrary";
 import { AdminTabs } from "@/components/admin/AdminTabs";
+import { SectionsManager } from "@/components/admin/SectionsManager";
 
 export const metadata: Metadata = {
   title: "Administração | PDW",
@@ -39,14 +40,28 @@ export default async function AdminPage({
 
       <AdminTabs active={tab} />
 
-      {tab === "feed"   && <PostsManager initialPosts={initialPosts} />}
-      {tab === "videos" && <MediaLibrary kind="video" title="Biblioteca de vídeos" />}
-      {tab === "logos"  && (
+      {tab === "feed"     && <PostsManager initialPosts={initialPosts} />}
+      {tab === "videos"   && <MediaLibrary kind="video" title="Biblioteca de vídeos" slotOptions={["homepage-demo"]} />}
+      {tab === "sections" && <SectionsManager />}
+      {tab === "logos"    && (
         <MediaLibrary
           kind="logo"
           title="Logos de parceiros e financiadores"
           slotOptions={["header", "footer-partners", "trustbar", "funders"]}
         />
+      )}
+      {tab === "stats" && (
+        <div className="admin-card admin-stats-placeholder">
+          <div className="admin-card__head"><h2>Estatísticas</h2></div>
+          <div style={{ padding: "48px 24px", textAlign: "center", color: "var(--color-muted)" }}>
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" style={{ margin: "0 auto 16px", display: "block", opacity: 0.4 }}>
+              <path d="M12 2l2 7 7 2-7 2-2 7-2-7-7-2 7-2z"/>
+            </svg>
+            <p style={{ margin: 0, fontSize: 14, fontWeight: 600 }}>
+              Métricas por post (vistas, likes, tempo no feed) — disponível na fase 2.
+            </p>
+          </div>
+        </div>
       )}
     </>
   );

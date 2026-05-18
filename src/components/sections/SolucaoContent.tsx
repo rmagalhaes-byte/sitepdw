@@ -1,17 +1,22 @@
-/**
- * pdw-site-v2/src/components/sections/SolucaoContent.tsx
- *
- * ATUALIZADO (PR2): usa FlowImage em vez do array `flowSteps`. O
- * fluxo passa a ser servido como infográfico oficial em vez de cards.
- */
 import { TrustTriangle } from "@/components/sections/TrustTriangle";
 import { FlowImage } from "@/components/sections/FlowImage";
+import { GitHubSection } from "@/components/sections/GitHubSection";
+import { getSectionEnabled, getSectionContent } from "@/lib/sections-db";
+import type { GitHubContent } from "@/components/sections/GitHubSection";
 
 interface SolucaoContentProps {
   dict: any;
+  lang: string;
 }
 
-export function SolucaoContent({ dict }: SolucaoContentProps) {
+export function SolucaoContent({ dict, lang }: SolucaoContentProps) {
+  let githubEnabled = true;
+  let githubContent: GitHubContent | null = null;
+  try {
+    githubEnabled = getSectionEnabled('github');
+    githubContent = getSectionContent<GitHubContent>('github');
+  } catch { /* DB ainda não inicializada na primeira renderização */ }
+
   return (
     <>
       {/* Wallet + VCs intro */}
@@ -39,7 +44,7 @@ export function SolucaoContent({ dict }: SolucaoContentProps) {
         <TrustTriangle />
       </section>
 
-      {/* Flow — agora usa o infográfico Como-funciona.png */}
+      {/* Flow — infográfico Como-funciona.png */}
       <section>
         <header className="section-header">
           <span className="page-hero-eyebrow">Como funciona</span>
@@ -69,6 +74,9 @@ export function SolucaoContent({ dict }: SolucaoContentProps) {
           </article>
         </div>
       </section>
+
+      {/* GitHub / Open Source — controlado pela BD */}
+      {githubEnabled && <GitHubSection lang={lang} content={githubContent} />}
     </>
   );
 }

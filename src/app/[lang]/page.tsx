@@ -19,6 +19,7 @@ import { ContactCTA } from "@/components/sections/ContactCTA";
 import { getDictionary } from "@/i18n/dictionaries";
 import { Locale } from "@/i18n/config";
 import type { Metadata } from "next";
+import { getMediaBySlot } from "@/lib/posts-db";
 
 export async function generateMetadata({
   params,
@@ -53,6 +54,12 @@ export default async function HomePage({
   const { lang } = await params;
   const dict = await getDictionary(lang as Locale);
 
+  let videoSrc = "/concept_video.mp4";
+  try {
+    const demoMedia = getMediaBySlot("homepage-demo");
+    if (demoMedia?.public_path) videoSrc = demoMedia.public_path;
+  } catch { /* DB ainda não inicializada */ }
+
   return (
     <>
       <script
@@ -77,7 +84,7 @@ export default async function HomePage({
           }),
         }}
       />
-      <HomeHero lang={lang as Locale} dict={dict} />
+      <HomeHero lang={lang as Locale} dict={dict} videoSrc={videoSrc} />
       <TrustBar dict={dict} />
       <PullQuote lang={lang as Locale} dict={dict} />
       <ValuePillars lang={lang as Locale} />

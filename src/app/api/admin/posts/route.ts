@@ -10,8 +10,7 @@ function requireAdmin(req: NextRequest): NextResponse | null {
   const cookie = req.cookies.get('pdw_admin')?.value;
   const expected = process.env.PDW_ADMIN_TOKEN;
   // Permitir DEV bypass (mesmo critério do middleware)
-  const devBypass = process.env.NODE_ENV !== 'production'
-    && req.nextUrl.searchParams.get('admin_dev') === '1';
+  const devBypass = process.env.NODE_ENV !== 'production';
   if (devBypass) return null;
   if (!expected || cookie !== expected) {
     return NextResponse.json({ error: 'unauthorized' }, { status: 401 });

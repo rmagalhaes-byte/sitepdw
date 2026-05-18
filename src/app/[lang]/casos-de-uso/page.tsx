@@ -56,8 +56,8 @@ export default async function CasosPage({ params }: { params: Promise<{ lang: st
         </h1>
         <p className="page-hero-lead">
           {lang === "pt"
-            ? "A PDW está hoje operacional em diplomas universitários e em desenvolvimento ativo em cinco frentes adicionais. Cada caso de uso é construído em parceria com instituições portuguesas reais e validado contra os referenciais europeus."
-            : "PDW is today operational in university diplomas and in active development across five additional fronts. Each use case is built in partnership with real Portuguese institutions and validated against European frameworks."}
+            ? "A PDW tem o seu primeiro piloto operacional com diplomas universitários e está em desenvolvimento ativo em cinco frentes adicionais. Cada caso de uso é construído em parceria com instituições portuguesas reais e validado contra os referenciais europeus."
+            : "PDW has its first operational pilot with university diplomas and is in active development across five additional fronts. Each use case is built in partnership with real Portuguese institutions and validated against European frameworks."}
         </p>
       </header>
 
@@ -84,17 +84,17 @@ export default async function CasosPage({ params }: { params: Promise<{ lang: st
           </span>
           <h2 className="diploma-case-title">
             {lang === "pt"
-              ? <>A Universidade do Minho<br/>já emite diplomas digitais.</>
-              : <>University of Minho<br/>now issues digital diplomas.</>}
+              ? <>A Universidade do Minho<br/>a lançar os primeiros diplomas digitais.</>
+              : <>University of Minho<br/>launching its first digital diplomas.</>}
           </h2>
           <p className="diploma-case-lead">
             {lang === "pt" ? (
-              <>A primeira aplicação operacional da PDW. <strong>~12 000 diplomas/ano</strong> emitidos
-              no formato W3C Verifiable Credential, assinados com chave <code>did:ebsi</code> e
+              <>A primeira aplicação piloto da PDW. Capacidade estimada de <strong>~12 000 diplomas/ano</strong> no
+              formato W3C Verifiable Credential, assinados com chave <code>did:ebsi</code> e
               reconhecidos em <strong>27 Estados-Membros</strong> sem novos acordos bilaterais.</>
             ) : (
-              <>PDW&apos;s first operational application. <strong>~12,000 diplomas/year</strong> issued
-              in W3C Verifiable Credential format, signed with a <code>did:ebsi</code> key and
+              <>PDW&apos;s first operational pilot. Capacity for <strong>~12,000 diplomas/year</strong> in
+              W3C Verifiable Credential format, signed with a <code>did:ebsi</code> key and
               recognized across <strong>27 EU Member States</strong> without new bilateral agreements.</>
             )}
           </p>

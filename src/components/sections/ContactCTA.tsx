@@ -1,7 +1,4 @@
-"use client";
-
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { Locale } from "@/i18n/config";
 
 interface ContactCTAProps {
@@ -10,66 +7,62 @@ interface ContactCTAProps {
 }
 
 export function ContactCTA({ lang, dict }: ContactCTAProps) {
-  const [email, setEmail] = useState("");
-  const router = useRouter();
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email.trim()) return;
-    router.push(`/${lang}/contactos?email=${encodeURIComponent(email.trim())}`);
-  };
-
   return (
-    <section className="section-card" style={{ marginTop: 16, textAlign: "center" }}>
-      <h2 style={{ margin: "0 0 10px", fontSize: "clamp(1.4rem, 3vw, 1.9rem)" }}>
-        {dict.contactCTA.title}
-      </h2>
-      <p style={{ color: "var(--color-muted)", margin: "0 auto 28px", maxWidth: 480, lineHeight: 1.6 }}>
-        {dict.contactCTA.subtitle}
-      </p>
-      <form
-        onSubmit={handleSubmit}
-        style={{
-          display: "flex",
-          gap: 12,
-          justifyContent: "center",
-          flexWrap: "wrap",
-          maxWidth: 520,
-          margin: "0 auto",
-        }}
-      >
-        <input
-          type="email"
-          required
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder={dict.contactCTA.placeholder}
+    <section
+      className="diploma-case-section"
+      style={{
+        marginTop: 16,
+        background: "linear-gradient(135deg, #006c4b 0%, #1a3b5d 100%)",
+        borderRadius: 16,
+        padding: "28px 32px",
+        display: "grid",
+        gridTemplateColumns: "1fr auto",
+        gap: 32,
+        alignItems: "center",
+        border: "none",
+        overflow: "hidden",
+        position: "relative",
+      }}
+    >
+      <div style={{ position: "absolute", top: -40, right: -40, width: 200, height: 200, background: "radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
+      <div style={{ position: "relative", zIndex: 1 }}>
+        <span style={{
+          display: "inline-block",
+          fontSize: 11, fontWeight: 700,
+          textTransform: "uppercase", letterSpacing: "0.14em",
+          color: "rgba(255,255,255,0.65)",
+          marginBottom: 8,
+        }}>
+          Próximo passo
+        </span>
+        <h2 style={{ margin: "0 0 8px", color: "#fff", fontSize: "clamp(1.2rem, 2.5vw, 1.6rem)", fontWeight: 800, lineHeight: 1.2 }}>
+          {dict.contactCTA.title}
+        </h2>
+        <p style={{ margin: 0, color: "rgba(255,255,255,0.72)", fontSize: 15, lineHeight: 1.6, maxWidth: 540 }}>
+          {dict.contactCTA.subtitle}
+        </p>
+      </div>
+      <div style={{ position: "relative", zIndex: 1, flexShrink: 0 }}>
+        <Link
+          href={`/${lang}/contactos`}
           style={{
-            flex: "1 1 260px",
-            padding: "13px 16px",
-            borderRadius: 8,
-            border: "1px solid var(--color-border)",
-            background: "var(--color-surface, var(--color-bg))",
-            color: "var(--color-text)",
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 6,
+            background: "#fff",
+            color: "#006c4b",
+            fontWeight: 700,
             fontSize: 15,
-            outline: "none",
-          }}
-        />
-        <button
-          type="submit"
-          className="cta cta-disruptive"
-          style={{
-            border: "none",
-            cursor: "pointer",
-            fontFamily: "inherit",
-            fontSize: "14px",
-            padding: "13px 28px",
+            padding: "14px 28px",
+            borderRadius: 999,
+            textDecoration: "none",
             whiteSpace: "nowrap",
+            transition: "opacity 0.2s",
           }}
         >
-          {dict.contactCTA.button}
-        </button>
-      </form>
+          {dict.contactCTA.button} →
+        </Link>
+      </div>
     </section>
   );
 }

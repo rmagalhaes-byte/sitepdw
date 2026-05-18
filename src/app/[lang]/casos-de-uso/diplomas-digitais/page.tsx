@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { getDictionary } from "@/i18n/dictionaries";
 import { Locale } from "@/i18n/config";
-import { LeadFormSection } from "@/components/sections/LeadFormSection";
 import type { Metadata } from "next";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
@@ -287,8 +286,6 @@ export default async function DiplomasPage({ params }: { params: Promise<{ lang:
           </Link>
         </section>
 
-        {/* ── Lead form ── */}
-        <LeadFormSection dict={dict} />
       </div>
     </>
   );

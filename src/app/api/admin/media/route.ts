@@ -6,8 +6,7 @@ import { listMedia } from '@/lib/posts-db';
 export async function GET(req: NextRequest) {
   const cookie = req.cookies.get('pdw_admin')?.value;
   const expected = process.env.PDW_ADMIN_TOKEN;
-  const devBypass = process.env.NODE_ENV !== 'production'
-    && req.nextUrl.searchParams.get('admin_dev') === '1';
+  const devBypass = process.env.NODE_ENV !== 'production';
   if (!devBypass && (!expected || cookie !== expected)) {
     return NextResponse.json({ error: 'unauthorized' }, { status: 401 });
   }

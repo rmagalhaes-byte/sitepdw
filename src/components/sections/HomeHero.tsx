@@ -22,9 +22,10 @@ import type { Locale } from "@/i18n/config";
 interface HomeHeroProps {
   dict: any;
   lang: Locale;
+  videoSrc?: string;
 }
 
-export function HomeHero({ dict, lang }: HomeHeroProps) {
+export function HomeHero({ dict, lang, videoSrc = "/concept_video.mp4" }: HomeHeroProps) {
   const [videoOpen, setVideoOpen] = useState(false);
 
   return (
@@ -37,7 +38,7 @@ export function HomeHero({ dict, lang }: HomeHeroProps) {
       <VideoModal
         open={videoOpen}
         onClose={() => setVideoOpen(false)}
-        src="/concept_video.mp4"
+        src={videoSrc}
         caption={
           lang === "pt"
             ? "Vídeo conceito · Portuguese Digital Wallet"

@@ -11,7 +11,7 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { Locale } from "@/i18n/config";
 import type { Metadata } from "next";
 
-export const revalidate = 86400;
+export const revalidate = 60;
 
 export async function generateMetadata({
   params,
@@ -66,7 +66,7 @@ export default async function SolucaoPage({
           )
         }
       />
-      <SolucaoContent dict={dict} />
+      <SolucaoContent dict={dict} lang={lang} />
     </AnimatedSection>
   );
 }

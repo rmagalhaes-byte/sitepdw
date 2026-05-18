@@ -223,3 +223,16 @@ export function addMedia(m: Omit<MediaItem, 'id' | 'created_at' | 'uses'>): Medi
 export function deleteMedia(id: number): boolean {
   return db.prepare(`DELETE FROM media WHERE id=?`).run(id).changes > 0;
 }
+
+export function getMediaBySlot(slot: string): MediaItem | null {
+  return (db.prepare(`SELECT * FROM media WHERE slot=? ORDER BY created_at DESC LIMIT 1`).get(slot) as MediaItem | undefined) ?? null;
+}
+
+export function updateMediaSlot(id: number, slot: string | null): MediaItem | null {
+  const tx = db.transaction(() => {
+    if (slot) db.prepare(`UPDATE media SET slot=NULL WHERE slot=?`).run(slot);
+    db.prepare(`UPDATE media SET slot=? WHERE id=?`).run(slot, id);
+  });
+  tx();
+  return (db.prepare(`SELECT * FROM media WHERE id=?`).get(id) as MediaItem | undefined) ?? null;
+}
