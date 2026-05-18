@@ -8,6 +8,7 @@ const TABS = [
   { id: "sections",   label: "Secções" },
   { id: "contactos",  label: "Contactos" },
   { id: "stats",      label: "Estatísticas" },
+  { id: "changelog",  label: "Changelog" },
 ];
 
 export function AdminTabs({ active }: { active: string }) {
