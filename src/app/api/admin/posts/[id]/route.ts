@@ -1,6 +1,8 @@
 // pdw-site-v2/src/app/api/admin/posts/[id]/route.ts
 // PATCH + DELETE individual.
 import { NextRequest, NextResponse } from 'next/server';
+
+export const dynamic = 'force-dynamic';
 import { updatePost, deletePost } from '@/lib/posts-db';
 
 function requireAdmin(req: NextRequest): NextResponse | null {

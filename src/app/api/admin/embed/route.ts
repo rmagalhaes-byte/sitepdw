@@ -2,6 +2,8 @@
 // Recebe um URL, detecta provider e tenta enriquecer com título/duração via
 // oEmbed público. Usado pelo /admin para a pré-visualização ao colar um link.
 import { NextRequest, NextResponse } from 'next/server';
+
+export const dynamic = 'force-dynamic';
 import { detectEmbed, enrichEmbed } from '@/lib/embed-parser';
 
 export async function POST(req: NextRequest) {

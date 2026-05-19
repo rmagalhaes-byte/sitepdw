@@ -1,6 +1,8 @@
 // pdw-site-v2/src/app/api/admin/media/route.ts
 // Listar media (já existe POST para upload em ./upload/route.ts).
 import { NextRequest, NextResponse } from 'next/server';
+
+export const dynamic = 'force-dynamic';
 import { listMedia } from '@/lib/posts-db';
 
 export async function GET(req: NextRequest) {

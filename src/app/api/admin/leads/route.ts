@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
+
+export const dynamic = 'force-dynamic';
 import { listLeads, countLeads } from '@/lib/leads-db';
 import { buildLeadConfirmationHtml } from '@/lib/emails/LeadConfirmationEmail';
 import { buildAdminLeadHtml } from '@/lib/emails/AdminLeadEmail';

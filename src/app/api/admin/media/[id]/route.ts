@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { deleteMedia, updateMediaSlot } from '@/lib/posts-db';
 
+export const dynamic = 'force-dynamic';
+
 function requireAdmin(req: NextRequest): NextResponse | null {
   if (process.env.NODE_ENV !== 'production') return null;
   const cookie = req.cookies.get('pdw_admin')?.value;

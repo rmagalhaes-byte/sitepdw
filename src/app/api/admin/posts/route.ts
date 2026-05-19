@@ -4,6 +4,8 @@
 // mas /api/admin/* fica fora do matcher (excluído por `(?!api)`). Revalidamos
 // aqui o cookie para fechar a porta.
 import { NextRequest, NextResponse } from 'next/server';
+
+export const dynamic = 'force-dynamic';
 import { createPost, listPosts, countPostsByType, PostStatus, PostType } from '@/lib/posts-db';
 
 function requireAdmin(req: NextRequest): NextResponse | null {

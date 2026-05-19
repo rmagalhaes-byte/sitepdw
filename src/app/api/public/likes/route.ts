@@ -1,6 +1,8 @@
 // pdw-site-v2/src/app/api/public/likes/route.ts
 // Like/unlike anónimo. Visitor identity = hash(ip + user-agent + salt).
 import { NextRequest, NextResponse } from 'next/server';
+
+export const dynamic = 'force-dynamic';
 import { toggleLike, hashVisitor } from '@/lib/posts-db';
 
 export async function POST(req: NextRequest) {

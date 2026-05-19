@@ -2,6 +2,8 @@
 // Endpoint público (sem auth) para o feed em /atualidades.
 // Devolve apenas posts publicados, com paginação simples.
 import { NextRequest, NextResponse } from 'next/server';
+
+export const dynamic = 'force-dynamic';
 import { listPosts, countPostsByType, PostType } from '@/lib/posts-db';
 
 export async function GET(req: NextRequest) {
