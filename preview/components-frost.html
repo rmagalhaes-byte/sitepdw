@@ -1,0 +1,46 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Frosted surface</title><link rel="stylesheet" href="_card.css"></head><body>
+<style>
+  body {
+    padding: 24px; margin: 0;
+    background: #006c4b url('../assets/Imagem-home.png') center/cover no-repeat;
+    min-height: 100vh;
+    position: relative;
+  }
+  body::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,108,75,0.55) 0%, rgba(26,59,93,0.55) 100%);
+  }
+  .stack { position: relative; display: flex; flex-direction: column; gap: 18px; max-width: 620px; }
+  .frost {
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(0,108,75,0.10);
+    border-radius: 14px;
+    padding: 18px;
+  }
+  .frost.dark {
+    background: rgba(21, 42, 62, 0.55);
+    border-color: rgba(255,255,255,0.10);
+    color: #fff;
+  }
+  .label { font-size: 11px; color: #3d4a42; font-family: ui-monospace, Menlo, monospace; margin-top: 8px; }
+  .dark .label { color: rgba(255,255,255,0.7); }
+  h4 { margin: 0; font-size: 16px; font-weight: 700; color: #006c4b; }
+  .dark h4 { color: #22A66B; }
+  p { margin: 6px 0 0; font-size: 14px; color: #3d4a42; line-height: 1.5; }
+  .dark p { color: rgba(255,255,255,0.85); }
+</style>
+<div class="stack">
+  <div class="frost">
+    <h4>Sticky header · 0.85 white</h4>
+    <p>backdrop-filter: blur(16px) · border 1px rgba(0,108,75,0.10)</p>
+    <div class="label">rgba(255,255,255,.85) + blur 16</div>
+  </div>
+  <div class="frost dark">
+    <h4>Dark surface · 0.55 navy</h4>
+    <p>Simulator on dark / footer panels.</p>
+    <div class="label">rgba(21,42,62,.55) + blur 16</div>
+  </div>
+</div>
+</body></html>

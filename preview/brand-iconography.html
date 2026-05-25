@@ -1,0 +1,39 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Iconography</title><link rel="stylesheet" href="_card.css"></head><body>
+<style>
+  body { padding: 22px 24px; }
+  .grid { display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+  .col { background:#fff; border:1px solid #d1d9e0; border-radius: 12px; padding: 14px; display:flex; flex-direction:column; gap:10px; }
+  .head { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: #006c4b; }
+  .row { display:flex; align-items:center; gap: 14px; color: #006c4b; }
+  .row svg { color: #006c4b; }
+  .em { font-size: 24px; line-height: 1; }
+  .arrow { font-size: 22px; font-weight: 700; color:#006c4b; }
+  .note { font-size: 10.5px; color:#3d4a42; font-family: ui-monospace, Menlo, monospace; }
+</style>
+<div class="grid">
+  <div class="col">
+    <div class="head">Stroke SVG (Lucide-style)</div>
+    <div class="row">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+    </div>
+    <div class="note">stroke 2 · round caps · currentColor</div>
+  </div>
+  <div class="col">
+    <div class="head">Emoji · category only</div>
+    <div class="row">
+      <span class="em">🎓</span><span class="em">🪪</span><span class="em">📜</span><span class="em">🏥</span><span class="em">🌱</span>
+    </div>
+    <div class="note">use-case + pillar icons only · never in prose</div>
+  </div>
+  <div class="col">
+    <div class="head">Unicode · learn-more</div>
+    <div class="row">
+      <span class="arrow">→</span><span style="color:#006c4b;font-weight:700">Saber mais →</span>
+    </div>
+    <div class="note">U+2192 trailing affordance</div>
+  </div>
+</div>
+</body></html>

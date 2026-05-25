@@ -1,0 +1,22 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Dark mode</title><link rel="stylesheet" href="_card.css"></head><body style="background:#0E1E2E;">
+<style>
+  .pal { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .sw {
+    border-radius: 12px;
+    padding: 14px;
+    aspect-ratio: 1.4 / 1;
+    display: flex; flex-direction: column; justify-content: space-between;
+    color: #E8F4F0;
+    border: 1px solid rgba(255,255,255,0.04);
+  }
+  .sw .name { font-size: 12px; font-weight: 700; }
+  .sw .hex  { font-size: 11px; font-family: ui-monospace, Menlo, monospace; opacity: 0.85; }
+</style>
+<div class="pal">
+  <div class="sw" style="background:#0E1E2E"><div class="name">Bg</div><div class="hex">#0E1E2E</div></div>
+  <div class="sw" style="background:#152A3E"><div class="name">Surface</div><div class="hex">#152A3E</div></div>
+  <div class="sw" style="background:#1A3347"><div class="name">Card</div><div class="hex">#1A3347</div></div>
+  <div class="sw" style="background:#22A66B"><div class="name">Primary</div><div class="hex">#22A66B</div></div>
+  <div class="sw" style="background:#5b9bd5"><div class="name">Secondary</div><div class="hex">#5b9bd5</div></div>
+</div>
+</body></html>

@@ -7,7 +7,7 @@ import { AccessibilityWidget } from "@/components/ui/AccessibilityWidget";
 
 export const metadata: Metadata = {
   title: "Portuguese Digital Wallet by TecMinho",
-  description: "Site da Portuguese Digital Wallet - Aprovada pela EBSI",
+  description: "Site institucional da Portuguese Digital Wallet alinhado com eIDAS 2.0.",
   icons: {
     icon: '/pdw_icon.png',
     shortcut: '/pdw_icon.png',

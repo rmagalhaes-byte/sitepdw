@@ -1,0 +1,13 @@
+{
+  "feed": {
+    "live": "Live",
+    "title": "News",
+    "subtitle": "Everything happening at PDW, in one feed. Videos, podcasts, events and milestones — aggregated from official channels.",
+    "loadMore": "Load more",
+    "empty": "No posts of this kind yet.",
+    "share": "Share"
+  },
+  "nav": {
+    "news": "News"
+  }
+}

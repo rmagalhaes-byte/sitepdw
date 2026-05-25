@@ -1,81 +1,86 @@
+/**
+ * pdw-site-v2/src/components/ui/VideoModal.tsx
+ *
+ * NOVO. Modal de vídeo full-screen para o concept_video.mp4
+ * (substitui o `alert()` que estava na Hero antiga).
+ *
+ * Acessível: fecha com Esc, click no overlay, ou botão de fecho.
+ * Bloqueia scroll do body enquanto aberto.
+ */
 "use client";
 
-import { createPortal } from "react-dom";
+import { useEffect } from "react";
 
 interface VideoModalProps {
-  isOpen: boolean;
+  open: boolean;
   onClose: () => void;
-  videoSrc: string;
+  /** Caminho do vídeo. Default: /concept_video.mp4 (público) */
+  src?: string;
+  caption?: string;
 }
 
-export function VideoModal({ isOpen, onClose, videoSrc }: VideoModalProps) {
-  if (!isOpen || typeof document === 'undefined') return null;
+export function VideoModal({
+  open,
+  onClose,
+  src = "/concept_video.mp4",
+  caption = "Vídeo conceito · Portuguese Digital Wallet",
+}: VideoModalProps) {
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [open, onClose]);
 
-  // Garantir que a URL do YouTube usa a versão 'embed'
-  let embedUrl = videoSrc;
-  if (videoSrc.includes("youtube.com/shorts/")) {
-    const videoId = videoSrc.split("youtube.com/shorts/")[1]?.split("?")[0];
-    // Adicionando parâmetros para uma experiência mais limpa (modestbranding, rel, etc)
-    embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&modestbranding=1&rel=0&showinfo=0&controls=1`;
-  }
+  if (!open) return null;
 
-  return createPortal(
-    <div className="modal-overlay" onClick={onClose} style={{ zIndex: 9999 }}>
-      <div 
-        className="modal-content" 
-        onClick={(e) => e.stopPropagation()} 
-        style={{ 
-          maxWidth: '400px', // Mais estreito para formato Short (vertical)
-          width: '90%',
-          backgroundColor: '#000', 
-          padding: 0, 
-          border: 'none', 
-          position: 'relative',
-          borderRadius: '16px',
-          overflow: 'hidden'
-        }}
-      >
-        <button 
-          onClick={onClose} 
-          aria-label="Fechar"
-          style={{
-            position: 'absolute',
-            top: '10px',
-            right: '10px',
-            background: 'rgba(0,0,0,0.5)',
-            border: 'none',
-            color: 'white',
-            borderRadius: '50%',
-            width: '36px',
-            height: '36px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            cursor: 'pointer',
-            zIndex: 10
-          }}
+  return (
+    <div
+      className="video-modal-overlay"
+      onClick={onClose}
+      role="dialog"
+      aria-label="Vídeo conceito PDW"
+    >
+      <div className="video-modal" onClick={(e) => e.stopPropagation()}>
+        <button
+          className="video-modal-close"
+          onClick={onClose}
+          aria-label="Fechar vídeo"
+          type="button"
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
           </svg>
         </button>
-        
-        <iframe
-          src={embedUrl}
-          title="YouTube video player"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-          style={{ 
-            width: '100%', 
-            aspectRatio: '9/16', // Formato Short
-            display: 'block' 
-          }}
-        />
+        {src.includes('youtube.com/embed/') || src.includes('player.vimeo.com/video/') ? (
+          <iframe
+            src={src + (src.includes('?') ? '&' : '?') + 'autoplay=1'}
+            className="video-modal-player"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+            style={{ border: 0 }}
+          />
+        ) : (
+          <video src={src} controls autoPlay playsInline className="video-modal-player" />
+        )}
+        <div className="video-modal-caption">{caption}</div>
       </div>
-    </div>,
-    document.body
+    </div>
   );
 }
-

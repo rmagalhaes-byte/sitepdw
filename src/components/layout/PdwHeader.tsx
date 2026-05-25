@@ -4,18 +4,15 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Locale } from "@/i18n/config";
-import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { useState } from "react";
-import { ChangelogModal } from "@/components/ui/ChangelogModal";
 
 interface PdwHeaderProps {
   lang: Locale;
-  dict: any;
+  dict: Record<string, any>;
 }
 
 export function PdwHeader({ lang, dict }: PdwHeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isChangelogOpen, setIsChangelogOpen] = useState(false);
   const pathname = usePathname();
 
   const navItems = [
@@ -23,6 +20,7 @@ export function PdwHeader({ lang, dict }: PdwHeaderProps) {
     { href: `/${lang}/sobre`, label: dict.nav.about },
     { href: `/${lang}/solucao`, label: dict.nav.solution },
     { href: `/${lang}/casos-de-uso`, label: dict.nav.useCases },
+    { href: `/${lang}/atualidades`, label: dict.nav.news },
     { href: `/${lang}/contactos`, label: dict.nav.contacts }
   ];
 
@@ -59,7 +57,6 @@ export function PdwHeader({ lang, dict }: PdwHeaderProps) {
 
         {/* Right actions */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <ThemeToggle />
           <div className="lang-switcher" style={{ fontSize: '12px', fontWeight: 600 }}>
             {(() => {
               const currentPathWithoutLang = pathname?.replace(`/${lang}`, '') || '';
@@ -135,17 +132,6 @@ export function PdwHeader({ lang, dict }: PdwHeaderProps) {
                 </Link>
               );
             })}
-            {/* Mobile Version Badge */}
-            <button
-              onClick={() => {
-                setMenuOpen(false);
-                setIsChangelogOpen(true);
-              }}
-              className="mobile-nav-link"
-              style={{ color: '#38bdf8', fontWeight: 600, background: 'none', border: 'none', textAlign: 'left', width: '100%', cursor: 'pointer' }}
-            >
-              Changelog (v1.7.1)
-            </button>
           </nav>
         </div>
       )}

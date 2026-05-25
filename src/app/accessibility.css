@@ -70,8 +70,10 @@
   padding: 4px 8px;
   border: 1px solid var(--color-border);
   background: var(--color-bg);
+  color: var(--color-text);
   border-radius: 4px;
   font-size: 12px;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.2s;
 }
@@ -85,6 +87,23 @@
 .acc-control-btn.active {
   background: var(--color-primary);
   color: white;
+}
+
+/* Dark mode: make widget controls clearly visible */
+[data-theme="dark"] .accessibility-menu {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(42, 79, 110, 0.6);
+}
+
+[data-theme="dark"] .acc-control-btn {
+  border-color: var(--dark-border-strong, #2A4F6E);
+  background: rgba(14, 30, 46, 0.9);
+  color: var(--color-text);
+}
+
+[data-theme="dark"] .acc-control-btn:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
 }
 
 /* High Contrast Mode */
@@ -102,13 +121,13 @@
   border-bottom: 2px solid #000 !important;
 }
 
-/* Font Size Scaling */
-[data-font-size="large"] {
-  --font-size-body: 18px;
-  --font-size-h3: 28px;
+/* High contrast: footer forced to solid black so white text is always readable */
+[data-contrast="high"] .footer-disruptive {
+  background: #000 !important;
 }
 
-[data-font-size="xlarge"] {
-  --font-size-body: 20px;
-  --font-size-h3: 32px;
+[data-contrast="high"] .footer-disruptive,
+[data-contrast="high"] .footer-disruptive * {
+  color: #fff !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
 }

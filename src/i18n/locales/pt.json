@@ -4,6 +4,7 @@
     "about": "Sobre",
     "solution": "Solução",
     "useCases": "Casos de Uso",
+    "news": "Atualidades",
     "contacts": "Contactos",
     "cta": "Obter a App"
   },
@@ -25,7 +26,7 @@
     "compliance": {
       "title": "Conformidade Europeia",
       "icon": "🇪🇺",
-      "text": "Totalmente alinhada com as normas eIDAS 2.0 e a infraestrutura EBSI, garantindo validade em toda a União Europeia."
+      "text": "Totalmente alinhada com a infraestrutura EBSI e o quadro europeu de identidade digital, garantindo validade legal em toda a União Europeia."
     },
     "education": {
       "title": "Educação (caso real)",
@@ -41,10 +42,10 @@
   "trustBar": {
     "title": "Parceiros do ecossistema",
     "partners": [
+      "Universidade do Minho",
       "TecMinho",
-      "EBSI",
       "VOID Software",
-      "Universidade do Minho"
+      "EBSI"
     ]
   },
   "videoShowcase": {
@@ -131,23 +132,66 @@
       "title": "Equipa Core",
       "subtitle": "Gestão, Coordenação Técnica e Estratégia",
       "members": [
-        { "name": "Pedro Xavier", "role": "Gestão e Coordenação" },
-        { "name": "Pedro Pereira", "role": "Coordenação Técnica" },
-        { "name": "Diogo Magalhães", "role": "Coordenação Técnica" },
-        { "name": "Miguel Marques", "role": "Desenvolvimento e Estratégia" },
-        { "name": "Kim Peiter Jørgensen", "role": "Estratégia" }
+        {
+          "name": "Pedro Xavier",
+          "role": "Gestão e Coordenação"
+        },
+        {
+          "name": "Nuno Fernandes",
+          "role": "Coordenação Técnica"
+        },
+        {
+          "name": "Domingos Freitas",
+          "role": "Desenvolvimento"
+        },
+        {
+          "name": "Miguel Marques",
+          "role": "Desenvolvimento e Estratégia"
+        },
+        {
+          "name": "Kim Peiter Jørgensen",
+          "role": "Estratégia"
+        }
       ]
     },
     "partners": {
       "title": "Parceiros Estratégicos",
       "list": [
-        { "name": "TecMinho", "role": "Líder Tecnológico da Wallet", "description": "Interface da Universidade do Minho dedicada à transferência de conhecimento para o mercado, valorizando a inovação e o empreendedorismo. Criada em 1990." },
-        { "name": "VOID Software", "role": "Líder da Agenda Blockchain.PT" },
-        { "name": "INESC-ID", "role": "I&D e Interoperabilidade" },
-        { "name": "INESC TEC", "role": "I&D e Interoperabilidade" },
-        { "name": "IST / IST-ID", "role": "I&D e Interoperabilidade" },
-        { "name": "TICE.PT", "role": "Parceiro Institucional" },
-        { "name": "Universidade do Minho", "role": "Parceiro Institucional", "description": "Instituição pública de ensino superior focada na excelência da educação, investigação e cooperação ativa com a sociedade." }
+        {
+          "name": "TecMinho",
+          "role": "Líder Tecnológico da Wallet",
+          "description": "Interface da Universidade do Minho dedicada à transferência de conhecimento para o mercado, valorizando a inovação e o empreendedorismo. Criada em 1990."
+        },
+        {
+          "name": "VOID Software",
+          "role": "Líder da Agenda Blockchain.PT",
+          "description": "Estabelecida em julho de 2017, dedica-se à prestação de serviços de desenvolvimento de software, nomeadamente soluções à medida, utilizando um vasto leque de tecnologias e em colaboração com equipas multidisciplinares. No consórcio, assume a liderança global da Agenda e a gestão do projeto."
+        },
+        {
+          "name": "INESC-ID",
+          "role": "I&D e Interoperabilidade",
+          "description": "Instituto de Engenharia de Sistemas e Computadores, Investigação e Desenvolvimento em Lisboa. No âmbito do projeto, é a entidade líder do pacote de trabalho de Interoperabilidade (WP7), responsável por desenhar e implementar as camadas de interoperabilidade técnica e semântica (gateways de blockchain) para ligar os diferentes sistemas da Agenda."
+        },
+        {
+          "name": "INESC TEC",
+          "role": "I&D e Interoperabilidade",
+          "description": "Instituto de Engenharia de Sistemas e Computadores, Tecnologia e Ciência. A sua contribuição foca-se na investigação e desenvolvimento tecnológico, incluindo o desenho e prototipagem de soluções IoT, como por exemplo identificadores inovadores (ear tags) com sensores e comunicação integrados com a blockchain para rastreabilidade do gado."
+        },
+        {
+          "name": "IST / IST-ID",
+          "role": "I&D e Interoperabilidade",
+          "description": "Composto pelo Instituto Superior Técnico e pela Associação do IST para a Investigação e o Desenvolvimento. Atuam no projeto com contributos em investigação, participando nos estudos preliminares, no levantamento do estado da arte e no desenvolvimento da camada de interoperabilidade e gestão de ativos digitais."
+        },
+        {
+          "name": "TICE.PT",
+          "role": "Parceiro Institucional",
+          "description": "Associação para o Pólo das Tecnologias de Informação, Comunicação e Electrónica. No consórcio, atua como entidade líder na área de Gestão da Inovação, Disseminação, Exploração e Demonstração (WP8), garantindo a ampla divulgação do conhecimento gerado para as comunidades-alvo e promovendo o ecossistema de inovação."
+        },
+        {
+          "name": "Universidade do Minho",
+          "role": "Parceiro Institucional",
+          "description": "Instituição pública de ensino superior focada na excelência da educação, investigação e cooperação ativa com a sociedade."
+        }
       ]
     },
     "governance": {
@@ -170,16 +214,37 @@
     },
     "flow": {
       "title": "Como Funciona",
-      "step1": { "label": "Emissão", "text": "A entidade autorizada (ex: Universidade) emite a credencial para a sua PDW." },
-      "step2": { "label": "Armazenamento", "text": "A credencial é guardada de forma segura e cifrada no seu dispositivo local." },
-      "step3": { "label": "Partilha", "text": "Você decide que dados partilhar através de um QR Code ou ligação segura." },
-      "step4": { "label": "Verificação", "text": "O verificador valida a autenticidade da credencial em segundos via blockchain EBSI." }
+      "step1": {
+        "label": "Emissão",
+        "text": "A entidade autorizada (ex: Universidade) emite a credencial para a sua PDW."
+      },
+      "step2": {
+        "label": "Armazenamento",
+        "text": "A credencial é guardada de forma segura e cifrada no seu dispositivo local."
+      },
+      "step3": {
+        "label": "Partilha",
+        "text": "Você decide que dados partilhar através de um QR Code ou ligação segura."
+      },
+      "step4": {
+        "label": "Verificação",
+        "text": "O verificador valida a autenticidade da credencial em segundos via blockchain EBSI."
+      }
     },
     "features": {
       "title": "Características Principais",
-      "interoperability": { "label": "Interoperabilidade Nativa", "text": "Totalmente alinhada com o quadro de referência europeu (EUID Wallet), permitindo o uso em toda a União Europeia." },
-      "security": { "label": "Segurança Máxima", "text": "Baseada em modelos de confiança de blockchain e chaves privadas armazenadas no seu dispositivo." },
-      "privacy": { "label": "Privacidade por Design", "text": "Os dados são processados localmente. O utilizador é o único que decide quem pode aceder à sua informação." }
+      "interoperability": {
+        "label": "Interoperabilidade Nativa",
+        "text": "Totalmente alinhada com o quadro de referência europeu (EUID Wallet), permitindo o uso em toda a União Europeia."
+      },
+      "security": {
+        "label": "Segurança Máxima",
+        "text": "Baseada em modelos de confiança de blockchain e chaves privadas armazenadas no seu dispositivo."
+      },
+      "privacy": {
+        "label": "Privacidade por Design",
+        "text": "Os dados são processados localmente. O utilizador é o único que decide quem pode aceder à sua informação."
+      }
     },
     "technicalStandards": {
       "title": "Padrões Técnicos",
@@ -225,13 +290,19 @@
       "alt": "Fluxo de verificação de diplomas digitais: Universidade emite, Aluno guarda, Recrutador verifica"
     }
   },
+  "contactCTA": {
+    "title": "Pronto para integrar a PDW?",
+    "subtitle": "Deixe o seu email institucional e a nossa equipa entrará em contacto brevemente.",
+    "placeholder": "O seu email institucional",
+    "button": "Solicitar demonstração"
+  },
   "contacts": {
     "heading": {
       "title": "Contactos e Parcerias",
       "subtitle": "Quer implementar a PDW na sua instituição ou participar no ecossistema?"
     },
     "invite": "A nossa equipa de especialistas está disponível para discutir pilotos e integrações institucionais.",
-    "afterContact": "Após submeter o formulário, a nossa equipa entrará em contacto no prazo de 48 horas para agendar uma sessão de demonstração personalizada.",
+    "afterContact": "Após submeter o formulário, a nossa equipa entrará em contacto para agendar uma sessão de demonstração personalizada.",
     "form": {
       "name": "Nome",
       "institution": "Instituição",
@@ -247,22 +318,160 @@
     "dataCollected": "Dados recolhidos: Nome, Instituição, Email e Mensagem (apenas via formulário).",
     "purpose": "Finalidade: Resposta a pedidos de informação e parcerias.",
     "legalBase": "Base Legal: Consentimento do utilizador.",
-    "contact": "Para questões de privacidade: rmagalhaes@tecminho.uminho.pt"
+    "contact": "Para questões de privacidade: rmagalhaes@tecminho.uminho.pt",
+    "doc": {
+      "title": "Política de Privacidade",
+      "lastUpdated": "Maio de 2026",
+      "preamble": "A PDW respeita a sua soberania digital. Este site recolhe apenas os dados submetidos voluntariamente para fins de contacto institucional. Em conformidade com o RGPD, garantimos o direito de acesso, retificação e eliminação dos seus dados pessoais.",
+      "sections": [
+        {
+          "id": "dados-recolhidos",
+          "title": "Dados Recolhidos",
+          "body": [
+            "Recolhemos apenas os dados que submete voluntariamente através do formulário de contacto: Nome, Instituição, Endereço de Email e Mensagem.",
+            "Não recolhemos dados de navegação, não utilizamos cookies de rastreamento e não partilhamos quaisquer dados com terceiros para fins comerciais."
+          ]
+        },
+        {
+          "id": "finalidade",
+          "title": "Finalidade do Tratamento",
+          "body": [
+            "Os dados são utilizados exclusivamente para responder a pedidos de informação institucional e estabelecer parcerias no âmbito da Portuguese Digital Wallet.",
+            "Os seus dados não são utilizados para quaisquer fins de marketing, perfilização ou análise comercial."
+          ]
+        },
+        {
+          "id": "base-legal",
+          "title": "Base Legal",
+          "body": [
+            "O tratamento dos seus dados assenta no seu consentimento expresso, nos termos do Artigo 6.º, n.º 1, alínea a) do Regulamento Geral sobre a Proteção de Dados (RGPD).",
+            "Pode retirar o seu consentimento a qualquer momento, sem que tal afete a licitude do tratamento efetuado com base no consentimento previamente dado."
+          ]
+        },
+        {
+          "id": "direitos",
+          "title": "Os Seus Direitos",
+          "body": [
+            "Nos termos do RGPD, tem direito de acesso, retificação, apagamento, portabilidade, limitação e oposição ao tratamento dos seus dados pessoais.",
+            "Para exercer qualquer um destes direitos, contacte-nos através do endereço indicado abaixo. Respondemos no prazo máximo de 30 dias."
+          ]
+        },
+        {
+          "id": "seguranca",
+          "title": "Segurança dos Dados",
+          "body": [
+            "Adotamos medidas técnicas e organizativas adequadas para proteger os seus dados contra acesso não autorizado, alteração, divulgação ou destruição acidental ou ilícita."
+          ]
+        }
+      ],
+      "contact": "Para questões de privacidade ou exercício de direitos: rmagalhaes@tecminho.uminho.pt"
+    }
   },
   "terms": {
     "title": "Termos de Utilização",
     "text": "O conteúdo deste site é informativo. A utilização da marca PDW e conteúdos associados está sujeita a autorização prévia da TecMinho e parceiros do consórcio Agenda Blockchain.PT.",
     "liability": "Limitação de Responsabilidade: A informação é fornecida 'como está', sem garantias de atualização imediata em relação ao desenvolvimento técnico.",
-    "copyright": "Direitos de Autor: Todos os direitos reservados à TecMinho e parceiros."
+    "copyright": "Direitos de Autor: Todos os direitos reservados à TecMinho e parceiros.",
+    "doc": {
+      "title": "Termos de Utilização",
+      "lastUpdated": "Maio de 2026",
+      "preamble": "Ao aceder e utilizar o website da Portuguese Digital Wallet (PDW), concorda com os presentes Termos de Utilização. Leia-os atentamente antes de prosseguir.",
+      "sections": [
+        {
+          "id": "utilizacao",
+          "title": "Âmbito e Utilização",
+          "body": [
+            "Este website destina-se exclusivamente à divulgação de informação institucional sobre a Portuguese Digital Wallet, os seus serviços, parceiros e missão.",
+            "É proibida qualquer utilização que viole a legislação aplicável, os direitos de terceiros ou que prejudique a reputação da PDW, da TecMinho ou dos seus parceiros."
+          ]
+        },
+        {
+          "id": "propriedade-intelectual",
+          "title": "Propriedade Intelectual e Direitos de Autor",
+          "body": [
+            "Todos os conteúdos presentes neste site — incluindo textos, imagens, logótipos, gráficos e software — são propriedade da TecMinho e dos parceiros do consórcio Agenda Blockchain.PT, estando protegidos pela legislação de direitos de autor e propriedade intelectual.",
+            "A reprodução total ou parcial de qualquer conteúdo sem autorização prévia e escrita é expressamente proibida."
+          ]
+        },
+        {
+          "id": "responsabilidade",
+          "title": "Limitação de Responsabilidade",
+          "body": [
+            "A informação disponibilizada é fornecida 'tal como está', sem quaisquer garantias de completude, exatidão ou atualização imediata relativamente ao desenvolvimento técnico do projeto.",
+            "A TecMinho não se responsabiliza por eventuais danos diretos ou indiretos resultantes da utilização ou impossibilidade de utilização deste website."
+          ]
+        },
+        {
+          "id": "ligacoes",
+          "title": "Ligações Externas",
+          "body": [
+            "Este site pode conter ligações para websites de terceiros. Essas ligações são fornecidas apenas por conveniência e não implicam qualquer endosso ou responsabilidade pelo conteúdo dos mesmos."
+          ]
+        },
+        {
+          "id": "alteracoes",
+          "title": "Alterações aos Termos",
+          "body": [
+            "Reservamo-nos o direito de atualizar os presentes Termos de Utilização a qualquer momento. As alterações entram em vigor no momento da sua publicação neste site."
+          ]
+        }
+      ],
+      "contact": "Para questões relacionadas com os Termos de Utilização: rmagalhaes@tecminho.uminho.pt"
+    }
   },
   "footer": {
     "address": "TecMinho - Campus de Azurém, Guimarães, Portugal",
     "email": "rmagalhaes@tecminho.uminho.pt",
     "copyright": "© 2026 Portuguese Digital Wallet. Financiado por PRR & NextGenerationEU."
   },
+  "home": {
+    "pullquote": {
+      "figureNumber": "10%",
+      "figureLabel": "do PIB global\nem blockchain até 2027",
+      "quote": "A PDW transforma esta oportunidade numa <strong>vantagem soberana</strong>, garantindo que Portugal lidere a camada de valor da economia descentralizada — em vez de a consumir importada.",
+      "source": "Plano de Negócios · PDW",
+      "sourceRole": "Agenda «Descentralizar Portugal com Blockchain»",
+      "sourceCitation": "Projeção Fórum Económico Mundial"
+    },
+    "statsBanner": {
+      "eyebrow": "Agenda Blockchain.PT em números",
+      "title": "A escala do consórcio que torna a PDW possível.",
+      "footer": "Financiamento PRR · NextGenerationEU · Coordenação institucional pela TecMinho",
+      "stats": [
+        {
+          "num": "72,9",
+          "suffix": "M€",
+          "label": "Investimento total\ndo consórcio"
+        },
+        {
+          "num": "26",
+          "suffix": "",
+          "label": "Produtos inovadores\nna Agenda"
+        },
+        {
+          "num": "378",
+          "suffix": "",
+          "label": "Profissionais\nmobilizados"
+        },
+        {
+          "num": "44",
+          "suffix": "",
+          "label": "Entidades · 24 PME\n15 RTOs · 5 Estado"
+        }
+      ]
+    }
+  },
   "status": {
     "available": "Disponível",
     "development": "Em desenvolvimento",
     "research": "Em desenvolvimento"
+  },
+  "feed": {
+    "live": "Em directo",
+    "title": "Atualidades",
+    "subtitle": "Tudo o que se passa na PDW, num só feed. Vídeos, podcasts, eventos e marcos — agregados das redes oficiais.",
+    "loadMore": "Carregar mais",
+    "empty": "Ainda não há posts deste tipo.",
+    "share": "Partilhar"
   }
 }

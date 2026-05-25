@@ -1,0 +1,30 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Input field</title><link rel="stylesheet" href="_card.css"></head><body>
+<style>
+  body { padding: 24px; }
+  .stack { display:grid; gap: 14px; max-width: 520px; }
+  label { font-size: 13px; font-weight: 600; color:#181c1e; }
+  input {
+    width: 100%;
+    padding: 13px 16px;
+    border-radius: 8px;
+    border: 1px solid #d1d9e0;
+    background: #fff;
+    color: #181c1e;
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+  }
+  input:focus { border-color: #006c4b; box-shadow: 0 0 0 3px rgba(0,108,75,0.10); }
+  .row { display:flex; gap: 12px; flex-wrap: wrap; }
+  .cta { background: linear-gradient(135deg,#006c4b 0%,#009668 100%); box-shadow: 0 8px 20px rgba(0,108,75,0.30); color:#fff; border:0; border-radius: 8px; padding: 13px 28px; font-weight: 600; font-size: 14px; cursor:pointer; }
+  .meta { font-size: 11px; color: #3d4a42; font-family: ui-monospace, Menlo, monospace; }
+</style>
+<div class="stack">
+  <label>Email institucional</label>
+  <div class="row">
+    <input style="flex:1 1 260px" type="email" placeholder="o.seu@instituicao.pt">
+    <button class="cta">Solicitar demonstração</button>
+  </div>
+  <div class="meta">input · 13px 16px · radius 8 · 1px #d1d9e0 · focus = green ring</div>
+</div>
+</body></html>

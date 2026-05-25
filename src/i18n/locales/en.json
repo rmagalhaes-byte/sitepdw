@@ -4,6 +4,7 @@
     "about": "About",
     "solution": "Solution",
     "useCases": "Use Cases",
+    "news": "News",
     "contacts": "Contacts",
     "cta": "Get the App"
   },
@@ -25,7 +26,7 @@
     "compliance": {
       "title": "European Compliance",
       "icon": "🇪🇺",
-      "text": "Fully aligned with eIDAS 2.0 standards and EBSI infrastructure, ensuring validity across the European Union."
+      "text": "Fully aligned with the EBSI infrastructure and the European digital identity framework, ensuring legal validity across the European Union."
     },
     "education": {
       "title": "Education (Real Case)",
@@ -41,10 +42,10 @@
   "trustBar": {
     "title": "Ecosystem Partners",
     "partners": [
+      "University of Minho",
       "TecMinho",
-      "EBSI",
       "VOID Software",
-      "University of Minho"
+      "EBSI"
     ]
   },
   "videoShowcase": {
@@ -131,23 +132,66 @@
       "title": "Core Team",
       "subtitle": "Management, Technical Coordination and Strategy",
       "members": [
-        { "name": "Pedro Xavier", "role": "Management and Coordination" },
-        { "name": "Pedro Pereira", "role": "Technical Coordination" },
-        { "name": "Diogo Magalhães", "role": "Technical Coordination" },
-        { "name": "Miguel Marques", "role": "Development and Strategy" },
-        { "name": "Kim Peiter Jørgensen", "role": "Strategy" }
+        {
+          "name": "Pedro Xavier",
+          "role": "Management and Coordination"
+        },
+        {
+          "name": "Nuno Fernandes",
+          "role": "Technical Coordination"
+        },
+        {
+          "name": "Domingos Freitas",
+          "role": "Development"
+        },
+        {
+          "name": "Miguel Marques",
+          "role": "Development and Strategy"
+        },
+        {
+          "name": "Kim Peiter Jørgensen",
+          "role": "Strategy"
+        }
       ]
     },
     "partners": {
       "title": "Strategic Partners",
       "list": [
-        { "name": "TecMinho", "role": "Wallet Technology Lead", "description": "University of Minho's interface dedicated to knowledge transfer to the market, promoting innovation and entrepreneurship. Founded in 1990." },
-        { "name": "VOID Software", "role": "Blockchain.PT Agenda Lead" },
-        { "name": "INESC-ID", "role": "R&D and Interoperability" },
-        { "name": "INESC TEC", "role": "R&D and Interoperability" },
-        { "name": "IST / IST-ID", "role": "R&D and Interoperability" },
-        { "name": "TICE.PT", "role": "Institutional Partner" },
-        { "name": "University of Minho", "role": "Institutional Partner", "description": "Public higher education institution focused on excellence in education, research and active cooperation with society." }
+        {
+          "name": "TecMinho",
+          "role": "Wallet Technology Lead",
+          "description": "University of Minho's interface dedicated to knowledge transfer to the market, promoting innovation and entrepreneurship. Founded in 1990."
+        },
+        {
+          "name": "VOID Software",
+          "role": "Blockchain.PT Agenda Lead",
+          "description": "Established in July 2017, dedicated to software development services, namely tailor-made solutions using a wide range of technologies in collaboration with multidisciplinary teams. In the consortium, it assumes global leadership of the Agenda and project management."
+        },
+        {
+          "name": "INESC-ID",
+          "role": "R&D and Interoperability",
+          "description": "Institute of Systems and Computer Engineering, Research and Development in Lisbon. In the project, it leads the Interoperability work package (WP7), responsible for designing and implementing technical and semantic interoperability layers (blockchain gateways) to connect the different systems of the Agenda."
+        },
+        {
+          "name": "INESC TEC",
+          "role": "R&D and Interoperability",
+          "description": "Institute of Systems and Computer Engineering, Technology and Science. Its contribution focuses on technological research and development, including the design and prototyping of IoT solutions such as innovative identifiers (ear tags) with sensors and blockchain-integrated communication for livestock traceability."
+        },
+        {
+          "name": "IST / IST-ID",
+          "role": "R&D and Interoperability",
+          "description": "Comprising Instituto Superior Técnico and the IST Association for Research and Development. They contribute to the project through research, participating in preliminary studies, state-of-the-art reviews, and development of the interoperability and digital asset management layer."
+        },
+        {
+          "name": "TICE.PT",
+          "role": "Institutional Partner",
+          "description": "Association for the Information, Communication and Electronics Technologies Cluster. In the consortium, it leads the Innovation Management, Dissemination, Exploitation and Demonstration area (WP8), aiming to widely disseminate the knowledge generated to target communities and promote the innovation ecosystem."
+        },
+        {
+          "name": "University of Minho",
+          "role": "Institutional Partner",
+          "description": "Public higher education institution focused on excellence in education, research and active cooperation with society."
+        }
       ]
     },
     "governance": {
@@ -170,16 +214,37 @@
     },
     "flow": {
       "title": "How It Works",
-      "step1": { "label": "Issuance", "text": "The authorized entity (e.g., University) issues the credential to your PDW." },
-      "step2": { "label": "Storage", "text": "The credential is saved securely and encrypted on your local device." },
-      "step3": { "label": "Sharing", "text": "You decide what data to share via a QR Code or secure link." },
-      "step4": { "label": "Verification", "text": "The verifier validates the authenticity of the credential in seconds via EBSI blockchain." }
+      "step1": {
+        "label": "Issuance",
+        "text": "The authorized entity (e.g., University) issues the credential to your PDW."
+      },
+      "step2": {
+        "label": "Storage",
+        "text": "The credential is saved securely and encrypted on your local device."
+      },
+      "step3": {
+        "label": "Sharing",
+        "text": "You decide what data to share via a QR Code or secure link."
+      },
+      "step4": {
+        "label": "Verification",
+        "text": "The verifier validates the authenticity of the credential in seconds via EBSI blockchain."
+      }
     },
     "features": {
       "title": "Main Features",
-      "interoperability": { "label": "Native Interoperability", "text": "Fully aligned with the European reference framework (EUID Wallet), enabling use across the entire European Union." },
-      "security": { "label": "Maximum Security", "text": "Based on blockchain trust models and private keys stored on your device." },
-      "privacy": { "label": "Privacy by Design", "text": "Data is processed locally. The user is the only one who decides who can access their information." }
+      "interoperability": {
+        "label": "Native Interoperability",
+        "text": "Fully aligned with the European reference framework (EUID Wallet), enabling use across the entire European Union."
+      },
+      "security": {
+        "label": "Maximum Security",
+        "text": "Based on blockchain trust models and private keys stored on your device."
+      },
+      "privacy": {
+        "label": "Privacy by Design",
+        "text": "Data is processed locally. The user is the only one who decides who can access their information."
+      }
     },
     "technicalStandards": {
       "title": "Technical Standards",
@@ -225,13 +290,19 @@
       "alt": "Digital diploma verification flow: University issues, Student stores, Recruiter verifies"
     }
   },
+  "contactCTA": {
+    "title": "Ready to integrate PDW?",
+    "subtitle": "Leave your institutional email and our team will get in touch shortly.",
+    "placeholder": "Your institutional email",
+    "button": "Request a demo"
+  },
   "contacts": {
     "heading": {
       "title": "Contacts and Partnerships",
       "subtitle": "Want to implement PDW in your institution or participate in the ecosystem?"
     },
     "invite": "Our team of experts is available to discuss pilot programs and institutional integrations.",
-    "afterContact": "After submitting the form, our team will get in touch within 48 hours to schedule a personalized demonstration session.",
+    "afterContact": "After submitting the form, our team will get in touch to schedule a personalised demonstration session.",
     "form": {
       "name": "Name",
       "institution": "Institution",
@@ -247,13 +318,143 @@
     "dataCollected": "Collected data: Name, Institution, Email, and Message (form only).",
     "purpose": "Purpose: Responding to information requests and partnerships.",
     "legalBase": "Legal Basis: User consent.",
-    "contact": "For privacy inquiries: rmagalhaes@tecminho.uminho.pt"
+    "contact": "For privacy inquiries: rmagalhaes@tecminho.uminho.pt",
+    "doc": {
+      "title": "Privacy Policy",
+      "lastUpdated": "May 2026",
+      "preamble": "PDW respects your digital sovereignty. This site only collects data voluntarily submitted for institutional contact purposes. In compliance with GDPR, we guarantee the right of access, rectification, and deletion of your personal data.",
+      "sections": [
+        {
+          "id": "data-collected",
+          "title": "Data Collected",
+          "body": [
+            "We only collect data you voluntarily submit through the contact form: Name, Institution, Email Address, and Message.",
+            "We do not collect browsing data, do not use tracking cookies, and do not share any data with third parties for commercial purposes."
+          ]
+        },
+        {
+          "id": "purpose",
+          "title": "Purpose of Processing",
+          "body": [
+            "Data is used exclusively to respond to institutional information requests and establish partnerships within the scope of the Portuguese Digital Wallet.",
+            "Your data is not used for any marketing, profiling, or commercial analysis purposes."
+          ]
+        },
+        {
+          "id": "legal-basis",
+          "title": "Legal Basis",
+          "body": [
+            "The processing of your data is based on your explicit consent, pursuant to Article 6(1)(a) of the General Data Protection Regulation (GDPR).",
+            "You may withdraw your consent at any time, without affecting the lawfulness of processing carried out based on consent before its withdrawal."
+          ]
+        },
+        {
+          "id": "rights",
+          "title": "Your Rights",
+          "body": [
+            "Under the GDPR, you have the right to access, rectification, erasure, portability, restriction, and objection to the processing of your personal data.",
+            "To exercise any of these rights, please contact us at the address below. We will respond within a maximum of 30 days."
+          ]
+        },
+        {
+          "id": "security",
+          "title": "Data Security",
+          "body": [
+            "We adopt appropriate technical and organisational measures to protect your data against unauthorised access, alteration, disclosure, or accidental or unlawful destruction."
+          ]
+        }
+      ],
+      "contact": "For privacy inquiries or exercise of rights: rmagalhaes@tecminho.uminho.pt"
+    }
   },
   "terms": {
     "title": "Terms of Use",
     "text": "The content of this site is for information purposes. Use of the PDW brand and associated content is subject to prior authorization from TecMinho and Blockchain.PT Agenda partners.",
     "liability": "Limitation of Liability: Information is provided 'as is', without guarantees of immediate updates regarding technical development.",
-    "copyright": "Copyright: All rights reserved to TecMinho and partners."
+    "copyright": "Copyright: All rights reserved to TecMinho and partners.",
+    "doc": {
+      "title": "Terms of Use",
+      "lastUpdated": "May 2026",
+      "preamble": "By accessing and using the Portuguese Digital Wallet (PDW) website, you agree to these Terms of Use. Please read them carefully before proceeding.",
+      "sections": [
+        {
+          "id": "scope",
+          "title": "Scope and Use",
+          "body": [
+            "This website is intended exclusively for the dissemination of institutional information about the Portuguese Digital Wallet, its services, partners, and mission.",
+            "Any use that violates applicable law, third-party rights, or that damages the reputation of PDW, TecMinho, or its partners is prohibited."
+          ]
+        },
+        {
+          "id": "intellectual-property",
+          "title": "Intellectual Property and Copyright",
+          "body": [
+            "All content on this site — including texts, images, logos, graphics and software — is the property of TecMinho and the Blockchain.PT Agenda consortium partners, protected by copyright and intellectual property law.",
+            "Total or partial reproduction of any content without prior written authorisation is expressly prohibited."
+          ]
+        },
+        {
+          "id": "liability",
+          "title": "Limitation of Liability",
+          "body": [
+            "Information provided is offered 'as is', without any guarantees of completeness, accuracy, or immediate updates regarding the technical development of the project.",
+            "TecMinho is not responsible for any direct or indirect damages resulting from the use or inability to use this website."
+          ]
+        },
+        {
+          "id": "external-links",
+          "title": "External Links",
+          "body": [
+            "This site may contain links to third-party websites. These links are provided for convenience only and do not imply any endorsement or responsibility for their content."
+          ]
+        },
+        {
+          "id": "changes",
+          "title": "Changes to Terms",
+          "body": [
+            "We reserve the right to update these Terms of Use at any time. Changes take effect upon publication on this site."
+          ]
+        }
+      ],
+      "contact": "For questions related to the Terms of Use: rmagalhaes@tecminho.uminho.pt"
+    }
+  },
+  "home": {
+    "pullquote": {
+      "figureNumber": "10%",
+      "figureLabel": "of global GDP\non blockchain by 2027",
+      "quote": "PDW turns this opportunity into a <strong>sovereign advantage</strong>, ensuring Portugal leads the value layer of the decentralised economy — instead of importing it.",
+      "source": "Business Plan · PDW",
+      "sourceRole": "«Decentralise Portugal with Blockchain» Agenda",
+      "sourceCitation": "World Economic Forum projection"
+    },
+    "statsBanner": {
+      "eyebrow": "Blockchain.PT Agenda in numbers",
+      "title": "The scale of the consortium that makes PDW possible.",
+      "footer": "Funded by PRR · NextGenerationEU · Institutional coordination by TecMinho",
+      "stats": [
+        {
+          "num": "72.9",
+          "suffix": "M€",
+          "label": "Total consortium\ninvestment"
+        },
+        {
+          "num": "26",
+          "suffix": "",
+          "label": "Innovative products\non the Agenda"
+        },
+        {
+          "num": "378",
+          "suffix": "",
+          "label": "Professionals\nmobilised"
+        },
+        {
+          "num": "44",
+          "suffix": "",
+          "label": "Entities · 24 SMEs\n15 RTOs · 5 Public"
+        }
+      ]
+    }
   },
   "footer": {
     "address": "TecMinho - Azurém Campus, Guimarães, Portugal",
@@ -264,5 +465,13 @@
     "available": "Available",
     "development": "In Development",
     "research": "In Development"
+  },
+  "feed": {
+    "live": "Live",
+    "title": "News",
+    "subtitle": "Everything happening at PDW, in one feed. Videos, podcasts, events and milestones — aggregated from official channels.",
+    "loadMore": "Load more",
+    "empty": "No posts of this kind yet.",
+    "share": "Share"
   }
 }

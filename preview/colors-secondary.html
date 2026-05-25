@@ -1,0 +1,22 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Secondary palette</title><link rel="stylesheet" href="_card.css"></head><body>
+<style>
+  .pal { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .sw {
+    border-radius: 12px;
+    padding: 14px;
+    aspect-ratio: 1.4 / 1;
+    display: flex; flex-direction: column; justify-content: space-between;
+    border: 1px solid rgba(0,0,0,0.04);
+  }
+  .sw .name { font-size: 12px; font-weight: 700; letter-spacing: -0.01em; }
+  .sw .hex  { font-size: 11px; font-family: ui-monospace, Menlo, monospace; opacity: 0.85; }
+  .on-dark .name, .on-dark .hex { color: #fff; }
+</style>
+<div class="pal">
+  <div class="sw on-dark" style="background:#1a3b5d"><div class="name">Navy 900</div><div class="hex">#1a3b5d · secondary</div></div>
+  <div class="sw on-dark" style="background:#1e3a8a"><div class="name">Navy 700</div><div class="hex">#1e3a8a · research fg</div></div>
+  <div class="sw on-dark" style="background:#5b9bd5"><div class="name">Navy 500</div><div class="hex">#5b9bd5 · dark mode</div></div>
+  <div class="sw"      style="background:#dbeafe"><div class="name">Navy 50</div><div class="hex">#dbeafe · research bg</div></div>
+  <div class="sw"      style="background:linear-gradient(135deg,#006c4b 0%,#1a3b5d 100%);"><div class="name on-dark" style="color:#fff">Text gradient</div><div class="hex" style="color:#fff">135° green → navy</div></div>
+</div>
+</body></html>

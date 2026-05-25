@@ -5,20 +5,43 @@ import { locales, defaultLocale } from './i18n/config';
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Check if there is any supported locale in the pathname
+  // ── Admin auth gate ───────────────────────────────────────────────────────
+  if (/^\/(pt|en)\/admin(\/|$)/.test(pathname)) {
+    // Login page is always accessible
+    if (/^\/(pt|en)\/admin\/login/.test(pathname)) {
+      return NextResponse.next();
+    }
+
+    // Dev: bypass auth entirely (no ?admin_dev=1 needed)
+    if (process.env.NODE_ENV !== 'production') {
+      return NextResponse.next();
+    }
+
+    const cookie = request.cookies.get('pdw_admin')?.value;
+    const expected = process.env.PDW_ADMIN_TOKEN;
+
+    if (expected && cookie === expected) {
+      return NextResponse.next();
+    }
+
+    const lang = pathname.split('/')[1] || 'pt';
+    const url = request.nextUrl.clone();
+    url.pathname = `/${lang}/admin/login`;
+    url.search = '';
+    return NextResponse.redirect(url);
+  }
+
+  // ── i18n locale redirect ──────────────────────────────────────────────────
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
 
-  if (pathnameHasLocale) return;
+  if (pathnameHasLocale) return NextResponse.next();
 
-  // Redirect if there is no locale
-  const locale = defaultLocale;
-  request.nextUrl.pathname = `/${locale}${pathname}`;
+  request.nextUrl.pathname = `/${defaultLocale}${pathname}`;
   return NextResponse.redirect(request.nextUrl);
 }
 
 export const config = {
-  // Matcher ignoring `/_next/` and `/api/`
   matcher: ['/((?!api|_next/static|_next/image|favicon.ico|.*\\.png$).*)'],
 };

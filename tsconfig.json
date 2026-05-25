@@ -20,5 +20,13 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    "handoff_pdw_site_v2",
+    "handoff_pdw_site_v2_home",
+    "code",
+    "ui_kits",
+    "preview",
+    "slides"
+  ]
 }

@@ -1,0 +1,21 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Neutrals</title><link rel="stylesheet" href="_card.css"></head><body>
+<style>
+  .pal { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .sw {
+    border-radius: 12px;
+    padding: 14px;
+    aspect-ratio: 1.4 / 1;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .sw .name { font-size: 12px; font-weight: 700; letter-spacing: -0.01em; }
+  .sw .hex  { font-size: 11px; font-family: ui-monospace, Menlo, monospace; opacity: 0.85; }
+  .on-dark .name, .on-dark .hex { color: #E8F4F0; }
+</style>
+<div class="pal">
+  <div class="sw"      style="background:#f7fafc;border:1px solid #d1d9e0"><div class="name">Bg</div><div class="hex">#f7fafc</div></div>
+  <div class="sw"      style="background:#ffffff;border:1px solid #d1d9e0"><div class="name">Surface</div><div class="hex">#ffffff</div></div>
+  <div class="sw"      style="background:#d1d9e0"><div class="name">Border</div><div class="hex">#d1d9e0</div></div>
+  <div class="sw on-dark" style="background:#3d4a42"><div class="name">Muted text</div><div class="hex">#3d4a42</div></div>
+  <div class="sw on-dark" style="background:#181c1e"><div class="name">Text</div><div class="hex">#181c1e</div></div>
+</div>
+</body></html>

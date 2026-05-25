@@ -1,0 +1,247 @@
+/* ============================================================
+   PDW · CSS delta para PR3 (Home editorial · Fase 2)
+   ============================================================
+   APPEND ao final de pdw-site-v2/src/app/globals.css.
+   Já assume que globals.append.css (PR1) e globals.append.pr2.css
+   (PR2) foram aplicados.
+
+   O que adiciona:
+     • .pullquote-full + .pullquote-* — banda escura full-bleed
+       com citação institucional.
+     • .statsbanner-full + .statsbanner-* — banda clara full-bleed
+       com 4 números do consórcio.
+
+   Ambas as bandas usam o truque margin-left: calc(50% - 50vw) para
+   romper a .container e ocupar toda a largura do viewport.
+
+   Tokens usados (já existem no globals.css):
+     --color-primary  (#006c4b)  — verde institucional
+     --color-text     (#181c1e)
+     --color-muted    (#3d4a42)
+   ============================================================ */
+
+/* ---- Break out of .container ---- */
+.pullquote-full,
+.statsbanner-full {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+/* ============================================================
+   PULL QUOTE (banda escura, editorial)
+   ============================================================ */
+.pullquote-full {
+  background:
+    radial-gradient(circle at 20% 0%, rgba(0, 108, 75, 0.25), transparent 50%),
+    radial-gradient(circle at 90% 100%, rgba(26, 59, 93, 0.30), transparent 50%),
+    linear-gradient(180deg, #0a1f2e 0%, #06151f 100%);
+  color: #fff;
+  padding: 80px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.pullquote-full::before {
+  /* Architectural grid for "infrastructure" feel */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px) 0 0 / 72px 72px,
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px) 0 0 / 72px 72px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, #000 30%, transparent 100%);
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, #000 30%, transparent 100%);
+  pointer-events: none;
+}
+.pullquote-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.85fr 1.5fr;
+  gap: 64px;
+  align-items: center;
+}
+.pullquote-figure {
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  padding-right: 56px;
+}
+.pullquote-figure-num {
+  font-size: clamp(96px, 14vw, 192px);
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 0.85;
+  background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.55) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 14px;
+}
+.pullquote-figure-lbl {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.68);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  white-space: pre-line;
+}
+.pullquote-figure-cite {
+  margin-top: 18px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.42);
+  font-weight: 700;
+}
+.pullquote-body {
+  min-width: 0;
+}
+.pullquote-mark {
+  color: rgba(0, 200, 140, 0.55);
+  display: block;
+  margin-bottom: 18px;
+}
+.pullquote-body blockquote {
+  margin: 0 0 24px;
+  font-size: clamp(22px, 2.4vw, 32px);
+  line-height: 1.32;
+  letter-spacing: -0.012em;
+  font-weight: 500;
+  color: #f4f9f6;
+}
+.pullquote-body blockquote strong {
+  color: #00ffaa;
+  font-weight: 700;
+}
+.pullquote-body footer {
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  display: inline-block;
+}
+.pullquote-source {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+}
+.pullquote-source-role {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: 3px;
+}
+
+/* ============================================================
+   STATS BANNER (banda clara, editorial)
+   ============================================================ */
+.statsbanner-full {
+  background: linear-gradient(180deg, #f4f7f9 0%, #ffffff 100%);
+  border-top: 1px solid rgba(0, 108, 75, 0.10);
+  border-bottom: 1px solid rgba(0, 108, 75, 0.10);
+  padding: 72px 24px;
+}
+.statsbanner-head {
+  max-width: 1200px;
+  margin: 0 auto 44px;
+}
+.statsbanner-eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-primary);
+  margin-bottom: 12px;
+}
+.statsbanner-title {
+  margin: 0;
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+  max-width: 780px;
+  color: var(--color-text);
+}
+.statsbanner-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(0, 108, 75, 0.15);
+}
+.statsbanner-stat {
+  padding: 36px 24px 32px;
+  border-right: 1px solid rgba(0, 108, 75, 0.12);
+  border-bottom: 1px solid rgba(0, 108, 75, 0.12);
+  background: #fff;
+  transition: background 0.3s ease;
+}
+.statsbanner-stat:last-child {
+  border-right: 0;
+}
+.statsbanner-stat:hover {
+  background: rgba(0, 108, 75, 0.03);
+}
+.statsbanner-num {
+  font-size: clamp(48px, 5.5vw, 76px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  color: var(--color-text);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
+}
+.statsbanner-num-sfx {
+  font-size: 0.45em;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: -0.02em;
+}
+.statsbanner-lbl {
+  margin-top: 18px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-muted);
+  font-weight: 500;
+  white-space: pre-line;
+}
+.statsbanner-foot {
+  max-width: 1200px;
+  margin: 24px auto 0;
+  font-size: 12px;
+  color: var(--color-muted);
+  letter-spacing: 0.02em;
+  text-align: center;
+  opacity: 0.85;
+}
+
+/* ============================================================
+   Responsive < 900px
+   ============================================================ */
+@media (max-width: 900px) {
+  .pullquote-full {
+    padding: 56px 20px;
+  }
+  .pullquote-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .pullquote-figure {
+    border-right: 0;
+    padding-right: 0;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .statsbanner-full {
+    padding: 52px 20px;
+  }
+  .statsbanner-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .statsbanner-stat:nth-child(2n) {
+    border-right: 0;
+  }
+}

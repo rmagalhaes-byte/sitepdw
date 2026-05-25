@@ -1,0 +1,51 @@
+{
+  "__instructions": "Patch file para a Home (PR3). Merge as keys 'home.pullquote' e 'home.statsBanner' em src/i18n/locales/pt.json e en.json. Se já existir uma key 'home' (não existe à data deste handoff), mantém o que lá está e acrescenta apenas estes dois sub-objectos.",
+
+  "pt": {
+    "home": {
+      "pullquote": {
+        "figureNumber": "10%",
+        "figureLabel": "do PIB global\nem blockchain até 2027",
+        "quote": "A PDW transforma esta oportunidade numa <strong>vantagem soberana</strong>, garantindo que Portugal lidere a camada de valor da economia descentralizada — em vez de a consumir importada.",
+        "source": "Plano de Negócios · PDW",
+        "sourceRole": "Agenda «Descentralizar Portugal com Blockchain»",
+        "sourceCitation": "Projeção Fórum Económico Mundial"
+      },
+      "statsBanner": {
+        "eyebrow": "Agenda Blockchain.PT em números",
+        "title": "A escala do consórcio que torna a PDW possível.",
+        "footer": "Financiamento PRR · NextGenerationEU · Coordenação institucional pela TecMinho",
+        "stats": [
+          { "num": "72,9", "suffix": "M€", "label": "Investimento total\ndo consórcio" },
+          { "num": "26",   "suffix": "",   "label": "Produtos inovadores\nna Agenda" },
+          { "num": "378",  "suffix": "",   "label": "Profissionais\nmobilizados" },
+          { "num": "44",   "suffix": "",   "label": "Entidades · 24 PME\n15 RTOs · 5 Estado" }
+        ]
+      }
+    }
+  },
+
+  "en": {
+    "home": {
+      "pullquote": {
+        "figureNumber": "10%",
+        "figureLabel": "of global GDP\non blockchain by 2027",
+        "quote": "PDW turns this opportunity into a <strong>sovereign advantage</strong>, ensuring Portugal leads the value layer of the decentralised economy — instead of importing it.",
+        "source": "Business Plan · PDW",
+        "sourceRole": "«Decentralise Portugal with Blockchain» Agenda",
+        "sourceCitation": "World Economic Forum projection"
+      },
+      "statsBanner": {
+        "eyebrow": "Blockchain.PT Agenda in numbers",
+        "title": "The scale of the consortium that makes PDW possible.",
+        "footer": "Funded by PRR · NextGenerationEU · Institutional coordination by TecMinho",
+        "stats": [
+          { "num": "72.9", "suffix": "M€", "label": "Total consortium\ninvestment" },
+          { "num": "26",   "suffix": "",   "label": "Innovative products\non the Agenda" },
+          { "num": "378",  "suffix": "",   "label": "Professionals\nmobilised" },
+          { "num": "44",   "suffix": "",   "label": "Entities · 24 SMEs\n15 RTOs · 5 Public" }
+        ]
+      }
+    }
+  }
+}

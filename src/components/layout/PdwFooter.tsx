@@ -30,22 +30,17 @@ export function PdwFooter({ lang, dict }: PdwFooterProps) {
     return () => observer.disconnect();
   }, []);
 
-  const partners = [
-    {
-      name: "Blockchain.PT",
-      subtitle: "Agenda de Inovação",
-      url: "https://blockchain.pt/",
-      image: "/logo-Blockchain-pt.png",
-      position: "left",
-    },
-    {
-      name: "TecMinho",
-      subtitle: "Universidade do Minho Interface",
-      url: "https://www.tecminho.uminho.pt/",
-      image: "/tcminho-logo.png",
-      position: "right",
-    },
-  ];
+  const project = {
+    name: "Blockchain.PT",
+    url: "https://blockchain.pt/",
+    image: "/logo-Blockchain-pt.png",
+  };
+
+  const promotor = {
+    name: "TecMinho",
+    url: "https://www.tecminho.uminho.pt/",
+    image: "/tcminho-logo.png",
+  };
 
   const quickLinks = [
     { href: `/${lang}/sobre`, label: dict.nav.about },
@@ -165,33 +160,42 @@ export function PdwFooter({ lang, dict }: PdwFooterProps) {
 
           {/* Column 3: Partners with grayscale → color effect */}
           <div className="footer-col footer-partners-col">
+            {/* O Projeto */}
             <h3 className="footer-col-title">
-              {lang === "pt" ? "Parceiros do Projeto" : "Project Partners"}
+              {lang === "pt" ? "O Projeto" : "The Project"}
+            </h3>
+            <div className="footer-partners-grid" style={{ marginBottom: 20 }}>
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-partner-card"
+                title={`${lang === "pt" ? "Visitar" : "Visit"} ${project.name}`}
+              >
+                <div className="partner-image-wrapper">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={project.image} alt={project.name} className="partner-logo-img" />
+                </div>
+              </a>
+            </div>
+
+            {/* Promotor */}
+            <h3 className="footer-col-title">
+              {lang === "pt" ? "Promotor" : "Promoter"}
             </h3>
             <div className="footer-partners-grid">
-              {partners.map((partner) => (
-                <a
-                  key={partner.name}
-                  href={partner.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="footer-partner-card"
-                  title={`${lang === "pt" ? "Visitar" : "Visit"} ${partner.name}`}
-                >
-                  <div
-                    className="partner-image-wrapper"
-                    data-position={partner.position}
-                  >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={partner.image}
-                      alt={partner.name}
-                      className="partner-logo-img"
-                    />
-                  </div>
-
-                </a>
-              ))}
+              <a
+                href={promotor.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-partner-card"
+                title={`${lang === "pt" ? "Visitar" : "Visit"} ${promotor.name}`}
+              >
+                <div className="partner-image-wrapper">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={promotor.image} alt={promotor.name} className="partner-logo-img" />
+                </div>
+              </a>
             </div>
           </div>
         </div>

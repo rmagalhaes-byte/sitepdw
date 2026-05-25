@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <title>PDW Website — UI kit</title>
+  <meta name="viewport" content="width=1200, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="../../assets/pdw_icon.png">
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="components.jsx"></script>
+  <script type="text/babel" src="pages-sobre.jsx"></script>
+  <script type="text/babel" src="pages-solucao.jsx"></script>
+  <script type="text/babel" src="pages-casos.jsx"></script>
+  <script type="text/babel" src="pages-legal.jsx"></script>
+  <script type="text/babel" src="pages-atualidades.jsx"></script>
+  <script type="text/babel" src="tweaks-panel.jsx"></script>
+
+  <script type="text/babel" data-presets="react">
+    function App() {
+      const [active, setActive] = useState('home');
+      const [changelog, setChangelog] = useState(false);
+      const [videoOpen, setVideoOpen] = useState(false);
+
+      // Hidden admin route — reachable only by appending ?admin=1
+      // (in production this would be auth-gated). The version badge
+      // lives here, not in the public header.
+      const isAdmin = typeof window !== 'undefined' &&
+        new URLSearchParams(window.location.search).get('admin') === '1';
+
+      // Tweaks — variant toggles per page.
+      const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+        "sobre_variant": "A",
+        "solucao_variant": "A",
+        "casos_variant": "A",
+        "diplomas_variant": "A",
+        "legal_variant": "A"
+      }/*EDITMODE-END*/;
+      const [tweaks, setTweak] = useTweaks(TWEAK_DEFAULTS);
+
+      // Sub-navigation hook (e.g. Casos → Diplomas)
+      const openCase = (key) => {
+        if (key === 'diplomas') setActive('diplomas');
+      };
+
+      return (
+        <>
+          <PdwHeader active={active === 'diplomas' ? 'casos' : active} onNav={setActive} />
+          <main className="main">
+            <div className="container">
+              {isAdmin && (
+                <div className="section-card" style={{marginBottom: 14, display:'flex', alignItems:'center', justifyContent:'space-between', gap: 14, borderColor: 'rgba(56,189,248,0.3)', background: 'rgba(56,189,248,0.04)'}}>
+                  <div>
+                    <div style={{fontSize: 11, fontWeight: 700, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#38bdf8'}}>Rota oculta · /admin</div>
+                    <h3 style={{margin: '4px 0 0', fontSize: 16, fontWeight: 700}}>Painel de administração (MVP)</h3>
+                  </div>
+                  <AdminVersionBadge onOpenChangelog={() => setChangelog(true)} />
+                </div>
+              )}
+
+              {active === 'home' && (
+                <>
+                  <HeroInstitutional onPlayDemo={() => setVideoOpen(true)} />
+                  <TrustBar />
+                  <ValuePillars />
+                  <DiplomaCaseSection />
+                  <ContactCTA />
+                </>
+              )}
+              {active === 'sobre'       && <SobrePage    variant={tweaks.sobre_variant} />}
+              {active === 'solucao'     && <SolucaoPage  variant={tweaks.solucao_variant} />}
+              {active === 'casos'       && <CasosPage    variant={tweaks.casos_variant} onOpenCase={openCase} />}
+              {active === 'diplomas'    && <DiplomasPage variant={tweaks.diplomas_variant} onBack={() => setActive('casos')} />}
+              {active === 'atualidades' && (isAdmin ? <AtualAdminPage /> : <AtualidadesPage />)}
+              {active === 'contactos'   && <ContactCTA />}
+              {active === 'privacidade' && <PrivacidadePage variant={tweaks.legal_variant} />}
+              {active === 'termos'      && <TermosPage      variant={tweaks.legal_variant} />}
+            </div>
+          </main>
+          <PdwFooter />
+          <AccessibilityWidget />
+          <ChangelogModal open={changelog} onClose={() => setChangelog(false)} />
+          <VideoModal open={videoOpen} onClose={() => setVideoOpen(false)} />
+
+          <TweaksPanel title="Tweaks · variações de página">
+            <TweakSection label="Página atual">
+              <TweakRadio
+                label="Ir para"
+                value={active}
+                options={[
+                  { value: 'home', label: 'Home' },
+                  { value: 'sobre', label: 'Sobre' },
+                  { value: 'solucao', label: 'Solução' },
+                  { value: 'casos', label: 'Casos' },
+                  { value: 'diplomas', label: 'Diplomas' },
+                  { value: 'atualidades', label: 'Atualidades' },
+                  { value: 'contactos', label: 'Contactos' },
+                  { value: 'privacidade', label: 'Privacidade' },
+                  { value: 'termos', label: 'Termos' },
+                ]}
+                onChange={setActive}
+              />
+            </TweakSection>
+
+            <TweakSection label="Sobre">
+              <TweakRadio
+                label="Variante"
+                value={tweaks.sobre_variant}
+                options={[
+                  { value: 'A', label: 'A · Institucional' },
+                  { value: 'B', label: 'B · Editorial' },
+                ]}
+                onChange={(v) => setTweak('sobre_variant', v)}
+              />
+            </TweakSection>
+
+            <TweakSection label="Solução">
+              <TweakRadio
+                label="Variante"
+                value={tweaks.solucao_variant}
+                options={[
+                  { value: 'A', label: 'A · Story-first' },
+                  { value: 'B', label: 'B · Dev-first' },
+                ]}
+                onChange={(v) => setTweak('solucao_variant', v)}
+              />
+            </TweakSection>
+
+            <TweakSection label="Casos de uso">
+              <TweakRadio
+                label="Variante"
+                value={tweaks.casos_variant}
+                options={[
+                  { value: 'A', label: 'A · Timeline' },
+                  { value: 'B', label: 'B · Grid + filtro' },
+                ]}
+                onChange={(v) => setTweak('casos_variant', v)}
+              />
+            </TweakSection>
+
+            <TweakSection label="Diplomas Digitais">
+              <TweakRadio
+                label="Variante"
+                value={tweaks.diplomas_variant}
+                options={[
+                  { value: 'A', label: 'A · Problema/Solução' },
+                  { value: 'B', label: 'B · Case study' },
+                ]}
+                onChange={(v) => setTweak('diplomas_variant', v)}
+              />
+            </TweakSection>
+
+            <TweakSection label="Privacidade & Termos">
+              <TweakRadio
+                label="Variante"
+                value={tweaks.legal_variant}
+                options={[
+                  { value: 'A', label: 'A · Print-ready' },
+                  { value: 'B', label: 'B · TOC sidebar' },
+                ]}
+                onChange={(v) => setTweak('legal_variant', v)}
+              />
+            </TweakSection>
+          </TweaksPanel>
+        </>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>

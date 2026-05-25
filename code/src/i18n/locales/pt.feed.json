@@ -1,0 +1,13 @@
+{
+  "feed": {
+    "live": "Em directo",
+    "title": "Atualidades",
+    "subtitle": "Tudo o que se passa na PDW, num só feed. Vídeos, podcasts, eventos e marcos — agregados das redes oficiais.",
+    "loadMore": "Carregar mais",
+    "empty": "Ainda não há posts deste tipo.",
+    "share": "Partilhar"
+  },
+  "nav": {
+    "news": "Atualidades"
+  }
+}

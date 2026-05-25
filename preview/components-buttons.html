@@ -1,0 +1,29 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Buttons</title><link rel="stylesheet" href="_card.css"></head><body>
+<style>
+  body { padding: 28px 24px; }
+  .row { gap: 14px; align-items: center; flex-wrap: wrap; }
+  .cta {
+    background:#006c4b;color:#fff;border:0;border-radius:8px;
+    padding:10px 14px;font-weight:600;font-size:14px;font-family:inherit;cursor:pointer;
+  }
+  .cta-disruptive {
+    background: linear-gradient(135deg,#006c4b 0%,#009668 100%);
+    box-shadow: 0 8px 20px rgba(0,108,75,0.30);
+    color:#fff;border:0;border-radius:8px;
+    padding:10px 14px;font-weight:600;font-size:14px;font-family:inherit;cursor:pointer;
+  }
+  .btn-secondary {
+    border:1px solid #d1d9e0;background:#fff;color:#181c1e;
+    border-radius:8px;padding:10px 14px;font-weight:600;font-size:14px;font-family:inherit;cursor:pointer;
+    display:inline-flex;align-items:center;gap:6px;
+  }
+  .link { color:#006c4b; font-weight: 700; font-size: 14px; }
+  .meta { font-size: 11px; color: #3d4a42; font-family: ui-monospace, Menlo, monospace; margin-top: 6px; }
+</style>
+<div class="row">
+  <div class="col" style="gap:6px"><button class="cta">Obter a App</button><span class="meta">.cta · primary solid</span></div>
+  <div class="col" style="gap:6px"><button class="cta-disruptive">Solicitar demonstração</button><span class="meta">.cta-disruptive · gradient + shadow</span></div>
+  <div class="col" style="gap:6px"><button class="btn-secondary"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg> Ver demonstração</button><span class="meta">.btn-secondary · outline</span></div>
+  <div class="col" style="gap:6px"><a class="link">Saber mais sobre Diplomas →</a><span class="meta">link · primary · trailing →</span></div>
+</div>
+</body></html>
