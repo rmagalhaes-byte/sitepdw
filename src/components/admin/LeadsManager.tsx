@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 
 interface Lead {
   id: number;
@@ -114,9 +114,8 @@ export function LeadsManager() {
             </thead>
             <tbody>
               {leads.map((lead) => (
-                <>
+                <Fragment key={lead.id}>
                   <tr
-                    key={lead.id}
                     style={{ borderBottom: '1px solid var(--color-border, #e5e7eb)', cursor: 'pointer' }}
                     onClick={() => setExpanded(expanded === lead.id ? null : lead.id)}
                   >
@@ -142,7 +141,7 @@ export function LeadsManager() {
                       </td>
                     </tr>
                   )}
-                </>
+                </Fragment>
               ))}
             </tbody>
           </table>

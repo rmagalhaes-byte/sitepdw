@@ -53,6 +53,7 @@ export function TrustBar({ dict }: TrustBarProps) {
                   src={partner.logo}
                   alt={item}
                   fill
+                  sizes="130px"
                   className={`trust-logo-img${partner.imgClass ? ` ${partner.imgClass}` : ''}`}
                   style={{ objectFit: 'contain' }}
                 />

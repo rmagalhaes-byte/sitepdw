@@ -47,6 +47,19 @@ export function InteractiveSimulator({ dict, lang }: SimulatorProps) {
         <h3 className="simulator-title">{t.title}</h3>
         <p className="simulator-subtitle">{t.subtitle}</p>
 
+        <div style={{
+          fontSize: '11px',
+          color: 'var(--color-muted)',
+          padding: '4px 10px',
+          borderLeft: '2px solid var(--color-primary)',
+          borderRadius: '0 4px 4px 0',
+          background: 'rgba(0,108,75,0.05)',
+          marginBottom: '16px',
+          display: 'block'
+        }}>
+          {lang === 'pt' ? '⚠ Demonstração ilustrativa — não representa verificação real' : '⚠ Illustrative demo — does not represent actual verification'}
+        </div>
+
         <AnimatePresence mode="wait">
           {step === 0 && (
             <motion.div
